@@ -1,0 +1,23 @@
+.mainForm{
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+}
+.txt-font {
+    font-family: 'Outfit', sans-serif;
+}
+.txt-font2{
+  font-family: 'Inter', sans-serif;
+}
+.gradientz{
+  /* z-index: -1;  */
+  pointer-events: none;
+}
+.ltrspace{
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 1025px) {
+  .hideThis{
+    display: none;
+  }
+}
