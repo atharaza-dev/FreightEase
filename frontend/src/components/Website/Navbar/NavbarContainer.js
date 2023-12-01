@@ -6,10 +6,10 @@ function NavContainer({ children }) {
 
     const [showNavbar, setShowNavbar] = useState(false);
     useEffect(() => {
-        if (location.pathname === '/shipper-registration' || location.pathname === '/vendor-registration' || location.pathname === '/shipper-login'|| location.pathname === '/vendor-login' ) {
-            setShowNavbar(false);
-        } else {
+        if (location.pathname === '/' || location.pathname === '/services' || location.pathname === '/about-us'|| location.pathname === '/contact-us' ) {
             setShowNavbar(true);
+        } else {
+            setShowNavbar(false);
         }
         //  console.log("This is location", location);
     }, [location]);
