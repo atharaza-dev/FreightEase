@@ -85,3 +85,7 @@ body {
   font-family: 'Product Sans';
 }
 /* ================================================================================= */
+/* Admin side Img */
+.sideImg{
+  background-image: url("./assets/imgs/22.png");
+}

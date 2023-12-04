@@ -1,6 +1,6 @@
 // import dependencies
 import React from 'react';
-import { BrowserRouter as Main, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 // import App.css file
 import './App.css';
@@ -21,41 +21,37 @@ import ShipperRegistration from './pages/Website/GetStartedPage/Sign Up/Shipper 
 import VendorRegistration from './pages/Website/GetStartedPage/Sign Up/Vendor Registration/VendorRegistration';
 import ShipperLogin from './pages/Website/GetStartedPage/Sign In/Shipper Login/ShipperLogin';
 import VendorLogin from './pages/Website/GetStartedPage/Sign In/Vendor Login/VendorLogin';
-import AdminSidebar from './components/Admin/AdminSidebar';
+import AdminRegistration from './pages/Admin/Admin Accounts/AdminRegistration'
 
 
 function App() {
   return (
     <>
-      <Main >
+      <NavContainer>
+        <Navbar></Navbar>
+      </NavContainer>
 
-        <NavContainer>
-          <Navbar></Navbar>
-        </NavContainer>
-
-        <Routes>
-
-          <Route path="/" element={<HomePage />} />
-          <Route path="/quote-generator" element={<Quote />} />
-          <Route exact path='/services' element={<ServicePage />} />
-          <Route exact path='/about-us' element={<AboutPage />} />
-          <Route exact path='/contact-us' element={<ContactPage />} />
-          <Route exact path='/shipper-registration' element={<ShipperRegistration />} />
-          <Route exact path='/vendor-registration' element={<VendorRegistration />} />
-          <Route exact path='/shipper-login' element={<ShipperLogin />} />
-          <Route exact path='/vendor-login' element={<VendorLogin />} />
-          
-          {/* Admin Panel Routes */}
-          <Route exact path='/admin' element={<AdminSidebar/>} />
+      <Routes>
+        {/* Static frontend site */}
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/quote-generator" element={<Quote />} />
+        <Route exact path='/services' element={<ServicePage />} />
+        <Route exact path='/about-us' element={<AboutPage />} />
+        <Route exact path='/contact-us' element={<ContactPage />} />
+        <Route exact path='/shipper-registration' element={<ShipperRegistration />} />
+        <Route exact path='/vendor-registration' element={<VendorRegistration />} />
+        <Route exact path='/shipper-login' element={<ShipperLogin />} />
+        <Route exact path='/vendor-login' element={<VendorLogin />} />
 
 
-        </Routes>
+        {/* Admin Panel Routes */}
+        <Route exact path='/admin' element={<AdminRegistration />} />
 
-        <FooterContainer>
-          <Footer></Footer>
-        </FooterContainer>
+      </Routes>
 
-      </Main>
+      <FooterContainer>
+        <Footer></Footer>
+      </FooterContainer>
     </>
   );
 }
