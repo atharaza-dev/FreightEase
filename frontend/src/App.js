@@ -45,7 +45,7 @@ function App() {
 
 
         {/* Admin Panel Routes */}
-        <Route exact path='/admin' element={<AdminRegistration />} />
+        <Route exact path='/admin' element={<AdminRegistration />} /> 
 
       </Routes>
 

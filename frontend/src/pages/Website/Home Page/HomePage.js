@@ -1,6 +1,6 @@
 // import dependencies
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // importing Assets 
 import './HomePage.css';
@@ -56,7 +56,7 @@ function HomePage() {
                             <div className="group mt-10 z-20 relative mx-auto max-w-3xl border border-gray-900 p-1 focus-within:ring-1 focus-within:ring-gray-900 sm:flex-row">
                                 <input placeholder="Click to generate a quick estimated Quote of your future shipments..." className="block w-full bg-transparent px-4 py-2 placeholder-gray-400 outline-none" style={{ pointerEvents: 'none' }} />
                                 <div className="flex border-gray-900 sm:absolute sm:inset-y-0 sm:right-0 sm:h-full sm:border-l">
-                                    <a href="/quote-generator"><button type="submit" className="fontAlt inline-flex w-full items-center justify-center bg-slate-900 px-6 py-2 text-lg font-medium text-white outline-none transition-all hover:bg-gray-600 focus:bg-gray-600 sm:hover:translate-x-2 sm:hover:-translate-y-2">Generate Quote</button></a>
+                                    <Link to="/quote-generator"><button type="submit" className="fontAlt inline-flex w-full items-center justify-center bg-slate-900 px-6 py-2 text-lg font-medium text-white outline-none transition-all hover:bg-gray-600 focus:bg-gray-600 sm:hover:translate-x-2 sm:hover:-translate-y-2">Generate Quote</button></Link>
                                 </div>
                             </div>
 
@@ -113,7 +113,7 @@ function HomePage() {
                                     <div className="col-sm-6">
                                         <span className='flex items-center'>
                                             <svg className='mr-2' xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path fill="#1877f2" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" /></svg>
-                                            Online Tracking
+                                            Parcel Checkpoints Tracking
                                         </span>
                                     </div>
                                     <div className="col-sm-6">
@@ -131,7 +131,7 @@ function HomePage() {
                                 </div>
                                 <div className="row g-4 sm:h-28 :mt-2">
                                     <div className="col-sm-6 self-end">
-                                        <a className="btn bg-indigo-800 text-white py-3 px-5 hover:bg-indigo-400 hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 " href="/">Learn More</a>
+                                        <Link to='/about-us' className="btn bg-indigo-800 text-white py-3 px-5 hover:bg-indigo-400 hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 ">Learn More</Link>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@ function HomePage() {
 
 
             {/* ======================================== Statistics Section ====================================== */}
-            <section className="">
+            <section>
                 <div className="mx-auto max-w-screen-xl px-4 p-12 sm:px-6 md:pt-16 lg:px-8">
                     <div className="mx-auto max-w-5xl text-center">
                         <h2 className="display-5 fontAlt font-semibold mb-4">
