@@ -6,7 +6,7 @@ function NavContainer({ children }) {
 
     const [showNavbar, setShowNavbar] = useState(false);
     useEffect(() => {
-        if (location.pathname === '/' || location.pathname === '/services' || location.pathname === '/about-us'|| location.pathname === '/contact-us' ) {
+        if (location.pathname === '/' || location.pathname === '/services' || location.pathname === '/about-us'|| location.pathname === '/contact-us' || location.pathname === '/quote-generator' ) {
             setShowNavbar(true);
         } else {
             setShowNavbar(false);

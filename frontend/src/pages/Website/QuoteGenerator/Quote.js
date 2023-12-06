@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import './Quote.css';
-import logo from '../../../assets/imgs/logo.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,7 +24,7 @@ function Quote() {
         setDropdownVisible2(false);
     };
 
-    // Input 4
+    // Kga
     const [kgs, setKgs] = useState('');
     const kgsChangeHandler = (e) => {
         setKgs(e.target.value);
@@ -59,7 +57,7 @@ function Quote() {
             } else if (weight > 4 && weight <= 25) {
                 setPrice(weight * 2500);
                 setVehicleType('MAZDA');
-            } else if (weight > 25 && weight <= 30) {
+            } else if (weight > 25) {
                 setPrice(weight * 2500);
                 setVehicleType('ISUZU');
             }
@@ -128,27 +126,6 @@ function Quote() {
 
     return (
         <>
-            <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20 ">
-                <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
-                <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
-            </div>
-            <div className="relative z-10">
-                <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
-                    <svg className="h-[60rem] w-[100rem] flex-none stroke-blue-600 opacity-20" aria-hidden="true">
-                        <defs>
-                            <pattern id="e9033f3e-f665-41a6-84ef-756f6778e6fe" width="200" height="200" x="50%" y="50%"
-                                patternUnits="userSpaceOnUse" patternTransform="translate(-100 0)">
-                                <path d="M.5 200V.5H200" fill="none"></path>
-                            </pattern>
-                        </defs>
-                        <svg x="50%" y="50%" className="overflow-visible fill-blue-50">
-                            <path d="M-300 0h201v201h-201Z M300 200h201v201h-201Z" stroke-width="0"></path>
-                        </svg>
-                        <rect width="100%" height="100%" stroke-width="0" fill="url(#e9033f3e-f665-41a6-84ef-756f6778e6fe)">
-                        </rect>
-                    </svg>
-                </div>
-            </div>
             <div>
                 {showQuote ? (
                     <div id="quote" class="py-24 txt-font ">
@@ -200,7 +177,7 @@ function Quote() {
                                             type="text"
                                             value={selectedOption1}
                                             className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out placeholder-gray-400 outline-none::placeholder fontAlt"
-                                            placeholder="Select Departure City from list..." 
+                                            placeholder="Select Departure City from list..."
                                             required
                                         />
                                     </div>
@@ -252,7 +229,7 @@ function Quote() {
 
                                 {/*  Inputs  */}
                                 <div>
-                                    <input onChange={kgsChangeHandler} value={kgs} type="text" class=" my-2 block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-gray-300 border focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out outline-none::placeholder fontAlt" placeholder="Enter item weight" required placeholder-gray-400/>
+                                    <input onChange={kgsChangeHandler} value={kgs} type="text" class=" my-2 block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-gray-300 border focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out outline-none::placeholder fontAlt" placeholder="Enter item weight" required placeholder-gray-400 />
                                 </div>
                                 <p class='text-xs fontAlt text-red-600 pt-2'>{`Note* : Cost may be vary due to inflation & fluctuation in Petrol Prices!`}</p>
                             </form>
@@ -261,79 +238,51 @@ function Quote() {
                     </div>
                 ) : (
                     <>
-                        <div className='pt-36 pb-4 items-center justify-center   '>
-                            <div id='quoteOutput' class="max-w-md w-full h-full mx-auto z-10 bg-blue-900 rounded-3xl">
-                                <div class="flex flex-col">
-                                    <div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
-                                        <div class="flex-none sm:flex">
-
-                                            <div class="flex-auto justify-evenly">
-
-                                                <div class="flex items-center justify-between">
-                                                    <div class="flex items-center  my-1">
-                                                        <span class="mr-3 rounded-full bg-white w-22 h-8">
-                                                            <img src={logo} class="h-8 p-1" alt='ticketLogo' />
-                                                        </span>
-                                                    </div>
-                                                    <div class="ml-auto text-blue-800">Quote</div>
-                                                </div>
-
-                                                <div class="border-b border-dashed border-b-2 my-5"></div>
-
-                                                <div class="flex items-center px-5">
-                                                    <div class="flex flex-col">
-                                                        <span class="fontH1 font-medium">Departure</span>
-                                                        <div class="text-lg font-semibold text-red-600">{selectedOption1}</div>
-
-                                                    </div>
-                                                    <div class="flex flex-col mx-auto items-center justify-center">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" /></svg>
-                                                    </div>
-                                                    <div class="flex flex-col ">
-                                                        <span class="fontH1 font-medium">Arrival</span>
-                                                        <div class="text-lg font-semibold text-red-600">{selectedOption2}</div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="border-b border-dashed border-b-2 my-5"></div>
-
-                                                <div class="flex items-center px-5">
-                                                    <div class="flex flex-col">
-                                                        <span class="fontH1 font-medium">Vehicle</span>
-                                                        <div class="text-lg font-semibold text-red-600">{vehicleType}</div>
-
-                                                    </div>
-                                                    <div class="flex flex-col mx-auto items-center justify-center">
-                                                    </div>
-                                                    <div class="flex flex-col ">
-                                                        <span class="fontH1 font-medium"> {`Weight (tons)`}</span>
-                                                        <div class="text-lg font-semibold text-red-600 items-end">{kgs}</div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="border-b border-dashed border-b-2 my-5">
-                                                    <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
-                                                    <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
-                                                </div>
-
-                                                <div class="flex items-center justify-center px-5 pt-3 pb-5 text-sm">
-                                                    <div class="flex flex-col text-center">
-                                                        <span class="fontH1 font-medium">Total Estimated Cost</span>
-                                                        <div class="text-6xl font-semibold text-center text-red-600">{price}/-</div>
-                                                    </div>
-                                                </div>
-
+                        <div className='h-screen flex pt-16 items-center justify-center   '>
+                            <section class="text-gray-600 body-font overflow-hidden">
+                                <div class="px-5 mx-auto">
+                                    <div class="p-4 w-full">
+                                        <div class="h-full p-6 rounded-lg border-2 border-indigo-800 flex flex-col relative overflow-hidden">
+                                            <span class="bg-indigo-800 text-white px-3 py-1 fontAlt tracking-widest text-sm absolute right-0 top-0 rounded-bl">Quote Generated</span>
+                                            <h2 class="text-m tracking-widest fontAlt title-font mb-1 font-medium">Total Estimated Cost</h2>
+                                            <h1 class="text-5xl text-gray-900 font-semibold fontAlt leading-none flex items-center pb-4 mb-4 border-b border-gray-200">Rs <span className='text-red-600 px-2'>{price}</span>/-</h1>
+                                            <div>
+                                                <table class="table-auto w-full text-left whitespace-no-wrap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="pl-6 pr-10 py-3 title-font tracking-wider font-medium fontAlt text-white text-m bg-indigo-800 rounded-tl rounded-bl">Departure</th>
+                                                            <th class="pl-6 pr-10 py-3 title-font tracking-wider font-medium fontAlt text-white text-m bg-indigo-800">Destination</th>
+                                                            <th class="pl-6 pr-10 py-3 title-font tracking-wider font-medium fontAlt text-white text-m bg-indigo-800">Weight (Kgs)</th>
+                                                            <th class="pl-6 pr-10 py-3 title-font tracking-wider font-medium fontAlt text-white text-m bg-indigo-800">Vehicle Assigned</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="px-4 py-3 text-lg text-gray-900"><span className='text-red-600 pr-1'>*</span>{selectedOption1}</td>
+                                                            <td class="px-4 py-3 text-lg text-gray-900"><span className='text-red-600 pr-1'>*</span>{selectedOption2}</td>
+                                                            <td class="px-4 py-3 text-lg text-gray-900"><span className='text-red-600 pr-1'>*</span>{kgs} tons</td>
+                                                            <td class="px-4 py-3 text-lg text-gray-900"><span className='text-red-600 pr-1'>*</span>{vehicleType} </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
+
+                                            <a href="/quote-generator" class="flex items-center mt-6 text-white bg-indigo-800 border-0 py-3 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">Regenerate Quote Again
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
+                                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                                </svg>
+                                            </a>
+
+                                            <p class="text-xs text-gray-500 mt-3">*Note: Cost or Charges may vary due to inflation and changing in the prices of Feul & Taxes!</p>
                                         </div>
                                     </div>
                                 </div>
-                                <ToastContainer />
-                            </div>
+                            </section>
                         </div>
-                        <button type="submit" class="z-999 flex items-center justify-center text-white w-full mx-auto max-w-md px-6 py-3  bg-indigo-800 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg">Regenerate Again</button>
                     </>
                 )}
             </div>
+            <ToastContainer></ToastContainer>
         </>
     )
 }

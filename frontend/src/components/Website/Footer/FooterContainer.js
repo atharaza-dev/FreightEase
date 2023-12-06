@@ -6,7 +6,7 @@ function FooterContainer({ children }) {
 
   const [showFooter, setShowFooter] = useState(false);
   useEffect(() => {
-    if (location.pathname === '/' || location.pathname === '/services' || location.pathname === '/about-us' || location.pathname === '/contact-us') {
+    if (location.pathname === '/' || location.pathname === '/services' || location.pathname === '/about-us' || location.pathname === '/contact-us' || location.pathname === '/quote-generator') {
       setShowFooter(true);
     } else {
       setShowFooter(false);
