@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 // creating the structure of "shipper-account" form
 const shipperAccountSchema = new mongoose.Schema({
+
     role: {
         type: String,
         required: true

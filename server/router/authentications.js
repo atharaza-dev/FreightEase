@@ -23,6 +23,7 @@ const saltRounds = 10;
 //  creating "shipper-accounts" model & using 'POST' to get data from frontend (user)
 
 const ShipperAccount = require('../models/shipper-accounts');
+
 router.post('/shipper-registration', async (req, res) => {
     const { role, name, email, password } = req.body;
     if (!role || !name || !email || !password) {
@@ -55,6 +56,43 @@ router.post('/shipper-registration', async (req, res) => {
 
 // ******************************************************************************************
 
+
+// *****************************Vendor Registration Code****************************************
+//  creating "vendor-accounts" model & using 'POST' to get data from frontend (user)
+
+const VendorAccount = require('../models/vendor-accounts');
+
+router.post('/vendor-registration', async (req, res) => {
+    const { role, company_name, owner_name, cnic, phone, registration_number, password } = req.body;
+    if (!role || !company_name || !owner_name || !cnic || !phone || !registration_number || !password) {
+        return res.status(204).json({ error: "Enter All details!" });
+    }
+    try {
+        const vendorAccExists = await VendorAccount.findOne({ registration_number: registration_number });
+        if (vendorAccExists) {
+            return res.status(403).json({ error: `This ${registration_number} already associated with an account. Try another!` });
+        }
+
+        // Hash the password before storing it
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        const newVendorAccount = new VendorAccount({ role, company_name, owner_name, cnic, phone, registration_number, password: hashedPassword });
+        const vendorAccRegistered = await newVendorAccount.save();
+
+        if (vendorAccRegistered) {
+            res.status(201).json({ created: "Vendor Registered Sucessfully!" });
+            console.log({ vendor : req.body });
+        } else {
+            res.status(500).json({ error: "Vendor Registration Failed!" });
+        }
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ error: `Internal Server Error :- ${error}` });
+    }
+});
+
+// ******************************************************************************************
 
 
 
