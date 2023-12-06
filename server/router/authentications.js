@@ -1,7 +1,7 @@
 // requiring the dependencies
 const express = require('express');
 const router = express.Router();
-var cors = require('cors')
+var cors = require('cors');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
@@ -17,11 +17,10 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(cors());
 
 // for bycrypting hashing password
-const saltRounds = 10;
+const saltRounds = 8;
 
 // *****************************Customer Registration Code****************************************
 //  creating "shipper-accounts" model & using 'POST' to get data from frontend (user)
-
 const ShipperAccount = require('../models/shipper-accounts');
 
 router.post('/shipper-registration', async (req, res) => {
@@ -53,15 +52,42 @@ router.post('/shipper-registration', async (req, res) => {
         res.status(500).json({ error: `Internal Server Error :- ${error}` });
     }
 });
-
 // ******************************************************************************************
 
 
+
+// *****************************Vendor sign in Code****************************************
+router.post('/shipper-login', async (req, res) => {
+    const { role, email, password } = req.body;
+    if (!role || !email || !password) {
+        return res.status(204).json({ error: "Enter All details!" });
+    }
+    try {
+        const shipperAccExists = await ShipperAccount.findOne({ email: email });
+        if (shipperAccExists) {
+            const isPassValid = await bcrypt.compare(password, shipperAccExists.password);
+            if (isPassValid) {
+                res.status(201).json({ successfull: "Shipper Logged In Sucessfully!" });
+                console.log({ shipper: req.body });
+            } else {
+                res.status(500).json({ error: "Shipper Logged In Failed! Check your password again!" });
+            }
+        } else {
+            res.status(404).json({ err: `Account with this ${email} email does not exist in the database!` });
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ error: `Internal Server Error :- ${error}` });
+    }
+});
+// ******************************************************************************************
+
+
+
+
 // *****************************Vendor Registration Code****************************************
-//  creating "vendor-accounts" model & using 'POST' to get data from frontend (user)
-
+//  creating "vendor-accounts" model & using 'POST' to get data from frontend (user
 const VendorAccount = require('../models/vendor-accounts');
-
 router.post('/vendor-registration', async (req, res) => {
     const { role, company_name, owner_name, cnic, phone, registration_number, password } = req.body;
     if (!role || !company_name || !owner_name || !cnic || !phone || !registration_number || !password) {
@@ -81,7 +107,7 @@ router.post('/vendor-registration', async (req, res) => {
 
         if (vendorAccRegistered) {
             res.status(201).json({ created: "Vendor Registered Sucessfully!" });
-            console.log({ vendor : req.body });
+            console.log({ vendor: req.body });
         } else {
             res.status(500).json({ error: "Vendor Registration Failed!" });
         }
@@ -91,9 +117,35 @@ router.post('/vendor-registration', async (req, res) => {
         res.status(500).json({ error: `Internal Server Error :- ${error}` });
     }
 });
-
 // ******************************************************************************************
 
+
+
+// *****************************Vendor sign in Code****************************************
+router.post('/vendor-login', async (req, res) => {
+    const { role, registration_number, password } = req.body;
+    if (!role || !registration_number || !password) {
+        return res.status(204).json({ error: "Enter All details!" });
+    }
+    try {
+        const vendorAccExists = await VendorAccount.findOne({ registration_number: registration_number });
+        if (vendorAccExists) {
+            const isPassValid = await bcrypt.compare(password, vendorAccExists.password);
+            if (isPassValid) {
+                res.status(201).json({ successfull: "Vendor Logged In Sucessfully!" });
+                console.log({ vendor: req.body });
+            } else {
+                res.status(500).json({ error: "Vendor Logged In Failed! Check your password again!" });
+            }
+        } else {
+            res.status(404).json({ err: `Account with this ${registration_number} registration number does not exist in the database!` });
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ error: `Internal Server Error :- ${error}` });
+    }
+});
+// ******************************************************************************************
 
 
 
