@@ -24,8 +24,8 @@ const saltRounds = 8;
 const ShipperAccount = require('../models/shipper-accounts');
 
 router.post('/shipper-registration', async (req, res) => {
-    const { role, name, email, password } = req.body;
-    if (!role || !name || !email || !password) {
+    const { isShipper, name, email, password } = req.body;
+    if (!isShipper || !name || !email || !password) {
         return res.status(204).json({ error: "Enter All details!" });
     }
     try {
@@ -37,11 +37,11 @@ router.post('/shipper-registration', async (req, res) => {
         // Hash the password before storing it
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        const newShipperAccount = new ShipperAccount({ role, name, email, password: hashedPassword });
+        const newShipperAccount = new ShipperAccount({ isShipper, name, email, password: hashedPassword });
         const shipperAccRegistered = await newShipperAccount.save();
 
         if (shipperAccRegistered) {
-            res.status(201).json({ created: "Shipper Registered Sucessfully!" });
+            res.status(201).json({ created: "Shipper Registered Sucessfully!", token: await shipperAccRegistered.generateToken(), userID: shipperAccRegistered._id.toString() });
             console.log({ shipper: req.body });
         } else {
             res.status(500).json({ error: "Shipper Registration Failed!" });
@@ -89,8 +89,8 @@ router.post('/shipper-login', async (req, res) => {
 //  creating "vendor-accounts" model & using 'POST' to get data from frontend (user
 const VendorAccount = require('../models/vendor-accounts');
 router.post('/vendor-registration', async (req, res) => {
-    const { role, company_name, owner_name, cnic, phone, registration_number, password } = req.body;
-    if (!role || !company_name || !owner_name || !cnic || !phone || !registration_number || !password) {
+    const { isVendor, company_name, owner_name, cnic, phone, registration_number, password } = req.body;
+    if (!isVendor || !company_name || !owner_name || !cnic || !phone || !registration_number || !password) {
         return res.status(204).json({ error: "Enter All details!" });
     }
     try {
@@ -102,11 +102,11 @@ router.post('/vendor-registration', async (req, res) => {
         // Hash the password before storing it
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        const newVendorAccount = new VendorAccount({ role, company_name, owner_name, cnic, phone, registration_number, password: hashedPassword });
+        const newVendorAccount = new VendorAccount({ isVendor, company_name, owner_name, cnic, phone, registration_number, password: hashedPassword });
         const vendorAccRegistered = await newVendorAccount.save();
 
         if (vendorAccRegistered) {
-            res.status(201).json({ created: "Vendor Registered Sucessfully!" });
+            res.status(201).json({ created: "Vendor Registered Sucessfully!", token: await vendorAccRegistered.generateToken(), userID: vendorAccRegistered._id.toString() });
             console.log({ vendor: req.body });
         } else {
             res.status(500).json({ error: "Vendor Registration Failed!" });
