@@ -5,16 +5,16 @@ import about2 from '../../../assets/imgs/container.png'
 
 
 function ServicePage() {
-    document.title='Services - FreightEase'
+    document.title = 'Services - FreightEase'
     return (
         <>
-             {/* ============================================================================================== */}
-             <div aria-hidden="true" className="topGradient absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+            {/* ============================================================================================== */}
+            <div aria-hidden="true" className="topGradient absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
                 <div className="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
                 <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
             </div>
             {/* ============================================================================================== */}
-            
+
             <section className="relative  overflow-hidden bg-gradient-to-b from-blue-100 via-transparent to-transparent xl:pt-28">
                 <div className="relative z-10">
                     <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
@@ -35,13 +35,12 @@ function ServicePage() {
                 </div>
                 <div className="relative pt-24 sm:py-16 lg:pt-0 xl:pb-0">
                     <div className="pt-24 item-center justify-center mx-24">
-                        <h1 class="fontH1 sm:text-8xl mb-4 font-semibold text-gray-900"><span className='text-indigo-400'>#1 </span>Nationwide seamless and hassle-free Freight
-                            Logistics  Solutions!</h1>
+                        <h1 class="fontH1 sm:text-8xl mb-4 font-semibold text-gray-900"><span className='text-indigo-700'>#Experience </span>the best seamless Services</h1>
                         <p class="heading2 mb-8 leading-relaxed">At FreightEase, our voyage into the world of freight and logistics unfolds with a warm welcome.Explore the driving force behind our commitment to providing dependable, cost-efficient, and innovative logistics solutions that keep the world moving.</p>
                     </div>
                 </div>
             </section>
-            
+
             <div className="container-xxl  sm:h-full lg:my-24">
                 <div className="container">
                     <div className="row g-5">
