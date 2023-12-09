@@ -1,7 +1,7 @@
-
 // import dependencies
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,6 +12,9 @@ import sidePic from '../../../../../assets/imgs/2.png'
 
 function ShipperRegistration() {
     document.title = "Registration";
+
+    const [isShipper, setRadioValue] = useState(true);
+
     const [name, setName] = useState("");
     const nameChangeHandler = (e) => {
         setName(e.target.value);
@@ -22,7 +25,7 @@ function ShipperRegistration() {
         setEmail(e.target.value);
     }
 
-    const [pass, setPass] = useState("");
+    const [password, setPass] = useState("");
     const passChangeHandler = (e) => {
         setPass(e.target.value);
     }
@@ -35,11 +38,66 @@ function ShipperRegistration() {
     const registrationHandler = (e) => {
         e.preventDefault();
 
-        const customerObj = {
-            fullName: name,
+        const shipperAccObj = {
+            isShipper: isShipper,
+            name: name,
             email: email,
-            password: pass,
+            password: password,
         }
+
+        axios.post('http://localhost:8484/shipper-registration', shipperAccObj).then((res) => {
+            if (res.status === 204) {
+                toast.error('Enter all details first!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 403) {
+                toast.error(`This ${shipperAccObj.email} is already associated with another account!`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 500) {
+                toast.error('Registration Failed! Try Again', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else {
+                toast.success('Registration Successfull!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                setName('');
+                setEmail('');
+                setPass('');
+                setCPass('');
+            }
+        }).catch(error => {
+            console.error(error);
+        })
     }
 
     return (
@@ -78,7 +136,7 @@ function ShipperRegistration() {
                                 <h1
                                     class="mt-6 text-2xl font-bold font2 text-gray-800 sm:text-3xl md:text-4xl"
                                 >
-                                    Create your Customer Account!
+                                    Create your Shipper Account!
                                 </h1>
 
                                 <p class="mt-4 leading-relaxed text-gray-700">
@@ -90,7 +148,7 @@ function ShipperRegistration() {
                                     to="/shipper-registration"
                                 >
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAADPElEQVR4nOWSa0iTcRjFB33vQ/guoXSsRCMisKCSjDStVMqym6ClTewCUaSZpnNeNpe3XXTaUjQjwtTIDzFvuc05XVPTrCyxzMh5gYpiJt5vJ543rEAE3T72wA/Oe54/57w3Due/Ge05rodBwEj1AianIZybpAtj4upDuXvsDm69um6t+fp6szGSgfECg8ZIBgYBA304A91Z5opd4foIR57pMmM1RPwON178W6ANZVB3kpmqCXRwt7nAGMnojJe4eCd1RlvUBhgEXBjOc9EavRFdKTzUneKiKpB5YXNBQ5jDlKXIBROGXZhq8sS0aT8LafI+KjdDc8RhxuaCxoj1X8Z0OzDVvA8zZl/MtvqxkCZvtH4Hak44frW5oFO4UTfRuAfTz70x1xaAhY5jLKTJo13LNacGm8I/P+FteV/oNDRp9MCM2Qfz7Uew0BnEQpo82vUUOA19KuO7rrqgr3IT93O588CEYTemTV6Ya/PDfHsgC2nyaNdf7myhszY9xUitq2hc747Jpr2Yfn4Asy2HWEiTRzs6w7F1flbz/EefbcW4fif7OujvIUiTR7uRKp4fx56xaviq0botGNNux5jO/Tfa7SDPquEXcOwdPOas+aY/OmLV8PGz2oWF9PeGo1ba2V2QqX7oNvyhur/3kRssFXyW3lI3DPdo+sVKtZvNwRn5DzzT8u6Z0lT30NHVg8kf3bA8C2Eh3f66G6KsOxBm5DfFS1V7VxUuzi2Ok+QUz4uVRUhVFKKk4iloBhMTWWpHe3C16T6CtEoE1StwvF6x4N8s7/V+KdcuEtitLjw/UBazJDxFWRScIi9EsqwASdl3IcpSIzEzH2PjExgWizEskUAwWIaAt/nYaUqFV0c2DnepsMssYa8XoT2dW1Igyla/oUenUGFGHhLSVYi/nYvKai36QkLQFxr6p8CrQ8ZqIrivZGUFCemq2YTbuYiX5uBWmhJxEgVixXLcTJWhWyZnWSygO18sCLOUrqwgLk3RHCuRI1Ysw82UbMQkZ+FGUiaiRRmISkzHdaH0TwG9luCPJWz4wddK+L5SwueVAqd6i5cvWMn8+w2Ww66C0y15854aIbY9urIstD/Tmjf3C8F1r5eu5gMYAAAAAElFTkSuQmCC" alt=""></img>
-                                    <span class="text-sm txt-font ltrspace"> Customer </span>
+                                    <span class="text-sm txt-font ltrspace"> Shipper </span>
                                 </Link>
 
                                 <Link
@@ -104,7 +162,28 @@ function ShipperRegistration() {
 
 
                                 <form method="POST" class="mt-8 grid grid-cols-6 gap-6">
-
+                                    <div class="flex items-center" style={{ display: 'none' }}>
+                                        <input type="radio" id="radioButton" class="hidden" checked={isShipper} defaultChecked value={isShipper} />
+                                        <label htmlFor="radioButton" className="cursor-not-allowed select-none">
+                                            <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
+                                                <svg
+                                                    className="w-4 h-4 text-white"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth="2"
+                                                        d="M5 13l4 4L19 7"
+                                                    ></path>
+                                                </svg>
+                                            </div>
+                                        </label>
+                                        <span class="ml-2 text-gray-700">Shipper</span>
+                                    </div>
                                     <div class="col-span-6">
                                         <label for="email" class="leading-7 text-sm text-gray-600">Name</label>
                                         <input onChange={nameChangeHandler} value={name} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
@@ -117,7 +196,7 @@ function ShipperRegistration() {
 
                                     <div class="col-span-6 sm:col-span-3">
                                         <label for="email" class="leading-7 text-sm text-gray-600">Password</label>
-                                        <input onChange={passChangeHandler} value={pass} type="password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                        <input onChange={passChangeHandler} value={password} type="password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
 
                                     <div class="col-span-6 sm:col-span-3">
@@ -151,7 +230,7 @@ function ShipperRegistration() {
                         </main>
                     </div>
                 </section>
-                <ToastContainer/>
+                <ToastContainer />
             </div>
 
 

@@ -5,18 +5,14 @@ const dotenv = require('dotenv');
 dotenv.config({ path: '../config.env' });
 
 // creating the structure of "shipper-account" form
-const shipperAccountSchema = new mongoose.Schema({
+const adminAccountSchema = new mongoose.Schema({
 
-    isShipper: {
+    isAdmin: {
         type: Boolean,
         required: true,
         default: true
     },
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
+    USER_ID: {
         type: String,
         required: true
     },
@@ -27,12 +23,12 @@ const shipperAccountSchema = new mongoose.Schema({
 })
 
 // generating JWT for shipper
-shipperAccountSchema.methods.generateToken = async function () {
+adminAccountSchema.methods.generateToken = async function () {
     try {
         return jwt.sign({
             userID : this._id.toString(),
-            isShipper: this.isShipper,
-            email: this.email,
+            isAdmin: this.isAdmin,
+            USER_ID: this.USER_ID,
         }, process.env.JWT_SECRET_KEY, { expiresIn: '30d', });
     } catch (error) {
         console.error(error);
@@ -40,7 +36,7 @@ shipperAccountSchema.methods.generateToken = async function () {
 };
 
 // creating a model for new "shipper-account"
-const newShipperAccount = mongoose.model('shipper-accounts', shipperAccountSchema);
-module.exports = newShipperAccount; // exporting the model of the "shipper-account"
+const newAdminAccount = mongoose.model('admin-accounts', adminAccountSchema);
+module.exports = newAdminAccount; // exporting the model of the "shipper-account"
 
 // make sure to import this file into the authentication.js file

@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 
 
+
 // main routes of the servers
 router.get('/routes', (req, res) => {
     res.send('Hello from the Server ROUTER');
@@ -19,7 +20,7 @@ router.use(cors());
 // for bycrypting hashing password
 const saltRounds = 8;
 
-// *****************************Customer Registration Code****************************************
+// *****************************Shipper Registration Code****************************************
 //  creating "shipper-accounts" model & using 'POST' to get data from frontend (user)
 const ShipperAccount = require('../models/shipper-accounts');
 
@@ -56,10 +57,10 @@ router.post('/shipper-registration', async (req, res) => {
 
 
 
-// *****************************Vendor sign in Code****************************************
+// *****************************Shipper sign in Code****************************************
 router.post('/shipper-login', async (req, res) => {
-    const { role, email, password } = req.body;
-    if (!role || !email || !password) {
+    const { isShipper, email, password } = req.body;
+    if (!isShipper || !email || !password) {
         return res.status(204).json({ error: "Enter All details!" });
     }
     try {
@@ -139,6 +140,33 @@ router.post('/vendor-login', async (req, res) => {
             }
         } else {
             res.status(404).json({ err: `Account with this ${registration_number} registration number does not exist in the database!` });
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ error: `Internal Server Error :- ${error}` });
+    }
+});
+// ******************************************************************************************
+
+
+// *****************************Admin Sign in Code****************************************
+const AdminAccount = require('../models/admin-accounts');
+router.post('/admin', async (req, res) => {
+    const { isAdmin, USER_ID, password } = req.body;
+    if (!isAdmin || !USER_ID || !password) {
+        return res.status(204).json({ error: "Enter All details!" });
+    }
+    try {
+        const adminAccExists = await AdminAccount.findOne({ USER_ID: USER_ID });
+        if (adminAccExists) {
+            if (password === adminAccExists.password) {
+                res.status(201).json({ successfull: "Admin Logged In Sucessfully!" });
+                console.log({ Admin: req.body });
+            } else {
+                res.status(500).json({ error: "Admin Logged In Failed! Check your password again!" });
+            }
+        } else {
+            res.status(404).json({ err: `Account with this ${USER_ID} User ID does not exist in the database!` });
         }
     } catch (error) {
         console.log(error)
