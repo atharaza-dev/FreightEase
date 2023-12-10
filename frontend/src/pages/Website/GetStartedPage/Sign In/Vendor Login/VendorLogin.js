@@ -1,6 +1,7 @@
 // import dependencies
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,6 +10,8 @@ import sidePic from '../../../../../assets/imgs/2.png'
 
 function CustomerLogin() {
     document.title = "Sign In";
+
+    const [isVendor, setRadioValue] = useState(true);
     const [NTN, setNTN] = useState("");
     const NTNChangeHandler = (e) => {
         setNTN(e.target.value);
@@ -21,11 +24,65 @@ function CustomerLogin() {
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
-        const vendorLoginObj = {
-            NTN, password
-        };
 
+        const vendorAccObj = {
+            isVendor: isVendor,
+            registration_number: NTN,
+            password: password
+        }
+        axios.post('http://localhost:8484/vendor-login', vendorAccObj).then((res) => {
+            if (res.status === 204) {
+                toast.warning('Enter all details first!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 404) {
+                toast.error(`This ${vendorAccObj.registration_number} does not associated with any account!`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 500) {
+                toast.error('Login In Failed! Try Again', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else {
+                toast.success('Successfully Logged In!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+                setNTN('');
+                setPass('');
+            }
+        }).catch(error => {
+            console.error(error);
+        })
     }
+
     return (
         <>
             <div aria-hidden="true" class="gradientz absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
@@ -88,7 +145,28 @@ function CustomerLogin() {
 
 
                             <form method="POST" className="mt-8 grid grid-cols-6 gap-6">
-
+                                <div class="flex items-center" style={{ display: 'none' }}>
+                                    <input type="radio" id="radioButton" class="hidden" checked={isVendor} value={isVendor} />
+                                    <label htmlFor="radioButton" className="cursor-not-allowed select-none">
+                                        <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
+                                            <svg
+                                                className="w-4 h-4 text-white"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="2"
+                                                    d="M5 13l4 4L19 7"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-gray-700">Vendor</span>
+                                </div>
                                 <div class="col-span-6">
                                     <label for="email" class="leading-7 text-sm text-gray-600">NTN Registration</label>
                                     <input value={NTN} onChange={NTNChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />

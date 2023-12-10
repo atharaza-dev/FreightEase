@@ -36,7 +36,7 @@ function ShipperLogin() {
         
         axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
             if (res.status === 204) {
-                toast.error('Enter all details first!', {
+                toast.warning('Enter all details first!', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,

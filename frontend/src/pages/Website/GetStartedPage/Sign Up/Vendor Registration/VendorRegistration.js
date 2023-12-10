@@ -1,6 +1,7 @@
 // import dependencies
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,6 +11,9 @@ import sidePic from '../../../../../assets/imgs/2.png'
 
 function VendorRegistration() {
     document.title = "Registration";
+
+    const [isVendor, setRadioValue] = useState(true);
+
     const [cName, setCName] = useState("");
     const CompNameChangeHandler = (e) => {
         setCName(e.target.value);
@@ -52,7 +56,76 @@ function VendorRegistration() {
 
     const vendorRegistrationClick = async (e) => {
         e.preventDefault();
+
+        const vendorAccObj = {
+            isVendor: isVendor,
+            company_name: cName,
+            owner_name: OwnName,
+            cnic: CNIC,
+            phone: Phone,
+            registration_number: NTN,
+            password: Pass
+
+        }
+        axios.post('http://localhost:8484/vendor-registration', vendorAccObj).then((res) => {
+            if (res.status === 204) {
+                toast.warning('Enter all details first!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 403) {
+                toast.error(`This ${vendorAccObj.registration_number} is already associated with another account!`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 500) {
+                toast.error('Registration Failed! Try Again', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else {
+                toast.success('Registration Successfull!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                setCName('');
+                setOwnName('');
+                setNTN('');
+                setCNIC('');
+                setEmail('');
+                setPass('');
+                setCPass('');
+            }
+        }).catch(error => {
+            console.error(error);
+        })
     }
+
+
     return (
         <>
             <div aria-hidden="true" class="gradientz absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
@@ -116,6 +189,28 @@ function VendorRegistration() {
 
 
                             <form method="POST" class="mt-8 grid grid-cols-6 gap-6">
+                                <div class="flex items-center" style={{ display: 'none' }}>
+                                    <input type="radio" id="radioButton" class="hidden" checked={isVendor} value={isVendor} />
+                                    <label htmlFor="radioButton" className="cursor-not-allowed select-none">
+                                        <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
+                                            <svg
+                                                className="w-4 h-4 text-white"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="2"
+                                                    d="M5 13l4 4L19 7"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-gray-700">Vendor</span>
+                                </div>
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="email" class="leading-7 text-sm text-gray-600">Company Name</label>
                                     <input onChange={CompNameChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
@@ -137,7 +232,7 @@ function VendorRegistration() {
                                 </div>
 
                                 <div class="col-span-6">
-                                    <label for="email" class="leading-7 text-sm text-gray-600">NTN Registration</label>
+                                    <label for="email" class="leading-7 text-sm text-gray-600">Registration Number</label>
                                     <input onChange={NTNChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
 
