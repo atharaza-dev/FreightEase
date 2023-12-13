@@ -47,7 +47,7 @@ function Quote() {
         if (((deparetureCity === 'FSD' && arrivalCity === 'MLT') || (deparetureCity === 'MLT' && arrivalCity === 'FSD')) ||
             ((deparetureCity === 'MLT' && arrivalCity === 'LHR') || (deparetureCity === 'LHR' && arrivalCity === 'MLT')) ||
             ((deparetureCity === 'ISB' && arrivalCity === 'LHR') || (deparetureCity === 'LHR' && arrivalCity === 'ISB')) ||
-            (deparetureCity === 'ISB' && arrivalCity === 'MLT')) {
+            (((deparetureCity === 'ISB' && arrivalCity === 'MLT')) || (deparetureCity === 'MLT' && arrivalCity === 'ISB'))) {
             if (weight <= 2) {
                 setPrice(18000);
                 setVehicleType('RAVI');
