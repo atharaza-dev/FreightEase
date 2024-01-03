@@ -21,7 +21,11 @@ import ShipperRegistration from './pages/Website/GetStartedPage/Sign Up/Shipper 
 import VendorRegistration from './pages/Website/GetStartedPage/Sign Up/Vendor Registration/VendorRegistration';
 import ShipperLogin from './pages/Website/GetStartedPage/Sign In/Shipper Login/ShipperLogin';
 import VendorLogin from './pages/Website/GetStartedPage/Sign In/Vendor Login/VendorLogin';
-import AdminRegistration from './pages/Admin/Admin Accounts/AdminRegistration'
+import HelpPage from './pages/Website/HelpPage/HelpPage';
+import AdminLayouts from './components/Admin/layouts/AdminLayouts';
+import Dashboard from './pages/Admin/Dashboard';
+import Vendors from './pages/Admin/Vendors';
+import Shippers from './pages/Admin/Shippers';
 
 
 function App() {
@@ -33,19 +37,24 @@ function App() {
 
       <Routes>
         {/* Static frontend site */}
-        <Route path="/" element={<HomePage />}/>
+        <Route path="/" element={<HomePage />} />
         <Route path="/quote-generator" element={<Quote />} />
         <Route exact path='/services' element={<ServicePage />} />
         <Route exact path='/about-us' element={<AboutPage />} />
         <Route exact path='/contact-us' element={<ContactPage />} />
+        <Route exact path='/help' element={<HelpPage />} />
         <Route exact path='/shipper-registration' element={<ShipperRegistration />} />
         <Route exact path='/vendor-registration' element={<VendorRegistration />} />
         <Route exact path='/shipper-login' element={<ShipperLogin />} />
         <Route exact path='/vendor-login' element={<VendorLogin />} />
+        {/* <Route exact path='*' element={<ErrorPage />} /> */}
 
-
-        {/* Admin Panel Routes */}
-        <Route exact path='/admin' element={<AdminRegistration />} /> 
+        {/* Admin Panel Nested Routes */}
+        <Route path='/admin/home' element={<div className='flex'><AdminLayouts /></div>}>
+          <Route path='dashboard' element={<Dashboard />} />
+          <Route path='vendors' element={<Vendors />} />
+          <Route path='shippers' element={<Shippers />} />
+        </Route>
 
       </Routes>
 

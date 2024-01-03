@@ -67,7 +67,7 @@ function Navbar() {
                     <Link to='/contact-us' onClick={() => handleLinkClick('link3')} style={{ color: activeLink === 'link3' ? '#2563EB' : '#000' }} className="mr-3">
                         Contact Us
                     </Link>
-                    <Link to='/' onClick={() => handleLinkClick('link4')} style={{ color: activeLink === 'link4' ? '#2563EB' : '#000' }} className="mr-3">
+                    <Link to='/help' onClick={() => handleLinkClick('link4')} style={{ color: activeLink === 'link4' ? '#2563EB' : '#000' }} className="mr-3">
                         Help
                     </Link>
                 </div>
