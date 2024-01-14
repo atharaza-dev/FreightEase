@@ -57,7 +57,7 @@ function ShipperRegistration() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (res.status === 403) {
+            } else if (res.status === 200) {
                 toast.error(`This ${shipperAccObj.email} is already associated with another account!`, {
                     position: "top-right",
                     autoClose: 5000,

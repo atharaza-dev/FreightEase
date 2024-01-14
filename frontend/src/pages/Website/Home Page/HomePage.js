@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import './HomePage.css';
 import about1 from '../../../assets/imgs/about-1.jpg'
 import about2 from '../../../assets/imgs/container.png'
+import whatsapp from '../../../assets/imgs/whatsapp.png'
 
 function HomePage() {
     document.title='Home - FreightEase'
@@ -13,15 +14,31 @@ function HomePage() {
         <>
             {/* ======================================== Top Gradient ======================================== */}
             <div aria-hidden="true" className="topGradient absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
-                <div className="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
-                <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+                <div className="blur-[106px] h-80 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+                <div className="blur-[106px] h-64 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
             </div>
             {/* ============================================================================================== */}
 
 
             {/* ======================================== Hero Section ======================================== */}
             <section className="relative  overflow-hidden bg-gradient-to-b from-blue-100 via-transparent to-transparent xl:pt-28">
-            
+            <div className="relative z-10">
+                    <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
+                        <svg className="h-[80rem] w-[100rem] flex-none stroke-blue-600 opacity-20" aria-hidden="true">
+                            <defs>
+                                <pattern id="e9033f3e-f665-41a6-84ef-756f6778e6fe" width="200" height="200" x="50%" y="50%"
+                                    patternUnits="userSpaceOnUse" patternTransform="translate(-100 0)">
+                                    <path d="M.5 200V.5H200" fill="none"></path>
+                                </pattern>
+                            </defs>
+                            <svg x="50%" y="50%" className="overflow-visible fill-blue-50">
+                                <path d="M-300 0h201v201h-201Z M300 200h201v201h-201Z" stroke-width="0"></path>
+                            </svg>
+                            <rect width="100%" height="100%" stroke-width="0" fill="url(#e9033f3e-f665-41a6-84ef-756f6778e6fe)">
+                            </rect>
+                        </svg>
+                    </div>
+                </div>
                 <div className="relative pt-24 sm:py-16 lg:pt-0 xl:pb-0">
                     <div className="relative mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
                         <div className="mx-auto max-w-6xl text-center">
@@ -642,7 +659,11 @@ function HomePage() {
             </div>
             {/* ================================================================================================== */}
 
-
+            <div className="fixed-bottom right-100 p-8" style={{zIndex: "6", left:"initial"}}>
+                <a href="https://wa.me/923358668223?text=Hello! I need some queries" target='_blank'>
+                    <img src={whatsapp} alt="error" />
+                </a>
+            </div>
         </>
     )
 }

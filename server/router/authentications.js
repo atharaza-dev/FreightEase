@@ -32,7 +32,7 @@ router.post('/shipper-registration', async (req, res) => {
     try {
         const shipperAccExists = await ShipperAccount.findOne({ email: email });
         if (shipperAccExists) {
-            return res.status(403).json({ error: `This ${email} already associated with an account. Try another!` });
+            return res.status(200).json({ error: `This ${email} already associated with an account. Try another!` });
         }
 
         // Hash the password before storing it
@@ -67,11 +67,11 @@ router.post('/shipper-login', async (req, res) => {
         const shipperAccExists = await ShipperAccount.findOne({ email: email });
         if (shipperAccExists) {
             const isPassValid = await bcrypt.compare(password, shipperAccExists.password);
-            if (isPassValid) {
-                res.status(201).json({ successfull: "Shipper Logged In Sucessfully!" });
-                console.log({ shipper: req.body });
+            if (!isPassValid) {
+                res.status(408).json({ error: "Shipper Logged In Failed! Check your password again!" });
             } else {
-                res.status(500).json({ error: "Shipper Logged In Failed! Check your password again!" });
+                res.status(208).json({ successfull: "Shipper Logged In Sucessfully!" });
+                console.log({ shipper: req.body });
             }
         } else {
             res.status(404).json({ err: `Account with this ${email} email does not exist in the database!` });

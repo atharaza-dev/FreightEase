@@ -34,7 +34,7 @@ function ShipperLogin() {
         }
         console.log(shipperAccObj)
         
-        axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
+        await axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
             if (res.status === 204) {
                 toast.warning('Enter all details first!', {
                     position: "top-right",
@@ -57,7 +57,7 @@ function ShipperLogin() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (res.status === 500) {
+            } else if (res.status === 408) {
                 toast.error('Log In Failed! Try Again', {
                     position: "top-right",
                     autoClose: 5000,

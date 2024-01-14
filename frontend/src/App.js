@@ -60,7 +60,7 @@ function App() {
 
       <FooterContainer>
         <Footer></Footer>
-      </FooterContainer>
+      </FooterContainer>      
     </>
   );
 }
