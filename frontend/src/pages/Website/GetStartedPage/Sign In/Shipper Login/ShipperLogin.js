@@ -32,60 +32,65 @@ function ShipperLogin() {
             email: email,
             password: password,
         }
-        console.log(shipperAccObj)
-        
-        await axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
-            if (res.status === 204) {
-                toast.warning('Enter all details first!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-            } else if (res.status === 404) {
-                toast.error(`Account with this ${shipperAccObj.email} email does not exist in the database!`, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-            } else if (res.status === 408) {
-                toast.error('Log In Failed! Try Again', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-            } else {
-                toast.success('Successfully Logged In!!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-                setEmail('');
-                setPass('');
-            }
+        console.log(shipperAccObj);
+
+        axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res)=>{
+
         }).catch(error => {
             console.error(error);
         })
 
+        // axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
+        //     if (res.status === 100) {
+        //         toast.warning('Enter all details first!', {
+        //             position: "top-right",
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: true,
+        //             draggable: true,
+        //             progress: undefined,
+        //             theme: "colored",
+        //         });
+        //     } else if (res.status === 404) {
+        //         toast.error(`Account with this ${shipperAccObj.email} email does not exist in the database!`, {
+        //             position: "top-right",
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: true,
+        //             draggable: true,
+        //             progress: undefined,
+        //             theme: "colored",
+        //         });
+        //     } else if (res.status === 401) {
+        //         toast.error('Log In Failed! Try Again', {
+        //             position: "top-right",
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: true,
+        //             draggable: true,
+        //             progress: undefined,
+        //             theme: "colored",
+        //         });
+        //     } else {
+        //         toast.success('Successfully Logged In!', {
+        //             position: "top-right",
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: true,
+        //             draggable: true,
+        //             progress: undefined,
+        //             theme: "colored",
+        //         });
+        //         setEmail('');
+        //         setPass('');
+        //     }
+        // }).catch(error => {
+        //     console.error(error);
+        // })
     }
 
     return (

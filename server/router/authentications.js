@@ -15,7 +15,9 @@ router.get('/routes', (req, res) => {
 // for the avoidance jsons errors
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
-router.use(cors());
+router.use(express.json());
+router.use(cors({origin: "https://http://localhost:3002"}));
+
 
 // for bycrypting hashing password
 const saltRounds = 8;
@@ -27,12 +29,12 @@ const ShipperAccount = require('../models/shipper-accounts');
 router.post('/shipper-registration', async (req, res) => {
     const { isShipper, name, email, password } = req.body;
     if (!isShipper || !name || !email || !password) {
-        return res.status(204).json({ error: "Enter All details!" });
+        return res.status(101).json({ error: "Enter All details!" });
     }
     try {
         const shipperAccExists = await ShipperAccount.findOne({ email: email });
         if (shipperAccExists) {
-            return res.status(200).json({ error: `This ${email} already associated with an account. Try another!` });
+            return res.status(402).json({ error: `This ${email} already associated with an account. Try another!` });
         }
 
         // Hash the password before storing it
@@ -45,12 +47,12 @@ router.post('/shipper-registration', async (req, res) => {
             res.status(201).json({ created: "Shipper Registered Sucessfully!", token: await shipperAccRegistered.generateToken(), userID: shipperAccRegistered._id.toString() });
             console.log({ shipper: req.body });
         } else {
-            res.status(500).json({ error: "Shipper Registration Failed!" });
+            res.status(406).json({ error: "Shipper Registration Failed!" });
         }
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: `Internal Server Error :- ${error}` });
+        res.status(504).json({ error: `Internal Server Error :- ${error}` });
     }
 });
 // ******************************************************************************************
@@ -61,16 +63,16 @@ router.post('/shipper-registration', async (req, res) => {
 router.post('/shipper-login', async (req, res) => {
     const { isShipper, email, password } = req.body;
     if (!isShipper || !email || !password) {
-        return res.status(204).json({ error: "Enter All details!" });
+        return res.status(100).json({ error: "Enter All details!" });
     }
     try {
         const shipperAccExists = await ShipperAccount.findOne({ email: email });
         if (shipperAccExists) {
             const isPassValid = await bcrypt.compare(password, shipperAccExists.password);
             if (!isPassValid) {
-                res.status(408).json({ error: "Shipper Logged In Failed! Check your password again!" });
+                res.status(401).json({ error: "Shipper Logged In Failed! Check your password again!" });
             } else {
-                res.status(208).json({ successfull: "Shipper Logged In Sucessfully!" });
+                res.status(200).json({ successfull: "Shipper Logged In Sucessfully!" });
                 console.log({ shipper: req.body });
             }
         } else {
@@ -150,29 +152,7 @@ router.post('/vendor-login', async (req, res) => {
 
 
 // *****************************Admin Sign in Code****************************************
-const AdminAccount = require('../models/admin-accounts');
-router.post('/admin', async (req, res) => {
-    const { isAdmin, USER_ID, password } = req.body;
-    if (!isAdmin || !USER_ID || !password) {
-        return res.status(204).json({ error: "Enter All details!" });
-    }
-    try {
-        const adminAccExists = await AdminAccount.findOne({ USER_ID: USER_ID });
-        if (adminAccExists) {
-            if (password === adminAccExists.password) {
-                res.status(201).json({ successfull: "Admin Logged In Sucessfully!" });
-                console.log({ Admin: req.body });
-            } else {
-                res.status(500).json({ error: "Admin Logged In Failed! Check your password again!" });
-            }
-        } else {
-            res.status(404).json({ err: `Account with this ${USER_ID} User ID does not exist in the database!` });
-        }
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: `Internal Server Error :- ${error}` });
-    }
-});
+
 // ******************************************************************************************
 
 

@@ -46,10 +46,10 @@ function ShipperRegistration() {
         }
 
         axios.post('http://localhost:8484/shipper-registration', shipperAccObj).then((res) => {
-            if (res.status === 204) {
+            if (res.status === 101) {
                 toast.warning('Enter all details first!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -57,10 +57,10 @@ function ShipperRegistration() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (res.status === 200) {
+            } else if (res.status === 402) {
                 toast.error(`This ${shipperAccObj.email} is already associated with another account!`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -68,10 +68,10 @@ function ShipperRegistration() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (res.status === 500) {
-                toast.error('Registration Failed! Try Again', {
+            } else if (res.status === 201) {
+                toast.success('Registration Successfull!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -80,15 +80,15 @@ function ShipperRegistration() {
                     theme: "colored",
                 });
             } else {
-                toast.success('Registration Successfull!', {
+                toast.error('Registration Failed! Try Again', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                    theme: "colored",
+                    theme: "light",
                 });
                 setName('');
                 setEmail('');
