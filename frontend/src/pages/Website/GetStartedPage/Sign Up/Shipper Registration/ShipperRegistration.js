@@ -13,7 +13,8 @@ import sidePic from '../../../../../assets/imgs/2.png'
 function ShipperRegistration() {
     document.title = "Registration";
 
-    const [isShipper, setRadioValue] = useState(true);
+    // const [isShipper, setRadioValue] = useState(true);
+    // setRadioValue('');
 
     const [name, setName] = useState("");
     const nameChangeHandler = (e) => {
@@ -39,7 +40,7 @@ function ShipperRegistration() {
         e.preventDefault();
 
         const shipperAccObj = {
-            isShipper: isShipper,
+            // isShipper: isShipper,
             name: name,
             email: email,
             password: password,
@@ -163,7 +164,7 @@ function ShipperRegistration() {
 
                                 <form method="POST" class="mt-8 grid grid-cols-6 gap-6">
                                     <div class="flex items-center" style={{ display: 'none' }}>
-                                        <input type="radio" id="radioButton" class="hidden" checked={isShipper} defaultChecked value={isShipper} />
+                                        {/* <input type="radio" id="radioButton" class="hidden" checked={isShipper} defaultChecked value={isShipper} /> */}
                                         <label htmlFor="radioButton" className="cursor-not-allowed select-none">
                                             <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
                                                 <svg

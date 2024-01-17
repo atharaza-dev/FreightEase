@@ -12,7 +12,8 @@ import sidePic from '../../../../../assets/imgs/2.png'
 function VendorRegistration() {
     document.title = "Registration";
 
-    const [isVendor, setRadioValue] = useState(true);
+    // const [isVendor, setRadioValue] = useState(true);
+    // // setRadioValue('');
 
     const [cName, setCName] = useState("");
     const CompNameChangeHandler = (e) => {
@@ -53,14 +54,16 @@ function VendorRegistration() {
     const cPassChangeHandler = (e) => {
         setCPass(e.target.value);
     }
+    console.log(CPass)
 
     const vendorRegistrationClick = async (e) => {
         e.preventDefault();
 
         const vendorAccObj = {
-            isVendor: isVendor,
+            // isVendor: isVendor,
             company_name: cName,
             owner_name: OwnName,
+            email: email,
             cnic: CNIC,
             phone: Phone,
             registration_number: NTN,
@@ -190,7 +193,7 @@ function VendorRegistration() {
 
                             <form method="POST" class="mt-8 grid grid-cols-6 gap-6">
                                 <div class="flex items-center" style={{ display: 'none' }}>
-                                    <input type="radio" id="radioButton" class="hidden" checked={isVendor} value={isVendor} />
+                                    {/* <input type="radio" id="radioButton" class="hidden" checked={isVendor} value={isVendor} /> */}
                                     <label htmlFor="radioButton" className="cursor-not-allowed select-none">
                                         <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
                                             <svg

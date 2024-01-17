@@ -93,3 +93,7 @@ body {
 .sideImg{
   background-image: url("./assets/imgs/22.png");
 }
+
+.navLinks{
+  letter-spacing: 20;
+}

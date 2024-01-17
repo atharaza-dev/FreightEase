@@ -58,16 +58,16 @@ function Navbar() {
 
                 {/* Links for medium and larger screens */}
                 <div className="navLinks hidden md:flex md:ml-auto md:mr-auto flex-wrap items-center gap-5 justify-center">
-                    <Link to='/services' onClick={() => handleLinkClick('link1')} style={{ color: activeLink === 'link1' ? '#2563EB' : '#000' }} className="mr-3">
+                    <Link to='/services' onClick={() => handleLinkClick('link1')} style={{ color: activeLink === 'link1' ? '#2563EB' : '#000' }} className="mr-3 navLinks">
                         Services
                     </Link>
-                    <Link to='/about-us' onClick={() => handleLinkClick('link2')} style={{ color: activeLink === 'link2' ? '#2563EB' : '#000' }} className="mr-3">
+                    <Link to='/about-us' onClick={() => handleLinkClick('link2')} style={{ color: activeLink === 'link2' ? '#2563EB' : '#000'}} className="mr-3">
                         About Us
                     </Link>
-                    <Link to='/contact-us' onClick={() => handleLinkClick('link3')} style={{ color: activeLink === 'link3' ? '#2563EB' : '#000' }} className="mr-3">
+                    <Link to='/contact-us' onClick={() => handleLinkClick('link3')} style={{ color: activeLink === 'link3' ? '#2563EB' : '#000'}} className="mr-3">
                         Contact Us
                     </Link>
-                    <Link to='/help' onClick={() => handleLinkClick('link4')} style={{ color: activeLink === 'link4' ? '#2563EB' : '#000' }} className="mr-3">
+                    <Link to='/help' onClick={() => handleLinkClick('link4')} style={{ color: activeLink === 'link4' ? '#2563EB' : '#000'}} className="mr-3">
                         Help
                     </Link>
                 </div>

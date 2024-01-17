@@ -12,7 +12,8 @@ import sidePic from '../../../../../assets/imgs/2.png'
 function ShipperLogin() {
     document.title = "Sign In";
 
-    const [isShipper, setRadioValue] = useState(true);
+    // const [isShipper, setRadioValue] = useState(true);
+    // setRadioValue('');
 
     const [email, setEmail] = useState("");
     const emailChangeHandler = (e) => {
@@ -28,7 +29,7 @@ function ShipperLogin() {
         e.preventDefault();
 
         const shipperAccObj = {
-            isShipper: isShipper,
+            // isShipper: isShipper,
             email: email,
             password: password,
         }
@@ -40,57 +41,57 @@ function ShipperLogin() {
             console.error(error);
         })
 
-        // axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
-        //     if (res.status === 100) {
-        //         toast.warning('Enter all details first!', {
-        //             position: "top-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: false,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined,
-        //             theme: "colored",
-        //         });
-        //     } else if (res.status === 404) {
-        //         toast.error(`Account with this ${shipperAccObj.email} email does not exist in the database!`, {
-        //             position: "top-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: false,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined,
-        //             theme: "colored",
-        //         });
-        //     } else if (res.status === 401) {
-        //         toast.error('Log In Failed! Try Again', {
-        //             position: "top-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: false,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined,
-        //             theme: "colored",
-        //         });
-        //     } else {
-        //         toast.success('Successfully Logged In!', {
-        //             position: "top-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: false,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined,
-        //             theme: "colored",
-        //         });
-        //         setEmail('');
-        //         setPass('');
-        //     }
-        // }).catch(error => {
-        //     console.error(error);
-        // })
+        axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
+            if (res.status === 100) {
+                toast.warning('Enter all details first!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 404) {
+                toast.error(`Account with this ${shipperAccObj.email} email does not exist in the database!`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (res.status === 401) {
+                toast.error('Log In Failed! Try Again', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else {
+                toast.success('Successfully Logged In!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                setEmail('');
+                setPass('');
+            }
+        }).catch(error => {
+            console.error(error);
+        })
     }
 
     return (
@@ -158,7 +159,7 @@ function ShipperLogin() {
 
                             <form method="POST" className="mt-8 grid grid-cols-6 gap-6">
                                 <div class="flex items-center" style={{ display: 'none' }}>
-                                    <input type="radio" id="radioButton" class="hidden" checked={isShipper} value={isShipper} />
+                                    {/* <input type="radio" id="radioButton" class="hidden" checked={isShipper} value={isShipper} /> */}
                                     <label htmlFor="radioButton" className="cursor-not-allowed select-none">
                                         <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
                                             <svg

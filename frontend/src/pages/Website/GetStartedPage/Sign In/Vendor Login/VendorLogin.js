@@ -11,7 +11,9 @@ import sidePic from '../../../../../assets/imgs/2.png'
 function CustomerLogin() {
     document.title = "Sign In";
 
-    const [isVendor, setRadioValue] = useState(true);
+    // const [isVendor, setRadioValue] = useState(true);
+    // setRadioValue('');
+
     const [NTN, setNTN] = useState("");
     const NTNChangeHandler = (e) => {
         setNTN(e.target.value);
@@ -26,7 +28,7 @@ function CustomerLogin() {
         e.preventDefault();
 
         const vendorAccObj = {
-            isVendor: isVendor,
+            // isVendor: isVendor,
             registration_number: NTN,
             password: password
         }
@@ -146,7 +148,7 @@ function CustomerLogin() {
 
                             <form method="POST" className="mt-8 grid grid-cols-6 gap-6">
                                 <div class="flex items-center" style={{ display: 'none' }}>
-                                    <input type="radio" id="radioButton" class="hidden" checked={isVendor} value={isVendor} />
+                                    {/* <input type="radio" id="radioButton" class="hidden" checked={isVendor} value={isVendor} /> */}
                                     <label htmlFor="radioButton" className="cursor-not-allowed select-none">
                                         <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
                                             <svg

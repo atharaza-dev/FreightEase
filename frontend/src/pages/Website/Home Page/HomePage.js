@@ -5,8 +5,12 @@ import { Link } from 'react-router-dom';
 // importing Assets 
 import './HomePage.css';
 import about1 from '../../../assets/imgs/about-1.jpg'
-import about2 from '../../../assets/imgs/container.png'
+import about2 from '../../../assets/imgs/about-2.jpg'
+import container from '../../../assets/imgs/container.png';
 import whatsapp from '../../../assets/imgs/whatsapp.png'
+import truck1 from '../../../assets/imgs/truck1.jpg'
+import truck2 from '../../../assets/imgs/truck2.jpg'
+import truck3 from '../../../assets/imgs/truck3.jpeg'
 
 function HomePage() {
     document.title='Home - FreightEase'
@@ -94,7 +98,7 @@ function HomePage() {
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div className="position-relative overflow-hidden ps-5 pt-5 h-100" style={{ minHeight: '400px' }}>
                                 <img className="position-absolute w-100 h-100" src={about2} alt="" style={{ objectFit: 'cover' }} />
-                                <img className="position-absolute top-0 start-0 bg-white pe-3 pb-3" src={about1} alt="" style={{ width: '200px', height: '200px' }} />
+                                <img className="position-absolute top-0 start-0 bg-white pe-3 pb-3" src={container} alt="" style={{ width: '200px', height: '200px' }} />
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -252,8 +256,8 @@ function HomePage() {
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div className="position-relative overflow-hidden ps-5 pt-5 h-100" style={{ minHeight: '400px' }}>
-                                <img className="position-absolute w-100 h-100" src={about2} alt="" style={{ objectFit: 'cover' }} />
-                                <img className="position-absolute top-0 start-0 bg-white pe-3 pb-3" src={about1} alt="" style={{ width: '200px', height: '200px' }} />
+                                <img className="position-absolute w-100 h-100" src={about1} alt="" style={{ objectFit: 'cover' }} />
+                                <img className="position-absolute top-0 start-0 bg-white pe-3 pb-3" src={container} alt="" style={{ width: '200px', height: '200px' }} />
                             </div>
                         </div>
                     </div>
@@ -277,7 +281,7 @@ function HomePage() {
 
                             <div className="p-4 md:w-1/3">
                                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src="https://dummyimage.com/720x400" alt="blog" />
+                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src={truck1} alt="blog" />
                                     <div className="p-6">
                                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">VEHICLE TYPE</h2>
                                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shehzor 1500cc</h1>
@@ -294,7 +298,7 @@ function HomePage() {
                             </div>
                             <div className="p-4 md:w-1/3">
                                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src="https://dummyimage.com/720x400" alt="blog" />
+                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src={truck2}  alt="blog" />
                                     <div className="p-6">
                                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">VEHICLE TYPE</h2>
                                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shehzor 1500cc</h1>
@@ -311,7 +315,7 @@ function HomePage() {
                             </div>
                             <div className="p-4 md:w-1/3">
                                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src="https://dummyimage.com/720x400" alt="blog" />
+                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src={truck3}  alt="blog" />
                                     <div className="p-6">
                                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">VEHICLE TYPE</h2>
                                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shehzor 1500cc</h1>
@@ -660,7 +664,7 @@ function HomePage() {
             {/* ================================================================================================== */}
 
             <div className="fixed-bottom right-100 p-8" style={{zIndex: "6", left:"initial"}}>
-                <a href="https://wa.me/923358668223?text=Hello! I need some queries" target='_blank'>
+                <a href="https://wa.me/923358668223?text=Hello! I need some queries" target='_blank' rel='noreferrer'> 
                     <img src={whatsapp} alt="error" />
                 </a>
             </div>
