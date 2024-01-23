@@ -11,9 +11,10 @@ import whatsapp from '../../../assets/imgs/whatsapp.png'
 import truck1 from '../../../assets/imgs/truck1.jpg'
 import truck2 from '../../../assets/imgs/truck2.jpg'
 import truck3 from '../../../assets/imgs/truck3.jpeg'
+import hero from '../../../assets/imgs/heroo.png';
 
 function HomePage() {
-    document.title='Home - FreightEase'
+    document.title = 'Home - FreightEase'
     return (
         <>
             {/* ======================================== Top Gradient ======================================== */}
@@ -25,8 +26,8 @@ function HomePage() {
 
 
             {/* ======================================== Hero Section ======================================== */}
-            <section className="relative  overflow-hidden bg-gradient-to-b from-blue-100 via-transparent to-transparent xl:pt-28">
-            <div className="relative z-10">
+            {/* <section className="relative  overflow-hidden bg-gradient-to-b from-blue-100 via-transparent to-transparent xl:pt-28">
+                <div className="relative z-10">
                     <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
                         <svg className="h-[80rem] w-[100rem] flex-none stroke-blue-600 opacity-20" aria-hidden="true">
                             <defs>
@@ -87,7 +88,47 @@ function HomePage() {
                         </div>
                     </div>
                 </div>
+            </section> */}
+
+            <section class="mx-14 text-gray-600 body-font">
+                <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                    <div class="mt-8 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center">
+                        <p class="flex text-sm uppercase text-blue-600 fontAlt">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-1 inline h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+                            </svg>
+                            Connecing Miles, Delivering Smiles
+                        </p>
+                        <h1 className="text-3xl font-light fontAlt leading-snug text-gray-900 sm:text-5xl sm:leading-snug lg:text-6xl lg:leading-snug">
+                            The highway to seamless freight with <br className="sm:hidden" />
+                            <span class="inline-block border-b-8 border-blue-600 bg-orange-400 px-4 font-bold text-white">freightease</span>
+                        </h1>
+                        <p className="mx-auto mt-2 max-w-4xl text-base leading-7 text-gray-600">FreightEase is the city's leading solution, setting new standards for logistics and transportation excellence.
+                            It empowers freight and logistics services to excel.</p>
+                        <div class="flex w-full md:justify-start justify-center items-end">
+                            <button class="mt-6 inline-flex text-white bg-indigo-800 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Click to Generate Quote</button>
+                        </div>
+                        <div class="mt-6 flex justify-center -space-x-4 lg:justify-start">
+                            <img class="h-12 w-12 rounded-full ring ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+                            <img class="h-12 w-12 rounded-full ring ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+                            <img class="h-12 w-12 rounded-full ring ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" />
+                            <div class="">
+                                <span class="pl-8 font-semibold">Customer Reviews</span>
+                                <div class="flex w-auto items-center justify-center space-x-1 pl-8">
+                                    <svg class="h-auto w-5 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                        <path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-slate-400"> 4.9 • <a href="#" class="text-sm font-normal underline">003 reviews</a> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                        <img class="object-cover object-center rounded" alt="hero" src={hero} />
+                    </div>
+                </div>
             </section>
+
             {/* ============================================================================================== */}
 
 
@@ -298,7 +339,7 @@ function HomePage() {
                             </div>
                             <div className="p-4 md:w-1/3">
                                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src={truck2}  alt="blog" />
+                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src={truck2} alt="blog" />
                                     <div className="p-6">
                                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">VEHICLE TYPE</h2>
                                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shehzor 1500cc</h1>
@@ -315,7 +356,7 @@ function HomePage() {
                             </div>
                             <div className="p-4 md:w-1/3">
                                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src={truck3}  alt="blog" />
+                                    <img className="cardIimg lg:h-48 md:h-36 w-full rounded-lg object-cover object-center p-4" src={truck3} alt="blog" />
                                     <div className="p-6">
                                         <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">VEHICLE TYPE</h2>
                                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shehzor 1500cc</h1>
@@ -663,8 +704,8 @@ function HomePage() {
             </div>
             {/* ================================================================================================== */}
 
-            <div className="fixed-bottom right-100 p-8" style={{zIndex: "6", left:"initial"}}>
-                <a href="https://wa.me/923358668223?text=Hello! I need some queries" target='_blank' rel='noreferrer'> 
+            <div className="fixed-bottom right-100 p-8" style={{ zIndex: "6", left: "initial" }}>
+                <a href="https://wa.me/923358668223?text=Hello! I need some queries" target='_blank' rel='noreferrer'>
                     <img src={whatsapp} alt="error" />
                 </a>
             </div>
