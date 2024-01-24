@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 // importing Assets 
 import './HomePage.css';
-import about1 from '../../../assets/imgs/about-1.jpg'
-import about2 from '../../../assets/imgs/pic.png'
 import container from '../../../assets/imgs/container.png';
 import whatsapp from '../../../assets/imgs/whatsapp.png'
 import truck1 from '../../../assets/imgs/truck1.jpg'
@@ -155,7 +153,7 @@ function HomePage() {
                     <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div className="h-100">
                             <h6 className="text-primColor2 fontAlt text-xl mb-2">About Us</h6>
-                            <h1 className="display-6 fontAlt font-semibold mb-4"><span className='text-primColor1'>#1 </span>Nationwide Freight and
+                            <h1 className="display-6 fontAlt text-black font-semibold mb-4"><span className='text-primColor1'>#1 </span>Nationwide Freight and
                                 <br className="hidden lg:inline-block" />Logistics  Solutions!</h1>
                             <p>At FreightEase, our voyage into the world of freight and logistics unfolds with a warm welcome.Explore the driving force behind our commitment to providing dependable, cost-efficient, and innovative logistics solutions that keep the world moving.</p>
                             <div className="row g-2 mb-4 pb-2 mt-4">
@@ -285,7 +283,7 @@ function HomePage() {
                     <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div className="h-100">
                             <h6 className="text-primColor2  fontAlt text-xl mb-2">Features</h6>
-                            <h1 className="display-6 fontAlt font-semibold mb-4"><span className='text-primColor1'>#Explore </span>Our Exceptional
+                            <h1 className="display-6 fontAlt text-black font-semibold mb-4"><span className='text-primColor1'>#Explore </span>Our Exceptional
                                 <br className="hidden lg:inline-block" />Features That Set Us Apart!</h1>
                             <p>Explore our Feature Highlights and Service Offerings to unlock the full potential of your logistics and transportation needs. Discover a comprehensive range of solutions that drive efficiency and excellence in the industry.</p>
 
