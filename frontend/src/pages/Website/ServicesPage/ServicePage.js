@@ -36,7 +36,7 @@ function ServicePage() {
                 <div className="relative pt-24 sm:py-16 lg:pt-0 xl:pb-0">
                     <div className="pt-24 item-center justify-center mx-24">
                         <h1 class="fontH1 sm:text-8xl mb-4 font-semibold text-gray-900"><span className='text-primColor1'>#Experience </span>the best seamless Services</h1>
-                        <p class="heading2 mb-8 leading-relaxed">At FreightEase, our voyage into the world of freight and logistics unfolds with a warm welcome.Explore the driving force behind our commitment to providing dependable, cost-efficient, and innovative logistics solutions that keep the world moving.</p>
+                        <p class="heading2 mb-8 leading-relaxed">At FreightEase, our Services page unveils a spectrum of tailored solutions designed to streamline your logistics needs. Explore our comprehensive offerings, from efficient trucking to seamless freight management. Experience reliability and excellence in every service we deliver.</p>
                     </div>
                 </div>
             </section>

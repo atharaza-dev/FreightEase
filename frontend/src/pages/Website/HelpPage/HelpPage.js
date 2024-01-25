@@ -1,10 +1,10 @@
 import React from 'react'
 
 function HelpPage() {
-  return (
-    <div>
-       {/* ============================================================================================== */}
-       <div aria-hidden="true" className="topGradient absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+    return (
+        <div>
+            {/* ============================================================================================== */}
+            <div aria-hidden="true" className="topGradient absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
                 <div className="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
                 <div className="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
             </div>
@@ -30,67 +30,396 @@ function HelpPage() {
                 </div>
                 <div className="relative pt-24 sm:py-16 lg:pt-0 xl:pb-0">
                     <div className="pt-24 item-center justify-center mx-24">
-                        <h1 className="fontH1 sm:text-8xl mb-4 font-semibold text-gray-900"><span className='text-indigo-400'>#Need Help? </span>We're here!</h1>
-                        <p className="heading2 mb-8 leading-relaxed">At FreightEase, our voyage into the world of freight and logistics unfolds with a warm welcome.Explore the driving force behind our commitment to providing dependable, cost-efficient, and innovative logistics solutions that keep the world moving.</p>
+                        <h1 className="fontH1 sm:text-8xl mb-4 font-semibold text-gray-900"><span className='text-primColor1'>#Need Help? </span>We're here!</h1>
+                        <p className="heading2 mb-8 leading-relaxed">Navigate through FreightEase's informative FAQs to discover insights into our truck freight services. From booking procedures to transparent pricing, find clarity at every turn. Explore our FAQ section and embark on a journey of seamless freight logistics.</p>
                     </div>
                 </div>
             </section>
 
-            <div className="container-xxl py-6">
-                <div className="container">
-                    <div className="row g-5">
-                        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: '450px' }}>
-                            <div className="position-relative h-100">
-                                <iframe className="position-relative w-100 h-100"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                                    frameborder="0" style={{ minHeight: '450px', border: '0px' }} allowfullscreen="" aria-hidden="false"
-                                    tabindex="0" title='loca'></iframe>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <h6 className="text-indigo-800 fontAlt text-xl mb-2">Features</h6>
-                            <h1 className="display-6 fontAlt font-semibold mb-4"><span className='text-indigo-800'>#Explore </span>Our Exceptional
-                                <br className="hidden lg:inline-block" />Features That Set Us Apart!</h1>
-                            <p className="mb-4">Explore our Feature Highlights and Service Offerings to unlock the full potential of your logistics and transportation needs. Discover a comprehensive range of solutions that drive efficiency and excellence in the industry.</p>
-                            <form>
-                                <div className="row g-3">
-                                    <div className="col-md-6">
-                                        <div>
-                                            <label for="name" className="leading-7 text-medium text-gray-600">Name</label>
-                                            <input type="text" id="name" name="name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div>
-                                            <label for="name" className="leading-7 text-medium text-gray-600">Email</label>
-                                            <input type="text" id="name" name="name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div>
-                                            <label for="name" className="leading-7 text-medium text-gray-600">Subject</label>
-                                            <input type="text" id="name" name="name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div>
-                                            <label for="message" className="leading-7 text-medium text-gray-600">Message</label>
-                                            <textarea id="message" name="message" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <button className="text-white bg-indigo-800 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                                            Send a Message
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+            <section>
+                <div className="mx-auto max-w-screen-xl px-4 p-12 sm:px-6 md:pt-16 lg:px-8">
+
+                    <div
+                        className="mx-auto mt-20 divide-y divide-gray-100 rounded-xl border border-gray-200 bg-white"
+                    >
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+                        <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary
+                                className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900"
+                            >
+                                <h2 className="text-xl font2 font-bold">
+                                    How do I request a booking?
+                                </h2>
+
+                                <span className="relative h-5 w-5 shrink-0">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                </span>
+                            </summary>
+
+                            <p className="mt-4 text-m leading-relaxed text-gray-700">
+                                We've made booking easier for you by streamlining the process. Simply visit our website, input your needs, and we'll connect you with a suitable vendor. Additionally, you can reach us on WhatsApp for further assistance.!
+                            </p>
+                        </details>
+
+
                     </div>
                 </div>
+            </section>
+
+            <div className="container flex flex-col justify-center items-center">
+                <button className=" btn text-white bg-primColor1 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Have another Question to ask?</button>
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default HelpPage

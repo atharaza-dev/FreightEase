@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ContactPage() {
-    document.title='Contact - FreightEase'
+    document.title = 'Contact - FreightEase'
     return (
         <>
             {/* ============================================================================================== */}
@@ -31,8 +31,8 @@ function ContactPage() {
                 </div>
                 <div className="relative pt-24 sm:py-16 lg:pt-0 xl:pb-0">
                     <div className="pt-24 item-center justify-center mx-24">
-                        <h1 className="fontH1 sm:text-8xl mb-4 font-semibold text-gray-900"><span className='text-indigo-400'>#Get </span>in Touch with us!</h1>
-                        <p className="heading2 mb-8 leading-relaxed">At FreightEase, our voyage into the world of freight and logistics unfolds with a warm welcome.Explore the driving force behind our commitment to providing dependable, cost-efficient, and innovative logistics solutions that keep the world moving.</p>
+                        <h1 className="fontH1 sm:text-8xl mb-4 font-semibold text-gray-900"><span className='text-primColor1'>#Get </span>in Touch with us!</h1>
+                        <p className="heading2 mb-8 leading-relaxed">Connect with ease through FreightEase's Contact Us page. Our dedicated team awaits to address your inquiries promptly and provide tailored solutions. Reach out today to embark on a seamless journey towards efficient freight logistics.</p>
                     </div>
                 </div>
             </section>
@@ -45,14 +45,13 @@ function ContactPage() {
                                 <iframe className="position-relative w-100 h-100"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
                                     frameborder="0" style={{ minHeight: '450px', border: '0px' }} allowfullscreen="" aria-hidden="false"
-                                    tabindex="0" title='Location'></iframe>
+                                    tabindex="0" title='location'></iframe>
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <h6 className="text-indigo-800 fontAlt text-xl mb-2">Features</h6>
-                            <h1 className="display-6 fontAlt font-semibold mb-4"><span className='text-indigo-800'>#Explore </span>Our Exceptional
-                                <br className="hidden lg:inline-block" />Features That Set Us Apart!</h1>
-                            <p className="mb-4">Explore our Feature Highlights and Service Offerings to unlock the full potential of your logistics and transportation needs. Discover a comprehensive range of solutions that drive efficiency and excellence in the industry.</p>
+                            <h6 className="text-primColor2 fontAlt text-xl mb-2">Contact Us</h6>
+                            <h1 className="display-6 fontAlt font-semibold mb-4"><span className='text-primColor1'>#Get </span>in touch with us!</h1>
+                            <p className="mb-4">Got questions, suggestions, or just want to say hi? Fill out our contact form below, and we'll get back to you as soon as possible. Your feedback matters to us!</p>
                             <form>
                                 <div className="row g-3">
                                     <div className="col-md-6">
@@ -80,9 +79,7 @@ function ContactPage() {
                                         </div>
                                     </div>
                                     <div className="col-12">
-                                        <button className="text-white bg-indigo-800 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                                            Send a Message
-                                        </button>
+                                        <button className=" btn text-white bg-primColor1 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Send a Message</button>
                                     </div>
                                 </div>
                             </form>

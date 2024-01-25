@@ -61,7 +61,7 @@ function Navbar() {
 
     return (
         <div className="container mx-auto">
-            <div className={`navbar  rounded w-full mx-20 mt-3 py-3 md:mx-24 md:max-w-screen-xl px-6 py-2 ${scrolling ? 'scrolled' : ''}`}>
+            <div className={`navbar  rounded-23 w-full mx-20 mt-3 py-3 md:mx-24 md:max-w-screen-xl px-6 py-2 ${scrolling ? 'scrolled' : ''}`}>
                 <Link to='/' className="logoImg title-font font-medium items-center text-gray-900 md:mb-0">
                     <img src={logo} alt="" className="nav-img" />
                 </Link>
@@ -91,13 +91,13 @@ function Navbar() {
                                 <Link to='/services' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
                                     Services
                                 </Link>
-                                <Link to='/service2' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
+                                <Link to="/quote-generator" className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
                                     Quote Generator
                                 </Link>
-                                <Link to='/service3' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
+                                <Link to='/tow-service' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
                                     Tow Service
                                 </Link>
-                                <Link to='/service4' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
+                                <Link to='/vehicles-list' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Show all Vehicles
                                 </Link>
                             </div>

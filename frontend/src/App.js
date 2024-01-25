@@ -26,6 +26,10 @@ import AdminLayouts from './components/Admin/layouts/AdminLayouts';
 import Dashboard from './pages/Admin/Dashboard';
 import Vendors from './pages/Admin/Vendors';
 import Shippers from './pages/Admin/Shippers';
+import TowServicePage from './pages/Website/TowTablePage/TowServicePage';
+import VehicleListPage from './pages/Website/VehicleListPage/VehicleListPage';
+import VehicleFramePage from './pages/Website/VehicleListPage/VehicleFramePage';
+import ErrorPage from './pages/Website/ErrorPage';
 
 
 function App() {
@@ -47,7 +51,10 @@ function App() {
         <Route exact path='/vendor-registration' element={<VendorRegistration />} />
         <Route exact path='/shipper-login' element={<ShipperLogin />} />
         <Route exact path='/vendor-login' element={<VendorLogin />} />
-        {/* <Route exact path='*' element={<ErrorPage />} /> */}
+        <Route exact path='/tow-service' element={<TowServicePage />} />
+        <Route exact path='/vehicles-list' element={<VehicleListPage />} />
+        <Route exact path='/vehicle-frame' element={<VehicleFramePage />} />
+        <Route exact path='*' element={<ErrorPage />} />
 
         {/* Admin Panel Nested Routes */}
         <Route path='/admin/home' element={<div className='flex'><AdminLayouts /></div>}>

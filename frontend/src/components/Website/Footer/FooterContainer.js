@@ -6,7 +6,7 @@ function FooterContainer({ children }) {
 
   const [showFooter, setShowFooter] = useState(false);
   useEffect(() => {
-    if (location.pathname === '/' || location.pathname === '/services' || location.pathname === '/about-us' || location.pathname === '/contact-us' || location.pathname === '/quote-generator' || location.pathname === '/help') {
+    if (location.pathname === '/' || location.pathname === '/services' || location.pathname === '/about-us' || location.pathname === '/contact-us' || location.pathname === '/quote-generator' || location.pathname === '/help' || location.pathname === '/tow-service' || location.pathname === '/vehicles-list' || location.pathname === '*') {
       setShowFooter(true);
     } else {
       setShowFooter(false);
