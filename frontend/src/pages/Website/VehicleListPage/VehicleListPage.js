@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import truck1 from '../../../assets/imgs/truck1.jpg'
 import truck2 from '../../../assets/imgs/truck1.jpg'
 import truck3 from '../../../assets/imgs/truck1.jpg'
@@ -39,7 +40,7 @@ function VehicleListPage() {
                 </div>
             </section>
 
-            <section className="pb-10">
+            <section className="py-10">
                 <div className="mx-auto max-w-screen-xl px-4 p-12 sm:px-6 md:pt-16 lg:px-8">
                    
                     <div className="container mx-auto">
@@ -52,12 +53,12 @@ function VehicleListPage() {
                                         <h2 className="tracking-widest text-xs title-font fontAlt font-medium text-gray-400 mb-1">VEHICLE TYPE</h2>
                                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shehzor 1500cc</h1>
                                         <div className="flex items-center flex-wrap ">
-                                            <a href='/' className="text-primColor1 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                                            <Link to='/vehicle-frame' className="text-primColor1 inline-flex items-center md:mb-2 lg:mb-0">Learn More
                                                 <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M5 12h14"></path>
                                                     <path d="M12 5l7 7-7 7"></path>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
