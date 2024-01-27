@@ -30,6 +30,7 @@ import TowServicePage from './pages/Website/TowTablePage/TowServicePage';
 import VehicleListPage from './pages/Website/VehicleListPage/VehicleListPage';
 import VehicleFramePage from './pages/Website/VehicleListPage/VehicleFramePage';
 import ErrorPage from './pages/Website/ErrorPage';
+import TCPage from './pages/Website/TCPage';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Route exact path='/tow-service' element={<TowServicePage />} />
         <Route exact path='/vehicles-list' element={<VehicleListPage />} />
         <Route exact path='/vehicle-frame' element={<VehicleFramePage />} />
+        <Route exact path='/terms-and-conditions' element={<TCPage />} />
         <Route exact path='*' element={<ErrorPage />} />
 
         {/* Admin Panel Nested Routes */}

@@ -257,11 +257,11 @@ function VendorRegistration() {
                                 <div class="col-span-6">
                                     <p class="text-sm text-gray-500">
                                         By creating an account, you agree to our
-                                        <a href="/" class="text-indigo-500 underline px-1">
+                                        <a href="/terms-and-conditions" class="text-indigo-500 underline px-1">
                                             terms and conditions
                                         </a>
                                         and
-                                        <a href="/" class="text-indigo-500 underline px-1">privacy policy</a>.
+                                        <a href="/terms-and-conditions" class="text-indigo-500 underline px-1">privacy policy</a>.
                                     </p>
                                 </div>
 
