@@ -2,11 +2,11 @@
 const express = require('express');
 const app = express();
 const router = require('./router/auth-router')
+
+//? USING DEPENDENCIES, FILES & MODULES
+app.use("/api/auth", router);
 require('./utils/database');
 require("dotenv").config({ path: "./config.env" })
-
-//? USING DEPENDENCIES
-app.use("/api/auth", router);
 app.use(express.json());
 
 
