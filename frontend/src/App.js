@@ -1,17 +1,17 @@
-// import dependencies
+//* import dependencies
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 
-// import App.css file
+//* import App.css file
 import './App.css';
 
-// importing components
+//* importing components
 import Navbar from './components/Website/Navbar/Navbar';
 import NavContainer from './components/Website/Navbar/NavbarContainer';
 import FooterContainer from './components/Website/Footer/FooterContainer';
 import Footer from './components/Website/Footer/Footer';
 
-// importing pages
+// * Importing Pages
 import HomePage from './pages/Website/Home Page/HomePage';
 import Quote from './pages/Website/QuoteGenerator/Quote';
 import ServicePage from './pages/Website/ServicesPage/ServicePage';
@@ -22,15 +22,17 @@ import VendorRegistration from './pages/Website/GetStartedPage/Sign Up/Vendor Re
 import ShipperLogin from './pages/Website/GetStartedPage/Sign In/Shipper Login/ShipperLogin';
 import VendorLogin from './pages/Website/GetStartedPage/Sign In/Vendor Login/VendorLogin';
 import HelpPage from './pages/Website/HelpPage/HelpPage';
-import AdminLayouts from './components/Admin/layouts/AdminLayouts';
-import Dashboard from './pages/Admin/Dashboard';
-import Vendors from './pages/Admin/Vendors';
-import Shippers from './pages/Admin/Shippers';
 import TowServicePage from './pages/Website/TowTablePage/TowServicePage';
 import VehicleListPage from './pages/Website/VehicleListPage/VehicleListPage';
 import VehicleFramePage from './pages/Website/VehicleListPage/VehicleFramePage';
 import ErrorPage from './pages/Website/ErrorPage';
 import TCPage from './pages/Website/TCPage';
+
+// * Importing Admin Pages
+import AdminLayouts from './components/Admin/layouts/AdminLayouts';
+import Dashboard from './pages/Admin/Dashboard';
+import Vendors from './pages/Admin/Vendors';
+import Shippers from './pages/Admin/Shippers';
 
 
 function App() {

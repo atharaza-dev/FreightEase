@@ -1,105 +1,92 @@
 import React from 'react'
+import '../Admin.css'
 import { Link, Outlet } from 'react-router-dom'
-import logo from '../../../assets/imgs/logo.png'
-
-// importing
-import { RiHomeGearLine } from "react-icons/ri";
+import logo from '../../../assets/imgs/logo2.png'
 
 
 function AdminLayouts() {
     return (
         <>
-            <header className='flex flex-column w-64 pt-80'>
+            <header className='flex flex-column w-64'>
 
-                <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <div class="px-3 py-3 lg:px-5 lg:pl-3">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center justify-start rtl:justify-end">
-                                <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-                                    <span class="sr-only">Open sidebar</span>
-                                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                <aside class=" sidebar ml-4 my-4 fixed z-50 w-64 pt-3 flex flex-col px-4 py-8 bg-primColor1 border-r rtl:border-r-0 rtl:border-l dark:border-gray-700">
+                    <Link href="#">
+                        <img class="w-auto h-12" src={logo} alt="" />
+                    </Link>
+
+                    <div class="flex flex-col fontAlt justify-between flex-1 mt-10">
+                        <nav class="flex-1 -mx-3 space-y-3 ">
+
+                            <Link to='dashboard' class="flex items-center px-3 py-2 fontAlt tracking-extra-wide text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+
+                                <span class="mx-2 text-sm font-medium">Home</span>
+                            </Link>
+
+                            <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
+                                </svg>
+
+                                <span class="mx-2 text-sm font-medium">Dashboard</span>
+                            </a>
+
+                            <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+                                </svg>
+
+                                <span class="mx-2 text-sm font-medium">Projects</span>
+                            </a>
+
+                            <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+                                </svg>
+
+                                <span class="mx-2 text-sm font-medium">Tasks</span>
+                            </a>
+
+                            <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                                </svg>
+
+                                <span class="mx-2 text-sm font-medium">Reporting</span>
+                            </a>
+
+                            <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                </svg>
+
+                                <span class="mx-2 text-sm font-medium">Users</span>
+                            </a>
+
+                            <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+
+                                <span class="mx-2 text-sm font-medium">Setting</span>
+                            </a>
+                        </nav>
+
+                        <div class="mt-6">
+                            <div class="flex items-center justify-between mt-6">
+                                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                                     </svg>
-                                </button>
-                                <Link to='/admin/home' class="flex ms-2 md:me-24">
-                                    <img src={logo} class="h-8 me-3" alt="Logo" />
-                                </Link>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="flex items-center ms-3">
-                                    <div>
-                                        <button className="text-white bg-indigo-800 border-0 py-1 px-6 focus:outline-none hover:bg-indigo-600 rounded text-m">
-                                            Sign Out
-                                        </button>
-                                    </div>
-                                </div>
+
+                                    <span class="mx-2 text-sm font-medium">Home</span>
+                                </a>
                             </div>
                         </div>
-                    </div>
-                </nav>
-
-                <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-                    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-                        <ul class="space-y-2 font-medium">
-                            <li>
-                                <Link to='dashboard' class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                {/* <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABR0lEQVR4nO3WvUrDUBjG8X/HdlJ0KOrW0ckUKe4dHNTBxUVHheJdODg4aMULEHXVC9DBK3DxDnTp5NcmLeiRF56WeKglLeeEgn3goSRp8svJN0zy3zIFJEA1cBNtu2/2gQ7gIrUDNHx0WgvWIh7NDRm/Rp5orwoR4YIMs3qpambsOFnB4RLwqJbyhOupi6keCl4CjoC5ActfgAvgHHj1EUaE7/Ufw/0kgs50EVmbwLsHuWHhbaCtc2cbW/bWfQNO+9wVB8DuqPCW0B1NHwIfQC010pOMt6LLCndHar/pHAPfqqFZ47LAf6GWBeBLnQ8Jbw5Au1lRCQmvCg8dF+sBMjS8qJnFiGhRhlm915W9Jz+Ba2AvUm9kmLWOHnMt4CGntmRyBTwBFeKnAjwDlzYxC9xF/OTxewvMpPemHOEjz285h6M6yZjkB69ur3vG3l0PAAAAAElFTkSuQmCC"/> */}
-
-                                    <span class="ms-3 fontAlt">Dashboard</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="vendors" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                    {/* <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVR4nO2XzUsVURiHn2sLV+kNK4Q22SIiQQtz4cZNEvdCGBq1yaSFFLio3EQI14WIpX+BK1cqKCTpQkilWvQBoqvQVWJEuMg+llFWxpHfldMw48yZ5obC/cF7uXM+3nne8/GeM1BUUftIDxO0+0BFXJDFBO0rsMAe0GVgCyiP03nV0ep38ZURyOE4IK7r4HihQE5EtNIIvvIgLwPW0FPgLnDAr/NWRKtzAJmzRvAV8En/x4BNYNQPpimilTmAVFplfcCK9XwJ+C6wv3QzxNIRAHZbI14Qoy7gl9rv6EuInSwASAp4DHwEjjn4TxzE6BDwDngmMCYC7EiBQYwaNEXX/gdIrxJhkKa1sxJVxgfkgspmAwJeBr6hBXm1gCBG14Ep5RevvVGf7Z82klEmRopv2zcgKSAL5HQ+nP4HkFPAHaAHuJjfrlFADgLPVWdW/GedEbkYIPeAH7o0vQV+61BMRwEZAdatu0dKEZm2LQ4gWb3YwJSo7AzwHnjkBTHRDlnHfY0iaPd50ZQyYdBV4YZ1UpvnGeCJj58rwE/gHDAMbJjCThV6j/1qHwc5h2tD3h74+Kmy6s2Ud+QrjiqKOqBRldtp16NJ4IXVNszmNSpetSi1nw/L4OPAB6DWKrul+XZJfs2K+ra1U8xIr2maQ5UGXmvKVgRlIujHXT3ys650bkZ7yeX7pwRoBQaAbuAs8VWjj69BLVTfO2tRe1J/AL2p8yqrYb+jAAAAAElFTkSuQmCC" /> */}
-                                    <span class="ms-3 fontAlt">Vendor Users</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="shippers" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-
-                                    <span class="ms-3 fontAlt">Shipper Users</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="shippers" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                    {/* <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABO0lEQVR4nO2WMUoDQRiFP4UU1lpJ0E4LcwDvoGklyRkUGyWIzWIV7yAWCYIWaY1XEC3ExkbFG2ghYiBhZeAF/iIGZ3bWah48dv7ZfbNvZvbffyAhYTbmgDqwC6yqb0Xxtu7Pq70HLBMJi0AG3AG5+A1cAl+m7xa4N/EncAZsFTVwZAZ9A66AkeKR4hfzzCvQB8bGbCFkGqgHLKhvHdjX1aECtETXdlgzpqIYyAK0pRjYMVswjY9lG6gCJ0DnF7bKNuCDtAV52gJSFhAvDS+AA6DtwckWtKWtFTGQR+AQaBYx0AWe1X6a8Tecxq507yrx3gauFW+asuuLgbSunvwZxxK5WaCSHFrnT6U99BE1Iq7ATcgKLAEf5lAyOf08eGbEeeg3gErsMFIWuBUNQk0z6QTSaTdCX56QwH/gB8jK2Q60g4cpAAAAAElFTkSuQmCC" /> */}
-                                    <span class="ms-3 fontAlt">Quote Generator</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="shippers" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                    {/* <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4nGNgGAWDFRw+8cLiyKkXq6iJQWYS7YBjJ1+FHj318j81McjMUQcwDMkomDT36v/KttP/V2+5j8InBoPUDn0HHB3oKDg60A6YNNBRMGmgHXB0oKPg6EA7YNJAR8GkgXbA0YGOgqOjDjhFxyiwD9wSah+49T+leNQBR8mNArvAzX7UiIJDx15gOODI6Rf+RKSBzTrUcMD6bQ8xHHDoxDMtosoAu8Ct+yl1QFnzKVTfn3qxnSjLQcA+dD9PeMaB6YkFhx4l5B96TC7umX752J5DT9ceOf2i8NixR5xgw0fBYAMARsbrJhvHBncAAAAASUVORK5CYII=" /> */}
-                                    <span class="ms-3 fontAlt">Revenue Generated </span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="shippers" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                    {/* <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4nGNgGAWDFRw+8cLiyKkXq6iJQWYS7YBjJ1+FHj318j81McjMUQcwDMkomDT36v/KttP/V2+5j8InBoPUDn0HHB3oKDg60A6YNNBRMGmgHXB0oKPg6EA7YNJAR8GkgXbA0YGOgqOjDjhFxyiwD9wSah+49T+leNQBR8mNArvAzX7UiIJDx15gOODI6Rf+RKSBzTrUcMD6bQ8xHHDoxDMtosoAu8Ct+yl1QFnzKVTfn3qxnSjLQcA+dD9PeMaB6YkFhx4l5B96TC7umX752J5DT9ceOf2i8NixR5xgw0fBYAMARsbrJhvHBncAAAAASUVORK5CYII=" /> */}
-                                    <span class="ms-3 fontAlt">Contact </span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="shippers" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                    {/* <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4nGNgGAWDFRw+8cLiyKkXq6iJQWYS7YBjJ1+FHj318j81McjMUQcwDMkomDT36v/KttP/V2+5j8InBoPUDn0HHB3oKDg60A6YNNBRMGmgHXB0oKPg6EA7YNJAR8GkgXbA0YGOgqOjDjhFxyiwD9wSah+49T+leNQBR8mNArvAzX7UiIJDx15gOODI6Rf+RKSBzTrUcMD6bQ8xHHDoxDMtosoAu8Ct+yl1QFnzKVTfn3qxnSjLQcA+dD9PeMaB6YkFhx4l5B96TC7umX752J5DT9ceOf2i8NixR5xgw0fBYAMARsbrJhvHBncAAAAASUVORK5CYII=" /> */}
-                                    <span class="ms-3 fontAlt">Help </span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to="shippers" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                    {/* <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR4nGNgGAWDFRw+8cLiyKkXq6iJQWYS7YBjJ1+FHj318j81McjMUQcwDMkomDT36v/KttP/V2+5j8InBoPUDn0HHB3oKDg60A6YNNBRMGmgHXB0oKPg6EA7YNJAR8GkgXbA0YGOgqOjDjhFxyiwD9wSah+49T+leNQBR8mNArvAzX7UiIJDx15gOODI6Rf+RKSBzTrUcMD6bQ8xHHDoxDMtosoAu8Ct+yl1QFnzKVTfn3qxnSjLQcA+dD9PeMaB6YkFhx4l5B96TC7umX752J5DT9ceOf2i8NixR5xgw0fBYAMARsbrJhvHBncAAAAASUVORK5CYII=" /> */}
-                                    <span class="ms-3 fontAlt">Profile Setting </span>
-                                </Link>
-                            </li>
-
-
-                        </ul>
                     </div>
                 </aside>
 
