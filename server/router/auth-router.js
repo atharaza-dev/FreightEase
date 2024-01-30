@@ -3,10 +3,17 @@ const express = require('express');
 const router = express.Router();
 const authControllers = require('../controllers/auth-controller')
 var bodyParser = require('body-parser');
+const cors = require('cors');
 
 //? USING DEPENDENCIES
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
+
+router.use(cors({
+    origin: 'http://localhost:3000',
+    methods: "POST,GET,PUT,DELETE,PATCH,HEAD",
+    credentials: true,
+}));
 
 
 // * ----------------------------------------------------------

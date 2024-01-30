@@ -24,15 +24,9 @@ const shipper_registration = async (req, res) => {
     try {
         const { name, email, password } = req.body;
 
-        if (!name || !email || !password) {
-            return res.status(206).json({ msg: "Enter all details first!" });
-        }
-
         const shipperExists = await ShipperAccounts.findOne({ email });
 
-        if (shipperExists) {
-            return res.status(400).json({ msg: "Email already exists!" });
-        } else {
+        if (!shipperExists) {
             const ShipperAccCreated = await ShipperAccounts.create({ name, email, password });
             const token = await ShipperAccCreated.generateToken()
             res.status(201).json({
@@ -41,7 +35,8 @@ const shipper_registration = async (req, res) => {
                 userId: ShipperAccCreated._id.toString(),
             });
             console.log({ Shipper: ShipperAccCreated });
-            // console.table({Shipper: ShipperAccCreated});
+        } else {
+            return res.status(409).json({ msg: "Email already exists!" });
         }
     } catch (error) {
         res.status(500).send({ msg: "Internal Server Error" });

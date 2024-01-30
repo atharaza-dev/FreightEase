@@ -1,6 +1,6 @@
 // import dependencies
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,7 @@ import sidePic from '../../../../../assets/imgs/2.png'
 function ShipperRegistration() {
     document.title = "Registration";
 
+    const navigate = useNavigate();
     // const [isShipper, setRadioValue] = useState(true);
     // setRadioValue('');
 
@@ -36,8 +37,22 @@ function ShipperRegistration() {
         setCPass(e.target.value);
     }
 
-    const registrationHandler = (e) => {
+    const registrationHandler = async (e) => {
         e.preventDefault();
+
+        if (!name || !email || !password) {
+            return toast.warn('Enter all details first!', {
+                position: "top-center",
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: 'Bounce',
+            });
+        }
 
         const shipperAccObj = {
             // isShipper: isShipper,
@@ -46,59 +61,76 @@ function ShipperRegistration() {
             password: password,
         }
 
-        axios.post('http://localhost:8484/shipper-registration', shipperAccObj).then((res) => {
-            if (res.status === 101) {
-                toast.warning('Enter all details first!', {
-                    position: "top-right",
-                    autoClose: 8000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-            } else if (res.status === 402) {
-                toast.error(`This ${shipperAccObj.email} is already associated with another account!`, {
-                    position: "top-right",
-                    autoClose: 8000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-            } else if (res.status === 201) {
-                toast.success('Registration Successfull!', {
-                    position: "top-right",
-                    autoClose: 8000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-            } else {
-                toast.error('Registration Failed! Try Again', {
-                    position: "top-right",
-                    autoClose: 8000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
-                setName('');
-                setEmail('');
-                setPass('');
-                setCPass('');
-            }
-        }).catch(error => {
-            console.error(error);
+        console.table(shipperAccObj);
+
+        if (!(cPass === password)) {
+            return toast.warn('Confirm Password do not match!', {
+                position: "top-center",
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: 'Bounce',
+            });
+        }
+
+        fetch('http://localhost:5000/api/auth/shipper-register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(shipperAccObj)
         })
+            .then(response => {
+                if (response.status === 409) {
+                    toast.error('Email already exists in our database!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        transition: 'Bounce'
+                    });
+                } else if (response.status === 201) {
+                    toast.success('Registration Successful!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        transition: 'Bounce'
+                    });
+                    setName('');
+                    setEmail('');
+                    setPass('');
+                    setCPass('');
+                } else {
+                    toast.error('Error Occurred. Please try again!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        transition: 'Bounce'
+                    });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
     }
 
     return (
