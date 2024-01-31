@@ -50,10 +50,6 @@ const shipper_login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        if (!email || !password) {
-            return res.status(206).json({ msg: "Enter all details first!" });
-        }
-
         const checkShipperExist = await ShipperAccounts.findOne({ email });
         if (!checkShipperExist) {
             return res.status(404).json({ msg: "Shipper doesn't exist, Create One!" });

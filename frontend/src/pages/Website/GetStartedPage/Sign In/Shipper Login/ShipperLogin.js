@@ -28,6 +28,19 @@ function ShipperLogin() {
     const loginClickHandler = async (e) => {
         e.preventDefault();
 
+        if (!email || !password) {
+            return toast.warning('Fill all the details first!', {
+                position: "top-right",
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: "Bounce",
+            });
+        }
         const shipperAccObj = {
             // isShipper: isShipper,
             email: email,
@@ -35,62 +48,62 @@ function ShipperLogin() {
         }
         console.log(shipperAccObj);
 
-        axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res)=>{
-
-        }).catch(error => {
-            console.error(error);
-        })
-
-        axios.post('http://localhost:8484/shipper-login', shipperAccObj).then((res) => {
-            if (res.status === 100) {
-                toast.warning('Enter all details first!', {
+        fetch('http://localhost:5000/api/auth/shipper-login', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(shipperAccObj),
+        }).then((response) => {
+            if (response.status === 404) {
+                toast.error(`Account with these details doesn't exist in our database!`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    transition: "Bounce",
                 });
-            } else if (res.status === 404) {
-                toast.error(`Account with this ${shipperAccObj.email} email does not exist in the database!`, {
+            } else if (response.status === 201) {
+                toast.success('Logged In Successfyll!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    transition: "Bounce",
                 });
-            } else if (res.status === 401) {
-                toast.error('Log In Failed! Try Again', {
+            } else if (response.status === 401) {
+                toast.error(`Incorrect Password!`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    transition: "Bounce",
                 });
             } else {
-                toast.success('Successfully Logged In!', {
+                toast.error('Error Occured, Try Again!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    transition: "Bounce",
                 });
-                setEmail('');
-                setPass('');
             }
-        }).catch(error => {
-            console.error(error);
+        }).catch((error) => {
+            console.log(error);
         })
     }
 
