@@ -77,9 +77,6 @@ const shipper_login = async (req, res) => {
 const vendor_registration = async (req, res) => {
     try {
         const { name, CNIC, Phone, RegNumber, email, password } = req.body;
-        if (!name || !CNIC || !Phone || !RegNumber || !email || !password) {
-            return res.status(206).json({ msg: "Enter all details first!" });
-        }
 
         const VendorExist = await VendorAccounts.findOne({ email });
         if (VendorExist) {
@@ -109,10 +106,7 @@ const vendor_registration = async (req, res) => {
 const vendor_login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        if (!email || !password) {
-            return res.status(206).json({ msg: "Enter all details first!" });
-        }
-
+        
         const CheckVendorExist = await VendorAccounts.findOne({ email });
         if (!CheckVendorExist) {
             return res.status(404).json({ msg: "Vendor doesn't exist, Create One!" });

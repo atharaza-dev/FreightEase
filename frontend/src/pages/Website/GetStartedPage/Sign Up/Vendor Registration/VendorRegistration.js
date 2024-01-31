@@ -15,14 +15,9 @@ function VendorRegistration() {
     // const [isVendor, setRadioValue] = useState(true);
     // // setRadioValue('');
 
-    const [cName, setCName] = useState("");
-    const CompNameChangeHandler = (e) => {
-        setCName(e.target.value);
-    }
-
-    const [OwnName, setOwnName] = useState("");
+    const [name, setName] = useState("");
     const OwnerNameChangeHandler = (e) => {
-        setOwnName(e.target.value);
+        setName(e.target.value);
     }
 
     const [CNIC, setCNIC] = useState("");
@@ -30,9 +25,9 @@ function VendorRegistration() {
         setCNIC(e.target.value);
     }
 
-    const [NTN, setNTN] = useState("");
+    const [RegNumber, setReg] = useState("");
     const NTNChangeHandler = (e) => {
-        setNTN(e.target.value);
+        setReg(e.target.value);
     }
 
     const [Phone, setPhone] = useState("");
@@ -45,7 +40,7 @@ function VendorRegistration() {
         setEmail(e.target.value);
     }
 
-    const [Pass, setPass] = useState("");
+    const [password, setPass] = useState("");
     const PassChangeHandler = (e) => {
         setPass(e.target.value);
     }
@@ -59,22 +54,52 @@ function VendorRegistration() {
     const vendorRegistrationClick = async (e) => {
         e.preventDefault();
 
+        if (!name || !CNIC || !Phone || !RegNumber || !email || !password) {
+            return toast.warning('Fill all the details first!', {
+                position: "top-right",
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+
+        if (!(CPass === password)) {
+            return toast.warning('Confirm Password do no matched!', {
+                position: "top-right",
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+
         const vendorAccObj = {
             // isVendor: isVendor,
-            company_name: cName,
-            owner_name: OwnName,
-            email: email,
-            cnic: CNIC,
-            phone: Phone,
-            registration_number: NTN,
-            password: Pass
+            name,
+            CNIC,
+            Phone,
+            RegNumber,
+            email,
+            password,
 
         }
-        axios.post('http://localhost:8484/vendor-registration', vendorAccObj).then((res) => {
-            if (res.status === 204) {
-                toast.warning('Enter all details first!', {
+
+        fetch('http://localhost:5000/api/auth/vendor-register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(vendorAccObj),
+        }).then((response) => {
+            if (response.status === 400) {
+                toast.error('Email already exist in our database!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -82,19 +107,8 @@ function VendorRegistration() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (res.status === 403) {
-                toast.error(`This ${vendorAccObj.registration_number} is already associated with another account!`, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-            } else if (res.status === 500) {
-                toast.error('Registration Failed! Try Again', {
+            } else if (response.status === 201) {
+                toast.success('Vednor Registered Successfully!', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -105,7 +119,7 @@ function VendorRegistration() {
                     theme: "colored",
                 });
             } else {
-                toast.success('Registration Successfull!', {
+                toast.error('Error Occured, Try Again Later!', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -115,17 +129,11 @@ function VendorRegistration() {
                     progress: undefined,
                     theme: "colored",
                 });
-                setCName('');
-                setOwnName('');
-                setNTN('');
-                setCNIC('');
-                setEmail('');
-                setPass('');
-                setCPass('');
             }
-        }).catch(error => {
-            console.error(error);
+        }).catch((error) => {
+            console.log(error);
         })
+
     }
 
 
@@ -214,10 +222,6 @@ function VendorRegistration() {
                                     </label>
                                     <span class="ml-2 text-gray-700">Vendor</span>
                                 </div>
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="email" class="leading-7 text-sm text-gray-600">Company Name</label>
-                                    <input onChange={CompNameChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                                </div>
 
                                 <div class="col-span-6 sm:col-span-3">
                                     <label for="email" class="leading-7 text-sm text-gray-600">Owner Name</label>
@@ -234,7 +238,7 @@ function VendorRegistration() {
                                     <input onChange={PhoneChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
 
-                                <div class="col-span-6">
+                                <div class="col-span-6 sm:col-span-3">
                                     <label for="email" class="leading-7 text-sm text-gray-600">Registration Number</label>
                                     <input onChange={NTNChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>

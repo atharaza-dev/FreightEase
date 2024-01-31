@@ -14,9 +14,9 @@ function CustomerLogin() {
     // const [isVendor, setRadioValue] = useState(true);
     // setRadioValue('');
 
-    const [NTN, setNTN] = useState("");
-    const NTNChangeHandler = (e) => {
-        setNTN(e.target.value);
+    const [email, setEmail] = useState("");
+    const emailChangeHandler = (e) => {
+        setEmail(e.target.value);
     }
 
     const [password, setPass] = useState("");
@@ -27,16 +27,34 @@ function CustomerLogin() {
     const loginClickHandler = async (e) => {
         e.preventDefault();
 
+        if (!email || !password) {
+            return toast.warning('Fill all the details first!', {
+                position: "top-right",
+                autoClose: 8000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+
         const vendorAccObj = {
             // isVendor: isVendor,
-            registration_number: NTN,
-            password: password
+            email,
+            password,
         }
-        axios.post('http://localhost:8484/vendor-login', vendorAccObj).then((res) => {
-            if (res.status === 204) {
-                toast.warning('Enter all details first!', {
+
+        fetch('http://localhost:5000/api/auth/vendor-login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(vendorAccObj),
+        }).then((repsonse) => {
+            if (repsonse.status === 404) {
+                toast.error(`Vendor doesn't exist in our database!`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -44,10 +62,10 @@ function CustomerLogin() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (res.status === 404) {
-                toast.error(`This ${vendorAccObj.registration_number} does not associated with any account!`, {
+            } else if (repsonse.status === 401) {
+                toast.error('Invalid Credentials, Try Again!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -55,10 +73,10 @@ function CustomerLogin() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (res.status === 500) {
-                toast.error('Login In Failed! Try Again', {
+            } else if (repsonse.status === 201) {
+                toast.success('Vendor Successfully Logged In!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -67,22 +85,19 @@ function CustomerLogin() {
                     theme: "colored",
                 });
             } else {
-                toast.success('Successfully Logged In!', {
+                toast.error('An error occured, Try Again!', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 8000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                    theme: "light",
+                    theme: "colored",
                 });
-                setNTN('');
-                setPass('');
             }
-        }).catch(error => {
-            console.error(error);
-        })
+        }).catch((error) => { console.log(error) });
+
     }
 
     return (
@@ -171,7 +186,7 @@ function CustomerLogin() {
                                 </div>
                                 <div class="col-span-6">
                                     <label for="email" class="leading-7 text-sm text-gray-600">NTN Registration</label>
-                                    <input value={NTN} onChange={NTNChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    <input value={email} onChange={emailChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
 
                                 <div class="col-span-6">
