@@ -1,7 +1,8 @@
 /* Custom CSS */
 .sidebar {
     position: relative;
-    height: calc(100vh - 3rem); /* 100% viewport height minus top and bottom margins */
-    overflow-y: auto; /* Add scroll if content exceeds height */
-    border-radius: 23px;
+    height: 100vh;
+    /* 100% viewport height minus top and bottom margins */
+    overflow-y: auto;
+    position: fixed;
 }
