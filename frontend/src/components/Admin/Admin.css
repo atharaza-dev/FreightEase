@@ -1,8 +1,1 @@
-/* Custom CSS */
-.sidebar {
-    position: relative;
-    height: 100vh;
-    /* 100% viewport height minus top and bottom margins */
-    overflow-y: auto;
-    position: fixed;
-}
+
