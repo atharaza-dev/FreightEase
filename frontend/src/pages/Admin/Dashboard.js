@@ -1,31 +1,104 @@
 import React from 'react';
 import './AdminPage.css'
+import avatar from '../../assets/imgs/sil.png'
+import DTruck from '../../assets/imgs/3dtruck.png'
+import shipper from '../../assets/imgs/shipper.png'
+import quote from '../../assets/imgs/quote.png'
+import cash from '../../assets/imgs/cash.png'
+import poster from '../../assets/imgs/poster.png'
 
 function Dashboard() {
-    const posterHeight = 37; // Assuming the initial height of the poster div is 32
-    const contactHeight = 72; 
-
     return (
-        // <div className='content flex flex-col w-full sm:flex-row bg-red-900'>
-        //     <div className='flex-1 p-10 pl-16'>
-        //         <div className="title">
-        //             <h1 className="fontH1 sm:text-3xl font-semibold text-primColor1">#Welcome</h1>
-        //             <p className="heading2 font-bold sm:text-6xl tracking-wide">Athar Raza Saeedi</p>
-        //         </div>
-        //         <div className="flex flex-col w-full lg:flex-row lg:gap-8">
-        //             <div className="poster h-52 rounded-lg bg-gray-800 lg:w-4/5 my-4">poster</div>
-        //             <div className="contact h-72 rounded-lg bg-gray-800 lg:w-2/5 my-4">contact</div>
-        //         </div>
-
-        //         <div className="flex flex-col w-full lg:flex-row lg:gap-8">
-        //             <div className="sales rounded-lg bg-gray-800 lg:w-4/5" style={{ height: `calc(70 - ${posterHeight}px)` }}>sales</div>
-        //             <div className="h-48 rounded-lg bg-gray-800 lg:w-2/5 " style={{ height: `calc(70 - ${contactHeight}px)` }}>Revenue</div>
-        //         </div>
-        //     </div>
-        // </div>
         <>
-            <div className='bg-red-600 text-white'>content</div>
+
+            <div class="to flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-fuchsia-500 px-8 text-white shadow-lg">
+                <div class="my-10 lg:my-8 lg:w-1/2">
+                    <h1 class="text-4xl fontAlt tracking-wide">Good to see you back!</h1>
+                    <p class="mt-4 text-lg">FreightEase empowers administrators with comprehensive vendor and shipper management capabilities, streamlining the quote generation process for shipping goods.</p>
+                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore Website Now</button>
+                </div>
+                <div class="hidden h-60 w-1/2 flex-shrink-0 justify-end lg:flex">
+                    <img class="" src={avatar} alt="" />
+                </div>
+            </div>
+
+            <section class="mx-auto max-w-screen-xl text-gray-700">
+                <div class="mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="agrid-rows-[repeat(2,_minmax(1px,fit-content))] mt-6 grid grid-cols-1 gap-10 text-center sm:mx-auto sm:max-w-sm md:mt-20 md:h-[68rem] md:max-w-full md:grid-cols-2 md:grid-rows-5 md:text-left">
+
+                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                            <div class="text-center">
+                                <center>
+                                    <img src={DTruck} alt="" className='' />
+                                </center>
+                                <h3 class="text-4xl mt-4 font-semibold fontAlt">VENDOR CONNECT</h3>
+                                <p class="mt-6 text-base">Click now to explore and access the comprehensive VENDORS details, empowering
+                                    you to efficiently oversee and control their data.</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore VENDORS Now</button>
+                            </div>
+                        </div>
+
+                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                            <div class="text-center">
+                                <center>
+                                    <img src={quote} alt="" className='w-28' />
+                                </center>
+                                <h3 class="text-4xl mt-4 font-semibold fontAlt">Quote Generator</h3>
+                                <p class="mt-6 text-base">Click now to explore and access the comprehensive Quote Generator details, empowering
+                                    you to efficiently oversee and control their data.</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Quote Now</button>
+                            </div>
+                        </div>
+
+                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                            <div class="text-center">
+                                <center>
+                                    <img src={shipper} alt="" className='w-56' />
+                                </center>
+                                <h3 class="text-4xl mt-4 font-semibold fontAlt">SHIPPER CONNECT</h3>
+                                <p class="mt-6 text-base">Click now to explore and access the comprehensive SHIPPER details, empowering
+                                    you to efficiently oversee and control their data.</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore SHIPPERS Now</button>
+                            </div>
+                        </div>
+
+                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                            <div class="text-center">
+                                <center>
+                                    <img src={cash} alt="" className='w-48' />
+                                </center>
+                                <h3 class="text-4xl mt-4 font-semibold fontAlt">Revenue Stream</h3>
+                                <p class="mt-6 text-base">Click now to explore and access the comprehensive Revenue Streams details, empowering
+                                    you to efficiently oversee and control their data.</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Revenue Streams</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="my-10 mx-auto flex flex-col-reverse max-w-2xl rounded-xl border bg-gray-700 py-10 px-4 text-center sm:px-10 lg:max-w-screen-lg lg:flex-row lg:text-left">
+                <div class="mx-auto w-[15rem] max-w-full lg:mx-0 lg:w-[40rem]">
+                    <img class="h-full w-full object-contain" src={poster} alt="" />
+                </div>
+                <div class="lg:pl-10">
+                    <h1 class="mt-8 text-4xl font-bold fontAlt text-white md:text-5xl md:leading-snug">
+                        Subscribe to our <br class="hidden sm:block" />
+                        Newsletter and Services
+                    </h1>
+                    <p class="mt-4 text-lg fontAlt text-white">Subscribe to our newsletter for exclusive updates and dive deeper into our premium services for an enhanced experience. Join us on a journey of discovery!!</p>
+                    <div class="mt-16 flex flex-col rounded-md border bg-white sm:flex-row">
+                        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter e-mail' />
+                        <button class="m-2 shrink-0 rounded-md bg-red-600 px-8 py-3 font-medium text-white hover:bg-red-700 focus:bg-red-700 focus:outline-none">Get Now</button>
+                    </div>
+                </div>
+            </div>
+
         </>
+
+
+
     );
 }
 

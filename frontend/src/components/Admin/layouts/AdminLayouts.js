@@ -1,112 +1,93 @@
-import React from 'react'
-// import '../Admin.css'
+import React from 'react';
+import '../Admin.css'
 import { Link, Outlet } from 'react-router-dom'
-import adminLogo from '../../../assets/imgs/adminLogo.png'
+import logo from '../../../assets/imgs/logo.png'
 
 
 function AdminLayouts() {
-
     return (
-        <div>
-            {/* <div className='flex flex-col'>
+        <>
 
-                <div className='flex bg-gray-200 h-screen w-screen overflow-hidden z-50'>
+            <section class="min-h-screen">
 
-                    <div className='flex flex-column w-64'>
+                <aside class="fixed top-0 fontAlt bg-gray-900 left-0 h-screen w-64 pb-10 item-center justify-center overflow-x-hidden overflow-y-auto flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto">
 
-                        <aside class=" sidebar w-64 pt-4 flex flex-col px-4 py-8 bg-gray-800 border-r rtl:border-r-0 rtl:border-l dark:border-gray-700">
-                            <Link href="#">
-                                <img class="w-auto h-14" src={adminLogo} alt="" />
+                    <div class="flex flex-col justify-between flex-1 mt-12">
+                        <nav>
+
+                            <Link to='/admin' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-solid fa-house"></i>
+                                <span class="ml-4 font-medium">Dashboard</span>
                             </Link>
 
-                            <div class="flex flex-col fontAlt justify-between flex-1 mt-10">
-                                <nav class="flex-1 -mx-3 space-y-4 ">
+                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <span class="ml-4 font-medium">Vendors Connect</span>
+                            </Link>
 
-                                    <Link to='dashboard' class="flex items-center px-3 py-2 fontAlt tracking-extra-wide text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-white dark:hover:bg-gray-200 dark:hover:text-primColor1 hover:text-" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                                        </svg>
+                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-solid fa-users"></i>
+                                <span class="ml-4 font-medium">Shippers Connect</span>
+                            </Link>
 
-                                        <span class="mx-2 text-sm font-medium">Dashboard</span>
-                                    </Link>
+                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-solid fa-quote-right"></i>
+                                <span class="ml-4 font-medium">RTQ Generator</span>
+                            </Link>
 
-                                    <Link to='vendors' class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
-                                        </svg>
+                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-solid fa-sack-dollar"></i>
+                                <span class="ml-4 font-medium">Revenue</span>
+                            </Link>
 
-                                        <span class="mx-2 text-sm font-medium">Vendor Connect</span>
-                                    </Link>
+                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span class="ml-4 font-medium">Help & Support</span>
+                            </Link>
 
-                                    <Link to='shippers' class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
-                                        </svg>
+                            <Link to='/' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span class="ml-4 font-medium">Website</span>
+                            </Link>
 
-                                        <span class="mx-2 text-sm font-medium">Shippers</span>
-                                    </Link>
+                        </nav>
+                        <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <i class="fa-solid fa-gear"></i>
+                            <span class="ml-4 font-medium">Profile Settings</span>
+                        </Link>
+                    </div>
+                </aside>
 
-                                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
-                                        </svg>
+                <div class="transition md:ml-60 bg-zinc-100 z-999">
 
-                                        <span class="mx-2 text-sm font-medium">Quote Generator</span>
-                                    </a>
-
-                                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
-                                        </svg>
-
-                                        <span class="mx-2 text-sm font-medium">Total Revenue</span>
-                                    </a>
-
-                                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                                        </svg>
-
-                                        <span class="mx-2 text-sm font-medium">Help & Support</span>
-                                    </a>
-
-                                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        </svg>
-
-                                        <span class="mx-2 text-sm font-medium">Setting</span>
-                                    </a>
-                                </nav>
-
-                                <div class="mt-6">
-                                    <div class="flex items-center justify-between mt-6">
-                                        <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
-
-
-                                            <span class="mx-2 text-sm font-medium">Log Out / Log In</span>
-                                        </a>
-                                    </div>
-                                </div>
+                    <header class="fixed top-0 left-0 flex flex-row items-center justify-between w-full px-4 h-16 bg-gray-900 border-b border-gray-200">
+                        <Link to='/admin' class="flex">
+                            <img src={logo} alt="" className='w-48' />
+                        </Link>
+                        <div class="flex items-center gap-x-6">
+                            <i class="fa-solid fa-bell fa-lg text-gray-100"></i>
+                            <div class="relative">
+                                <img class="object-cover w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=100" alt="" />
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 absolute right-0.5 ring-1 ring-white bottom-0"></span>
                             </div>
-                        </aside>
+                        </div>
+                    </header>
 
+
+                    <div class="p-4 ml-4">
+                        <div class="mt-14 border-4 border-dashed rounded h-full">
+                            <Outlet />
+                        </div>
                     </div>
 
-                    <div className='flex-1'>
-                        <Header className='' />
-                    </div>
+                    <footer class="bottom-0 flex flex-row items-center justify-between w-full px-4 h-16 bg-gray-900">
+                       <p className='flex item-center text-white justify-center w-full tracking-wide'>Developed by Athar Raza</p>
+                    </footer>
+                </div >
 
-                </div>
+            </section >
 
-                <div className='flex flex-row'>
-                </div>
-                    <Outlet />
-
-            </div> */}
-        </div>
+        </>
     )
 }
 
