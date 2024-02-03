@@ -1,17 +1,22 @@
 import React from 'react'
+import shipper from '../../assets/imgs/shipper.png'
 
 function Shippers() {
     return (
         <>
             <section className="overflow-hidden">
-                <div className="sm:py-16 lg:pt-0 xl:pb-0">
-                    <div className="item-center justify-center">
-                        <h1 class="fontAlt sm:text-6xl mb-4 font-semibold text-gray-900"><span className='text-primColor1'>Shipper Managment </span></h1>
-                        {/* <p class="heading2 mb-8 leading-relaxed">At FreightEase, our Services page unveils a spectrum of tailored solutions designed to streamline your logistics needs. Explore our comprehensive offerings, from efficient trucking to seamless freight management. Experience reliability and excellence in every service we deliver.</p> */}
+                <h1 class="fontAlt sm:text-6xl mb-4 font-bold text-start text-gray-900"><span className='text-primColor1'>SHIPPERS</span></h1>
+                <div class="flex items-center justify-between bg-white px-8 text-white shadow-sm rounded-lg border-1">
+                    <div class="my-10 lg:my-8 lg:w-1/2">
+                        <h1 class="text-8xl font-bold fontAlt tracking-wide text-primColor1">453</h1>
+                        <p class="mt-2 text-lg text-gray-700">Shipper : Total number of registered shipper as users</p>
+                    </div>
+                    <div class="hidden h-22 w-1/2 flex-shrink-0 justify-end lg:flex">
+                        <img class="w-40" src={shipper} alt="pic" />
                     </div>
                 </div>
 
-                <div class="w-full overflow-x-auto fontAlt rounded-lg shadow-sm border-1 border-gray-250">
+                <div class="w-full overflow-x-auto fontAlt rounded-lg shadow-sm border-1 mt-4 border-gray-250">
 
                     <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
                         <div class="sm:flex items-center justify-between">
@@ -27,7 +32,7 @@ function Shippers() {
                             <table class="w-full text-left border-1 border-gray-300 relative overflow-x-auto shadow-md sm:rounded-lg">
                                 <tbody class='bg-white rounded-lg'>
                                     <tr class='rounded-lg text-sm text-gray-700 uppercase'>
-                                        <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Shipper Name</th>
+                                        <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Vendor Name</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">CNIC</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Email</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200"></th>
@@ -39,7 +44,7 @@ function Shippers() {
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
                                             <center>
-                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Shipper Details</button>
+                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
                                             </center>
                                         </td>
                                     </tr>

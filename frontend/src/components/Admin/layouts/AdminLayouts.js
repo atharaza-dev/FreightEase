@@ -32,17 +32,17 @@ function AdminLayouts() {
                                 <span class="ml-4 font-medium">Shippers Connect</span>
                             </Link>
 
-                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='quote' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-solid fa-quote-right"></i>
                                 <span class="ml-4 font-medium">RTQ Generator</span>
                             </Link>
 
-                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='revenue' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-solid fa-sack-dollar"></i>
                                 <span class="ml-4 font-medium">Revenue</span>
                             </Link>
 
-                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='invoice' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-solid fa-file-invoice"></i>
                                 <span class="ml-4 font-medium">Invoice Template</span>
                             </Link>
@@ -62,7 +62,7 @@ function AdminLayouts() {
 
                 <div class="transition md:ml-60" style={{ backgroundColor: "#F1F5F9" }}>
 
-                    <header class="fixed top-0 left-0 flex flex-row items-center justify-between w-full px-4 h-20 bg-white border-b-1 border-gray-250 shadow-sm rounded-m">
+                    <header class="fixed top-0 left-0 flex flex-row items-center justify-between w-full px-4 h-20 z-[6] bg-white border-b-1 border-gray-250 shadow-sm rounded-m">
                         <Link to='/admin' class="flex">
                             <img src={logo} alt="" className='w-48' />
                         </Link>

@@ -33,6 +33,9 @@ import AdminLayouts from './components/Admin/layouts/AdminLayouts';
 import Dashboard from './pages/Admin/Dashboard';
 import Vendors from './pages/Admin/Vendors';
 import Shippers from './pages/Admin/Shippers';
+import RTQ from './pages/Admin/RTQ';
+import Revenue from './pages/Admin/Revenue';
+import Invoice from './pages/Admin/Invoice';
 
 
 function App() {
@@ -65,6 +68,9 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path='vendors' element={<Vendors />} />
           <Route path='shippers' element={<Shippers />} />
+          <Route path='quote' element={<RTQ />} />
+          <Route path='revenue' element={<Revenue />} />
+          <Route path='invoice' element={<Invoice />} />
         </Route>
 
       </Routes>

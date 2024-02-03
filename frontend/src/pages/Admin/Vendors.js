@@ -1,18 +1,23 @@
 import React from 'react';
 import './AdminPage.css';
+import DTruck from '../../assets/imgs/3dtruck.png'
 
 function vendors() {
     return (
         <>
             <section className="overflow-hidden">
-                <div className="sm:py-16 lg:pt-0 xl:pb-0">
-                    <div className="item-center justify-center">
-                        <h1 class="fontAlt sm:text-6xl mb-4 font-semibold text-gray-900"><span className='text-primColor1'>Vendors Managment </span></h1>
-                        {/* <p class="heading2 mb-8 leading-relaxed">At FreightEase, our Services page unveils a spectrum of tailored solutions designed to streamline your logistics needs. Explore our comprehensive offerings, from efficient trucking to seamless freight management. Experience reliability and excellence in every service we deliver.</p> */}
+                <h1 class="fontAlt sm:text-6xl mb-4 font-bold text-start text-gray-900"><span className='text-primColor1'>VENDORS</span></h1>
+                <div class="flex items-center justify-between bg-white px-8 text-white shadow-sm rounded-lg border-1">
+                    <div class="my-10 lg:my-8 lg:w-1/2">
+                        <h1 class="text-8xl font-bold fontAlt tracking-wide text-primColor1">453</h1>
+                        <p class="mt-2 text-lg text-gray-700">Vendors : Total number of registered vendors as users</p>
+                    </div>
+                    <div class="hidden h-42 w-1/1 flex-shrink-0 justify-end lg:flex">
+                        <img class="" src={DTruck} alt="pic" />
                     </div>
                 </div>
 
-                <div class="w-full overflow-x-auto fontAlt rounded-lg shadow-sm border-1 border-gray-250">
+                <div class="w-full overflow-x-auto fontAlt rounded-lg shadow-sm border-1 mt-4 border-gray-250">
 
                     <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
                         <div class="sm:flex items-center justify-between">
