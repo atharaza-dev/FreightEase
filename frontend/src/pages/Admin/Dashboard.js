@@ -11,22 +11,58 @@ function Dashboard() {
     return (
         <>
 
-            <div class="to flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-fuchsia-500 px-8 text-white shadow-lg">
+            <div class="flex items-center bg-gradient-to-r from-blue-600 to-fuchsia-500 px-8 text-white shadow-md rounded-m border-1">
                 <div class="my-10 lg:my-8 lg:w-1/2">
                     <h1 class="text-4xl fontAlt tracking-wide">Good to see you back!</h1>
                     <p class="mt-4 text-lg">FreightEase empowers administrators with comprehensive vendor and shipper management capabilities, streamlining the quote generation process for shipping goods.</p>
                     <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore Website Now</button>
                 </div>
                 <div class="hidden h-60 w-1/2 flex-shrink-0 justify-end lg:flex">
-                    <img class="" src={avatar} alt="" />
+                    <img class="" src={avatar} alt="pic" />
+                </div>
+            </div>
+
+            <div class="px-1 mt-4 my-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
+                        <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full p-3 w-16 h-16">
+                            <i class="fa-solid fa-truck-fast fa-2xl text-white"></i>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total VENDORS</p>
+                            <p class="text-gray-600 text-lg mt-1">1,200</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
+                        <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full p-3 w-16 h-16">
+                            <i class="fa-solid fa-users fa-2xl text-white"></i>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total SHIPPERS</p>
+                            <p class="text-gray-600 text-lg mt-1">1,129</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
+                        <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full p-3 w-16 h-16">
+                            <i class="fa-solid fa-sack-dollar fa-2xl text-white"></i>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total REVENUE</p>
+                            <p class="text-gray-600 text-lg mt-1">$ 25000</p>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
 
             <section class="mx-auto max-w-screen-xl text-gray-700">
-                <div class="mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="agrid-rows-[repeat(2,_minmax(1px,fit-content))] mt-6 grid grid-cols-1 gap-10 text-center sm:mx-auto sm:max-w-sm md:mt-20 md:h-[68rem] md:max-w-full md:grid-cols-2 md:grid-rows-5 md:text-left">
+                <div class="mx-auto">
+                    <div class="agrid-rows-[repeat(2,_minmax(1px,fit-content))]  mx-1 grid grid-cols-1 gap-6 text-center mt-6 md:h-[68rem] md:max-w-full md:grid-cols-2 md:grid-rows-5 md:text-left">
 
-                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={DTruck} alt="" className='' />
@@ -38,7 +74,7 @@ function Dashboard() {
                             </div>
                         </div>
 
-                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={quote} alt="" className='w-28' />
@@ -50,7 +86,7 @@ function Dashboard() {
                             </div>
                         </div>
 
-                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={shipper} alt="" className='w-56' />
@@ -62,7 +98,7 @@ function Dashboard() {
                             </div>
                         </div>
 
-                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-xl shadow-md">
+                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={cash} alt="" className='w-48' />

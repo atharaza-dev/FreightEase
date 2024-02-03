@@ -32,6 +32,7 @@ import TCPage from './pages/Website/TCPage';
 import AdminLayouts from './components/Admin/layouts/AdminLayouts';
 import Dashboard from './pages/Admin/Dashboard';
 import Vendors from './pages/Admin/Vendors';
+import Shippers from './pages/Admin/Shippers';
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
         <Route path='/admin' element={<AdminLayouts />}>
           <Route index element={<Dashboard />} />
           <Route path='vendors' element={<Vendors />} />
+          <Route path='shippers' element={<Shippers />} />
         </Route>
 
       </Routes>

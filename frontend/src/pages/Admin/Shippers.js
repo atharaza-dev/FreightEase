@@ -2,66 +2,112 @@ import React from 'react'
 
 function Shippers() {
     return (
-        <div className='flex flex-col w-full sm:flex-row'>
-            <div className='flex-1 p-10 pl-16'>
-                <div className="title">
-                    <h1 className="fontH1 sm:text-3xl font-semibold text-primColor1">#Shippers</h1>
-                    <p className="heading2 font-bold sm:text-6xl tracking-wide">Total numbers of Shippers</p>
+        <>
+            <section className="overflow-hidden">
+                <div className="sm:py-16 lg:pt-0 xl:pb-0">
+                    <div className="item-center justify-center">
+                        <h1 class="fontAlt sm:text-6xl mb-4 font-semibold text-gray-900"><span className='text-primColor1'>Shipper Managment </span></h1>
+                        {/* <p class="heading2 mb-8 leading-relaxed">At FreightEase, our Services page unveils a spectrum of tailored solutions designed to streamline your logistics needs. Explore our comprehensive offerings, from efficient trucking to seamless freight management. Experience reliability and excellence in every service we deliver.</p> */}
+                    </div>
                 </div>
 
-                <div className="container py-12 px-4 mx-auto"> {/* Added a wrapping div with padding */}
-                    <table className="table-auto w-full text-left whitespace-no-wrap">
-                        <thead>
-                            <tr>
-                                <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-600 rounded-tl rounded-bl">Plan</th>
-                                <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-600">Speed</th>
-                                <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-600">Storage</th>
-                                <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-600">Price</th>
-                                <th className="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-600 rounded-tr rounded-br">Manage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">Business</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">36 Mb/s</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">40 GB</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">$50</td>
-                                <td className="border-t-2 border-gray-200 w-10 text-center">
-                                    <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">Business</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">36 Mb/s</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">40 GB</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">$50</td>
-                                <td className="border-t-2 border-gray-200 w-10 text-center">
-                                    <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">Business</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">36 Mb/s</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">40 GB</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">$50</td>
-                                <td className="border-t-2 border-gray-200 w-10 text-center">
-                                    <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">Business</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">36 Mb/s</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3">40 GB</td>
-                                <td className="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">$50</td>
-                                <td className="border-t-2 border-gray-200 w-10 text-center">
-                                    <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="w-full overflow-x-auto fontAlt rounded-lg shadow-sm border-1 border-gray-250">
+
+                    <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
+                        <div class="sm:flex items-center justify-between">
+                            <div class="flex w-full">
+                                <input class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 mr-2 sm:mr-12 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out inline-block" placeholder='Enter particular to search for vendor...' />
+                            </div>
+                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 sm:mt-0 inline-flex items-center justify-center px-6 py-2 bg-primColor1 text-white hover:bg-indigo-600 focus:outline-none rounded">
+                                Search
+                            </button>
+                        </div>
+
+                        <div class="mt-7 overflow-x-auto">
+                            <table class="w-full text-left border-1 border-gray-300 relative overflow-x-auto shadow-md sm:rounded-lg">
+                                <tbody class='bg-white rounded-lg'>
+                                    <tr class='rounded-lg text-sm text-gray-700 uppercase'>
+                                        <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Shipper Name</th>
+                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">CNIC</th>
+                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Email</th>
+                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200"></th>
+                                    </tr>
+
+                                    <tr class='rounded-lg'>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                                            <center>
+                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Shipper Details</button>
+                                            </center>
+                                        </td>
+                                    </tr>
+
+                                    <tr class='rounded-lg'>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                                            <center>
+                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                            </center>
+                                        </td>
+                                    </tr>
+
+                                    <tr class='rounded-lg'>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                                            <center>
+                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                            </center>
+                                        </td>
+                                    </tr>
+
+                                    <tr class='rounded-lg'>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                                            <center>
+                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                            </center>
+                                        </td>
+                                    </tr>
+
+                                    <tr class='rounded-lg'>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                                            <center>
+                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                            </center>
+                                        </td>
+                                    </tr>
+
+                                    <tr class='rounded-lg'>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                                            <center>
+                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                            </center>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-        </div>
+
+            </section >
+        </>
     )
 }
 
