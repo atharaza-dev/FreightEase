@@ -36,6 +36,8 @@ import Shippers from './pages/Admin/Shippers';
 import RTQ from './pages/Admin/RTQ';
 import Revenue from './pages/Admin/Revenue';
 import Invoice from './pages/Admin/Invoice';
+import Help from './pages/Admin/Help';
+import ProfileSettings from './pages/Admin/ProfileSettings';
 
 
 function App() {
@@ -71,6 +73,8 @@ function App() {
           <Route path='quote' element={<RTQ />} />
           <Route path='revenue' element={<Revenue />} />
           <Route path='invoice' element={<Invoice />} />
+          <Route path='help' element={<Help />} />
+          <Route path='profile-settings' element={<ProfileSettings />} />
         </Route>
 
       </Routes>

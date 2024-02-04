@@ -47,13 +47,13 @@ function AdminLayouts() {
                                 <span class="ml-4 font-medium">Invoice Template</span>
                             </Link>
 
-                            <Link to='/' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='help' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-solid fa-circle-info"></i>
                                 <span class="ml-4 font-medium">Help & Support</span>
                             </Link>
 
                         </nav>
-                        <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                        <Link to='profile-settings' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                             <i class="fa-solid fa-gear"></i>
                             <span class="ml-4 font-medium">Profile Settings</span>
                         </Link>
@@ -73,12 +73,13 @@ function AdminLayouts() {
                             </Link>
                             <div class="flex relative items-center">
                                 <div class="mr-3 justify-end">
-                                    <p class="text-m font-semibold text-end fontAlt">Athar Raza Saeedi</p>
+                                    <p class="text-m text-end fontAlt">Athar Raza Saeedi</p>
                                     <p class="text-sm text-gray-600 text-end fontAlt">ADMIN</p>
                                 </div>
                                 <div class="relative">
-                                    <img class="object-cover w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=100" alt="" />
-                                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 absolute right-0.5 ring-1 ring-white bottom-0"></span>
+                                    <span class="inline-flex items-center justify-center h-[2.875rem] w-[2.875rem] text-sm font-semibold leading-none rounded-full bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">
+                                        AT
+                                    </span>
                                 </div>
 
                             </div>
