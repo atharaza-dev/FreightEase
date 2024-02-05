@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './AdminPage.css'
 import avatar from '../../assets/imgs/sil.png'
 import DTruck from '../../assets/imgs/3dtruck.png'
@@ -15,7 +16,9 @@ function Dashboard() {
                 <div class="my-10 lg:my-8 lg:w-1/2">
                     <h1 class="text-4xl fontAlt tracking-wide">Good to see you back!</h1>
                     <p class="mt-4 text-lg">FreightEase empowers administrators with comprehensive vendor and shipper management capabilities, streamlining the quote generation process for shipping goods.</p>
-                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore Website Now</button>
+                    <Link to='/'>
+                        <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore Website Now</button>
+                    </Link>
                 </div>
                 <div class="hidden h-60 w-1/2 flex-shrink-0 justify-end lg:flex">
                     <img class="" src={avatar} alt="pic" />
@@ -54,7 +57,7 @@ function Dashboard() {
                             <p class="text-gray-600 text-lg mt-1">$ 25000</p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 

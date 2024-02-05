@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../../assets/imgs/logo.png';
-
+import { useAuth } from '../../../store/AuthContext';
 function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState(null);
     const dropdownRef = useRef(null);
+
+    const { isLoggedIn } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -129,13 +131,18 @@ function Navbar() {
                     </Link>
                 </div>
 
-                {/* Button for medium and larger screens */}
-                <Link
-                    to='/shipper-registration'
+                {/* toggling the logout and login button */}
+                {isLoggedIn ? (<Link
+                    to='/logout'
                     className="hidden md:block text-white bg-indigo-600 border-1 border-indigo-600 rounded-full px-4 py-2 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
-                    Get Started Now
-                </Link>
-
+                    Log Out
+                </Link>) : (
+                    <Link
+                        to='/shipper-registration'
+                        className="hidden md:block text-white bg-indigo-600 border-1 border-indigo-600 rounded-full px-4 py-2 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
+                        Get Started Now
+                    </Link>
+                )}
             </div>
 
             {/* Responsive dropdown menu */}

@@ -1,7 +1,6 @@
 // import dependencies
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,6 +13,7 @@ import sidePic from '../../../../../assets/imgs/2.png'
 function ShipperLogin() {
     document.title = "Sign In";
 
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const emailChangeHandler = (e) => {
         setEmail(e.target.value);
@@ -24,7 +24,7 @@ function ShipperLogin() {
         setPass(e.target.value);
     }
 
-    const storeToken = useAuth();
+    const { storeToken } = useAuth();
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
@@ -79,6 +79,7 @@ function ShipperLogin() {
                 });
                 const ress = await response.json();
                 storeToken(ress.token);
+                // navigate('/');
             } else if (response.status === 401) {
                 toast.error(`Incorrect Password!`, {
                     position: "top-right",

@@ -38,6 +38,7 @@ import Revenue from './pages/Admin/Revenue';
 import Invoice from './pages/Admin/Invoice';
 import Help from './pages/Admin/Help';
 import ProfileSettings from './pages/Admin/ProfileSettings';
+import Logout from './pages/Website/Logout';
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
         <Route exact path='/vehicles-list' element={<VehicleListPage />} />
         <Route exact path='/vehicle-frame' element={<VehicleFramePage />} />
         <Route exact path='/terms-and-conditions' element={<TCPage />} />
+        <Route path='/logout' element={<Logout />} />
         <Route exact path='*' element={<ErrorPage />} />
 
         {/* Admin Panel Nested Routes */}
@@ -81,7 +83,7 @@ function App() {
 
       <FooterContainer>
         <Footer></Footer>
-      </FooterContainer>      
+      </FooterContainer>
     </>
   );
 }
