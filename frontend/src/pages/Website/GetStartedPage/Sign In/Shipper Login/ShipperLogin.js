@@ -5,15 +5,14 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//importing Context API
+import { useAuth } from '../../../../../store/AuthContext';
 // importing Assets
 import sidePic from '../../../../../assets/imgs/2.png'
 
 
 function ShipperLogin() {
     document.title = "Sign In";
-
-    // const [isShipper, setRadioValue] = useState(true);
-    // setRadioValue('');
 
     const [email, setEmail] = useState("");
     const emailChangeHandler = (e) => {
@@ -24,6 +23,8 @@ function ShipperLogin() {
     const passChangeHandler = (e) => {
         setPass(e.target.value);
     }
+
+    const storeToken = useAuth();
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
@@ -42,17 +43,18 @@ function ShipperLogin() {
             });
         }
         const shipperAccObj = {
-            // isShipper: isShipper,
             email: email,
             password: password,
         }
         console.log(shipperAccObj);
 
-        fetch('http://localhost:5000/api/auth/shipper-login', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(shipperAccObj),
-        }).then((response) => {
+        try {
+            const response = await fetch('http://localhost:5000/api/auth/shipper-login', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(shipperAccObj),
+            });
+
             if (response.status === 404) {
                 toast.error(`Account with these details doesn't exist in our database!`, {
                     position: "top-right",
@@ -63,10 +65,9 @@ function ShipperLogin() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                    transition: "Bounce",
                 });
             } else if (response.status === 201) {
-                toast.success('Logged In Successfyll!', {
+                toast.success('Logged In Successfully!', {
                     position: "top-right",
                     autoClose: 8000,
                     hideProgressBar: false,
@@ -75,8 +76,9 @@ function ShipperLogin() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                    transition: "Bounce",
                 });
+                const ress = await response.json();
+                storeToken(ress.token);
             } else if (response.status === 401) {
                 toast.error(`Incorrect Password!`, {
                     position: "top-right",
@@ -87,10 +89,9 @@ function ShipperLogin() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                    transition: "Bounce",
                 });
             } else {
-                toast.error('Error Occured, Try Again!', {
+                toast.error('Error Occurred, Try Again!', {
                     position: "top-right",
                     autoClose: 8000,
                     hideProgressBar: false,
@@ -99,13 +100,13 @@ function ShipperLogin() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                    transition: "Bounce",
                 });
             }
-        }).catch((error) => {
+        } catch (error) {
             console.log(error);
-        })
+        }
     }
+
 
     return (
         <>

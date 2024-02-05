@@ -5,6 +5,9 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//importing Context API
+import { useAuth } from '../../../../../store/AuthContext';
+ 
 // importing Assets
 import './CustomerReg.css'
 import sidePic from '../../../../../assets/imgs/2.png'
@@ -14,8 +17,6 @@ function ShipperRegistration() {
     document.title = "Registration";
 
     const navigate = useNavigate();
-    // const [isShipper, setRadioValue] = useState(true);
-    // setRadioValue('');
 
     const [name, setName] = useState("");
     const nameChangeHandler = (e) => {
@@ -37,6 +38,8 @@ function ShipperRegistration() {
         setCPass(e.target.value);
     }
 
+    const storeToken = useAuth();
+
     const registrationHandler = async (e) => {
         e.preventDefault();
 
@@ -49,13 +52,11 @@ function ShipperRegistration() {
                 pauseOnHover: false,
                 draggable: true,
                 progress: undefined,
-                theme: "colored",
-                transition: 'Bounce',
+                theme: "colored",   
             });
         }
 
         const shipperAccObj = {
-            // isShipper: isShipper,
             name: name,
             email: email,
             password: password,
@@ -73,65 +74,63 @@ function ShipperRegistration() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                transition: 'Bounce',
             });
         }
 
-        fetch('http://localhost:5000/api/auth/shipper-register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(shipperAccObj)
-        })
-            .then(response => {
-                if (response.status === 409) {
-                    toast.error('Email already exists in our database!', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: false,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                        transition: 'Bounce'
-                    });
-                } else if (response.status === 201) {
-                    toast.success('Registration Successful!', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: false,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                        transition: 'Bounce'
-                    });
-                    setName('');
-                    setEmail('');
-                    setPass('');
-                    setCPass('');
-                } else {
-                    toast.error('Error Occurred. Please try again!', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: false,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "colored",
-                        transition: 'Bounce'
-                    });
-                }
-            })
-            .catch(error => {
-                console.log(error);
+        try {
+            const response = await fetch('http://localhost:5000/api/auth/shipper-register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(shipperAccObj)
             });
 
+            if (response.status === 409) {
+                toast.error('Email already exists in our database!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            } else if (response.status === 201) {
+                toast.success('Registration Successful!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                const ress = await response.json();
+                storeToken(ress.token);
+                setName('');
+                setEmail('');
+                setPass('');
+                setCPass('');
+            } else {
+                toast.error('Error Occurred. Please try again!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
+
 
     return (
         <>
