@@ -106,7 +106,7 @@ const vendor_registration = async (req, res) => {
 const vendor_login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        
+
         const CheckVendorExist = await VendorAccounts.findOne({ email });
         if (!CheckVendorExist) {
             return res.status(404).json({ msg: "Vendor doesn't exist, Create One!" });
@@ -129,4 +129,25 @@ const vendor_login = async (req, res) => {
 }
 // * ----------------------------------------------------------
 
-module.exports = { server_homepage, shipper_registration, shipper_login, vendor_registration, vendor_login };
+
+// * ----------------------------------------------------------
+//! Sending the User Data of currently logged in
+const user = async (req, res) => {
+    try {
+        const userData = req.user;
+        return res.status(200).json({success: userData});
+    } catch (error) {
+        console.log('Error from route', error);
+    }
+}
+// * ----------------------------------------------------------
+
+
+module.exports = {
+    server_homepage,
+    shipper_registration,
+    shipper_login,
+    vendor_registration,
+    vendor_login,
+    user,
+};

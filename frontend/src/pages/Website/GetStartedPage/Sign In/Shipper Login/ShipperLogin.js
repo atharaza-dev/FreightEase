@@ -79,7 +79,7 @@ function ShipperLogin() {
                 });
                 const ress = await response.json();
                 storeToken(ress.token);
-                // navigate('/');
+                navigate('/');
             } else if (response.status === 401) {
                 toast.error(`Incorrect Password!`, {
                     position: "top-right",

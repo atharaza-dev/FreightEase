@@ -4,6 +4,8 @@ const router = express.Router();
 const authControllers = require('../controllers/auth-controller')
 var bodyParser = require('body-parser');
 const cors = require('cors');
+const authMiddleware = require('../middleware/authMiddleware');
+
 
 //? USING DEPENDENCIES
 router.use(bodyParser.json());
@@ -17,7 +19,7 @@ router.use(cors({
 
 
 // * ----------------------------------------------------------
-//! MAIN SERVER CODE LOGIC
+//! MAIN SERVER ROUTE
 router.route('/').get(authControllers.server_homepage);
 
 // * ----------------------------------------------------------
@@ -25,25 +27,29 @@ router.route('/').get(authControllers.server_homepage);
 
 
 // * ----------------------------------------------------------
-//! SHIPPER REGISTRATION CODE LOGIC
+//! SHIPPER REGISTRATION ROUTE
 router.route('/shipper-register').post(authControllers.shipper_registration);
 // * ----------------------------------------------------------
 
 // * ----------------------------------------------------------
-//! SHIPPER LOGIN CODE LOGIC
+//! SHIPPER LOGIN ROUTE
 router.route('/shipper-login').post(authControllers.shipper_login);
 // * ----------------------------------------------------------
 
 // * ----------------------------------------------------------
-//! VENDOR REGISTRATION CODE LOGIC
+//! VENDOR REGISTRATION ROUTE
 router.route('/vendor-register').post(authControllers.vendor_registration);
 // * ----------------------------------------------------------
 
 // * ----------------------------------------------------------
-//! VENDOR REGISTRATION CODE LOGIC
+//! VENDOR REGISTRATION ROUTE
 router.route('/vendor-login').post(authControllers.vendor_login);
 // * ----------------------------------------------------------
 
+// * ----------------------------------------------------------
+//! USER VERIFICTAION ROUTE
+router.route('/user').get(authMiddleware, authControllers.user);
+// * ----------------------------------------------------------
 
 
 
