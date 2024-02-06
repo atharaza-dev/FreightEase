@@ -51,6 +51,9 @@ router.route('/vendor-login').post(authControllers.vendor_login);
 router.route('/user').get(authMiddleware, authControllers.user);
 // * ----------------------------------------------------------
 
-
+// * ----------------------------------------------------------
+//! ADMIN LOGIN ROUTE
+router.route('/admin-login').post(authControllers.admin_login);
+// * -------------
 
 module.exports = router;

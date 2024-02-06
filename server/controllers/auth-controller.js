@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 //* REQUIRING Models
 const ShipperAccounts = require('../models/shipper-model')
 const VendorAccounts = require('../models/vendor-model')
+const AdminAccounts = require('../models/admin-model');
 
 
 // * ----------------------------------------------------------
@@ -135,13 +136,69 @@ const vendor_login = async (req, res) => {
 const user = async (req, res) => {
     try {
         const userData = req.user;
-        return res.status(200).json({success: userData});
+        return res.status(200).json({ success: userData });
     } catch (error) {
         console.log('Error from route', error);
     }
 }
 // * ----------------------------------------------------------
 
+// * ----------------------------------------------------------
+//? un comment the register route if you want to create a admin account and add it in modules and create a new route.
+//! ADMIN REGISTRATION CODE LOGIC
+// const adminReg = async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+
+//         const AdminAccExists = await AdminAccounts.findOne({ email });
+//         if (AdminAccExists) {
+//             return res.status(400).json({ msg: "ADMIN already exists!" });
+//         } else {
+//             const AdminaccCreated = await AdminAccounts.create({ email, password });
+//             const token = await AdminaccCreated.generateToken(); // Assuming this is an async operation
+
+//             // Sending the response after all async operations are completed
+//             res.status(201).json({
+//                 msg: "ADMIN Registration Successful",
+//                 token: token,
+//                 userId: AdminaccCreated._id.toString(),
+//             });
+//             console.log({ ADMIN: AdminaccCreated });
+//         }
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ msg: "Internal Server Error" });
+//     }
+// }
+// * ----------------------------------------------------------
+
+// * ----------------------------------------------------------
+//! ADMIN LOGIN CODE LOGIC
+const admin_login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const checkAdminExits = await AdminAccounts.findOne({ email });
+        if (!checkAdminExits) {
+            return res.status(404).json({ msg: "Admin doesn't exist, Contact to Super Admin!" });
+        }
+
+        const adminFound = await bcrypt.compare(password, checkAdminExits.password);
+        if (adminFound) {
+            res.status(201).json({
+                msg: "ADMIN Logged In Successfully!",
+                token: await checkAdminExits.generateToken(),
+                userId: checkAdminExits._id.toString(),
+            });
+        } else {
+            res.status(401).json({ msg: "Invalid Credentials" });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Internal Server Error" });
+    }
+}
+// * ----------------------------------------------------------
 
 module.exports = {
     server_homepage,
@@ -150,4 +207,5 @@ module.exports = {
     vendor_registration,
     vendor_login,
     user,
+    admin_login
 };

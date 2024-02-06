@@ -27,6 +27,7 @@ import VehicleListPage from './pages/Website/VehicleListPage/VehicleListPage';
 import VehicleFramePage from './pages/Website/VehicleListPage/VehicleFramePage';
 import ErrorPage from './pages/Website/ErrorPage';
 import TCPage from './pages/Website/TCPage';
+import Logout from './pages/Website/Logout';
 
 // * Importing Admin Pages
 import AdminLayouts from './components/Admin/layouts/AdminLayouts';
@@ -38,7 +39,7 @@ import Revenue from './pages/Admin/Revenue';
 import Invoice from './pages/Admin/Invoice';
 import Help from './pages/Admin/Help';
 import ProfileSettings from './pages/Admin/ProfileSettings';
-import Logout from './pages/Website/Logout';
+import AdminLogin from './pages/AdminLogin';
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
         <Route exact path='*' element={<ErrorPage />} />
 
         {/* Admin Panel Nested Routes */}
+        <Route exact path='/admin-login' element={<AdminLogin />} />
         <Route path='/admin' element={<AdminLayouts />}>
           <Route index element={<Dashboard />} />
           <Route path='vendors' element={<Vendors />} />

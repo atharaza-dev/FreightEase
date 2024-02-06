@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../../assets/imgs/logo.png';
-import { useAuth } from '../../../store/AuthContext';
+import { useAuth } from '../../../data/AuthContext';
 function Navbar() {
     const [scrolling, setScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);

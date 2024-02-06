@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //importing Context API
-import { useAuth } from '../../../../../store/AuthContext';
+import { useAuth } from '../../../../../data/AuthContext';
 // importing Assets
 import sidePic from '../../../../../assets/imgs/2.png'
 
