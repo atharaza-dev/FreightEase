@@ -40,6 +40,7 @@ import Invoice from './pages/Admin/Invoice';
 import Help from './pages/Admin/Help';
 import ProfileSettings from './pages/Admin/ProfileSettings';
 import AdminLogin from './pages/AdminLogin';
+import EditVendors from './pages/Admin/EditVendors';
 
 
 function App() {
@@ -72,7 +73,8 @@ function App() {
         <Route exact path='/admin-login' element={<AdminLogin />} />
         <Route path='/admin' element={<AdminLayouts />}>
           <Route index element={<Dashboard />} />
-          <Route path='vendors' element={<Vendors />} />
+          <Route path='vendors' element={<Vendors />}/>
+          <Route path='vendors/:id/' element={<EditVendors />} />
           <Route path='shippers' element={<Shippers />} />
           <Route path='quote' element={<RTQ />} />
           <Route path='revenue' element={<Revenue />} />
@@ -80,6 +82,7 @@ function App() {
           <Route path='help' element={<Help />} />
           <Route path='profile-settings' element={<ProfileSettings />} />
         </Route>
+
 
       </Routes>
 

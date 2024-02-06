@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './AdminPage.css';
 import DTruck from '../../assets/imgs/3dtruck.png'
 
@@ -27,6 +28,8 @@ function vendors() {
                             <button class="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 sm:mt-0 inline-flex items-center justify-center px-6 py-2 bg-primColor1 text-white hover:bg-indigo-600 focus:outline-none rounded">
                                 Search
                             </button>
+
+
                         </div>
 
                         <div class="mt-7 overflow-x-auto">
@@ -45,7 +48,7 @@ function vendors() {
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
                                             <center>
-                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                                <Link to='1' className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</Link>
                                             </center>
                                         </td>
                                     </tr>
@@ -56,7 +59,7 @@ function vendors() {
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
                                             <center>
-                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                                <Link to='2' className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</Link>
                                             </center>
                                         </td>
                                     </tr>
@@ -67,40 +70,7 @@ function vendors() {
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
                                             <center>
-                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
-                                            </center>
-                                        </td>
-                                    </tr>
-
-                                    <tr class='rounded-lg'>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
-                                            <center>
-                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
-                                            </center>
-                                        </td>
-                                    </tr>
-
-                                    <tr class='rounded-lg'>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
-                                            <center>
-                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
-                                            </center>
-                                        </td>
-                                    </tr>
-
-                                    <tr class='rounded-lg'>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
-                                            <center>
-                                                <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</button>
+                                                <Link to='3' className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</Link>
                                             </center>
                                         </td>
                                     </tr>

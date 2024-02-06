@@ -1,13 +1,12 @@
 // import dependencies
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //importing Context API
 import { useAuth } from '../../../../../data/AuthContext';
- 
+
 // importing Assets
 import './CustomerReg.css'
 import sidePic from '../../../../../assets/imgs/2.png'
@@ -15,8 +14,6 @@ import sidePic from '../../../../../assets/imgs/2.png'
 
 function ShipperRegistration() {
     document.title = "Registration";
-
-    const navigate = useNavigate();
 
     const [name, setName] = useState("");
     const nameChangeHandler = (e) => {
@@ -52,7 +49,7 @@ function ShipperRegistration() {
                 pauseOnHover: false,
                 draggable: true,
                 progress: undefined,
-                theme: "colored",   
+                theme: "colored",
             });
         }
 
