@@ -86,7 +86,7 @@ function Navbar() {
                             className="mr-3 text-gray-200 focus:outline-none"
                         >
                             Services
-                            <span className="caret">&#11183;</span>
+                            <span className="caret">&#9662;</span>
                         </button>
                         {menuOpen && (
                             <div ref={dropdownRef} className="absolute bg-white w-[300px] mt-2 p-2 px-4 rounded-md shadow-md">
