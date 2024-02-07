@@ -63,9 +63,9 @@ function Help() {
                                 <div class="grow">
                                     <h3 class="font-semibold text-gray-800">Knowledgebase</h3>
                                     <p class="mt-1 text-sm text-gray-500">We're here to help with any questions or code.</p>
-                                    <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
+                                    <p class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
                                         Contact support
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
                             <div class="flex gap-x-7 py-6">
@@ -73,9 +73,9 @@ function Help() {
                                 <div class="grow">
                                     <h3 class="font-semibold text-gray-800">FAQ</h3>
                                     <p class="mt-1 text-sm text-gray-500">Search our FAQ for answers to anything you might ask.</p>
-                                    <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
+                                    <p class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
                                         Visit FAQ
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
                             <div class=" flex gap-x-7 py-6">
@@ -83,9 +83,9 @@ function Help() {
                                 <div class="grow">
                                     <h3 class="font-semibold text-gray-800">Developer APIs</h3>
                                     <p class="mt-1 text-sm text-gray-500">Check out our development quickstart guide.</p>
-                                    <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
+                                    <p class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
                                         Contact sales
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
                             <div class=" flex gap-x-7 py-6">
@@ -93,9 +93,9 @@ function Help() {
                                 <div class="grow">
                                     <h3 class="font-semibold text-gray-800">Contact us by email</h3>
                                     <p class="mt-1 text-sm text-gray-500">If you wish to write us an email instead please use</p>
-                                    <a class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
+                                    <p class="mt-2 inline-flex items-center gap-x-2 text-sm font-medium text-gray-600 hover:text-gray-800" href="#">
                                         example@site.com
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

@@ -68,7 +68,7 @@ function AdminLayouts() {
                         </Link>
                         <div class="flex items-center gap-x-6">
                             <i class="fa-regular fa-bell fa-lg text-gray-700"></i>
-                            <Link to='vendors' class="flex items-center justify-center text-gray-600">
+                            <Link to='profile-settings' class="flex items-center justify-center text-gray-600">
                                 <i class="fa-solid fa-gear fa-lg text-gray-700"></i>
                             </Link>
                             <div class="flex relative items-center">

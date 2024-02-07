@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 function EditVendors() {
     const name = "athar";
     return (
         <>
-            <section className="bg-white shadow-sm rounded-sm border-1 border-gray-250 h-screen fontAlt p-10">
+            <section className="bg-white shadow-sm rounded-sm border-1 border-gray-250 h-full fontAlt p-10">
 
                 <div class="w-full p-6">
                     <div class="text-center mb-16">

@@ -41,6 +41,7 @@ import Help from './pages/Admin/Help';
 import ProfileSettings from './pages/Admin/ProfileSettings';
 import AdminLogin from './pages/AdminLogin';
 import EditVendors from './pages/Admin/EditVendors';
+import EditShipper from './pages/Admin/EditShipper';
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
           <Route path='vendors' element={<Vendors />}/>
           <Route path='vendors/:id/' element={<EditVendors />} />
           <Route path='shippers' element={<Shippers />} />
+          <Route path='shippers/:id/' element={<EditShipper />} />
           <Route path='quote' element={<RTQ />} />
           <Route path='revenue' element={<Revenue />} />
           <Route path='invoice' element={<Invoice />} />
