@@ -207,3 +207,9 @@ body {
 .navLinks{
   letter-spacing: 20;
 }
+
+/* from shipper layouts */
+.txtsize{
+  font-size: 12px;
+  font-family: 'Outfit', sans-serif;
+}

@@ -43,6 +43,10 @@ import AdminLogin from './pages/AdminLogin';
 import EditVendors from './pages/Admin/EditVendors';
 import EditShipper from './pages/Admin/EditShipper';
 
+// * Importing Shipper Panel Pages
+import ShipperDashboard from './pages/Shipper/ShipperDashboard';
+import ShipperLayouts from './components/Shipper/layouts/ShipperLayouts';
+
 
 function App() {
   return (
@@ -74,7 +78,7 @@ function App() {
         <Route exact path='/admin-login' element={<AdminLogin />} />
         <Route path='/admin' element={<AdminLayouts />}>
           <Route index element={<Dashboard />} />
-          <Route path='vendors' element={<Vendors />}/>
+          <Route path='vendors' element={<Vendors />} />
           <Route path='vendors/:id/' element={<EditVendors />} />
           <Route path='shippers' element={<Shippers />} />
           <Route path='shippers/:id/' element={<EditShipper />} />
@@ -83,6 +87,11 @@ function App() {
           <Route path='invoice' element={<Invoice />} />
           <Route path='help' element={<Help />} />
           <Route path='profile-settings' element={<ProfileSettings />} />
+        </Route>
+
+        {/* Shipper Panel Nested Routes */}
+        <Route path='/shipper' element={<ShipperLayouts />}>
+          <Route index element={<ShipperDashboard />} />
         </Route>
 
 

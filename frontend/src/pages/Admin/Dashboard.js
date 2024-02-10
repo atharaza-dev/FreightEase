@@ -7,12 +7,15 @@ import shipper from '../../assets/imgs/shipper.png'
 import quote from '../../assets/imgs/quote.png'
 import cash from '../../assets/imgs/cash.png'
 import poster from '../../assets/imgs/poster.png'
+import truckkkk from '../../assets/imgs/truckkkk.png'
+import sales from '../../assets/imgs/sales.png'
+import users from '../../assets/imgs/users.png'
 
 function Dashboard() {
     return (
         <>
 
-            <div class="flex items-center bg-gradient-to-r from-blue-600 to-fuchsia-500 px-8 text-white shadow-md rounded-m border-1">
+            <div class="flex items-center bg-gradient-to-r from-blue-600 to-fuchsia-500 px-8 text-white shadow-md rounded border-1">
                 <div class="my-10 lg:my-8 lg:w-1/2">
                     <h1 class="text-4xl fontAlt tracking-wide">Good to see you back!</h1>
                     <p class="mt-4 text-lg">FreightEase empowers administrators with comprehensive vendor and shipper management capabilities, streamlining the quote generation process for shipping goods.</p>
@@ -28,19 +31,9 @@ function Dashboard() {
             <div class="px-1 mt-4 my-2">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
-                        <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full p-3 w-16 h-16">
-                            <i class="fa-solid fa-truck-fast fa-2xl text-white"></i>
-                        </div>
-                        <div class="mt-4">
-                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total VENDORS</p>
-                            <p class="text-gray-600 text-lg mt-1">1,200</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
-                        <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full p-3 w-16 h-16">
-                            <i class="fa-solid fa-users fa-2xl text-white"></i>
+                    <div class="bg-white rounded shadow-sm border-1 border-gray-250 p-6">
+                        <div class="flex items-center justify-start w-16 h-16">
+                            <img src={truckkkk} alt="err" />
                         </div>
                         <div class="mt-4">
                             <p class="text-2xl fontAlt font-semibold text-gray-800">Total SHIPPERS</p>
@@ -49,8 +42,18 @@ function Dashboard() {
                     </div>
 
                     <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
-                        <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full p-3 w-16 h-16">
-                            <i class="fa-solid fa-sack-dollar fa-2xl text-white"></i>
+                        <div class="flex items-center justify-start w-16 h-16">
+                            <img src={users} alt="err" />
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total SHIPPERS</p>
+                            <p class="text-gray-600 text-lg mt-1">1,129</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
+                        <div class="flex items-center justify-start w-16 h-16">
+                            <img src={sales} alt="err" />
                         </div>
                         <div class="mt-4">
                             <p class="text-2xl fontAlt font-semibold text-gray-800">Total REVENUE</p>
@@ -65,7 +68,7 @@ function Dashboard() {
                 <div class="mx-auto">
                     <div class="agrid-rows-[repeat(2,_minmax(1px,fit-content))]  mx-1 grid grid-cols-1 gap-6 text-center mt-6 md:h-[68rem] md:max-w-full md:grid-cols-2 md:grid-rows-5 md:text-left">
 
-                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
+                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={DTruck} alt="" className='' />
@@ -77,7 +80,7 @@ function Dashboard() {
                             </div>
                         </div>
 
-                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
+                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={quote} alt="" className='w-28' />
@@ -89,7 +92,7 @@ function Dashboard() {
                             </div>
                         </div>
 
-                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
+                        <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={shipper} alt="" className='w-56' />
@@ -101,7 +104,7 @@ function Dashboard() {
                             </div>
                         </div>
 
-                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
+                        <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
                                     <img src={cash} alt="" className='w-48' />
@@ -117,7 +120,7 @@ function Dashboard() {
                 </div>
             </section>
 
-            <div class="my-10 mx-auto flex flex-col-reverse max-w-2xl rounded-xl border bg-gray-700 py-10 px-4 text-center sm:px-10 lg:max-w-screen-lg lg:flex-row lg:text-left">
+            <div class="my-10 mx-auto w-full flex flex-col-reverse rounded border bg-gray-700 py-10 px-4 text-center sm:px-10 lg:flex-row lg:text-left">
                 <div class="mx-auto w-[15rem] max-w-full lg:mx-0 lg:w-[40rem]">
                     <img class="h-full w-full object-contain" src={poster} alt="" />
                 </div>
