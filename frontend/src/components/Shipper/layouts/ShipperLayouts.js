@@ -29,6 +29,11 @@ function ShipperLayouts() {
 
                             <Link to='shippers' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-duotone fa-clock-rotate-left fa-lg text-primColor1"></i>
+                                <span class="ml-4 font-medium">Track Shipment</span>
+                            </Link>
+
+                            <Link to='shippers' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                                <i class="fa-duotone fa-boxes-packing fa-lg text-primColor1"></i>
                                 <span class="ml-4 font-medium">Booking History</span>
                             </Link>
 

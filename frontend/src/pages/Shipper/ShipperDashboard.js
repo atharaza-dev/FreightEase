@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AdminPage.css'
-import avatar from '../../assets/imgs/sil.png'
+import avatar from '../../assets/imgs/box.png'
 import DTruck from '../../assets/imgs/3dtruck.png'
-import shipper from '../../assets/imgs/shipper.png'
+import history from '../../assets/imgs/history.png'
 import quote from '../../assets/imgs/quote.png'
-import cash from '../../assets/imgs/cash.png'
+import tracking from '../../assets/imgs/tracking.png'
 import poster from '../../assets/imgs/poster.png'
-import truckkkk from '../../assets/imgs/truckkkk.png'
-import sales from '../../assets/imgs/sales.png'
-import users from '../../assets/imgs/users.png'
+import flatbed from '../../assets/imgs/flatbed.png'
+import truckk from '../../assets/imgs/truckk.png'
+import curtain from '../../assets/imgs/curtain.png'
 
 function ShipperDashboard() {
     return (
         <>
 
-            <div class="flex items-center bg-gradient-to-r from-blue-600 to-fuchsia-500 px-8 text-white shadow-md rounded-m border-1">
+            <div class="flex items-center bg-gradient-to-r from-blue-600 to-fuchsia-500 px-8 text-white shadow-md rounded border-1">
                 <div class="my-10 lg:my-8 lg:w-1/2">
-                    <h1 class="text-4xl fontAlt tracking-wide">Good to see you back!</h1>
-                    <p class="mt-4 text-lg">FreightEase empowers administrators with comprehensive vendor and shipper management capabilities, streamlining the quote generation process for shipping goods.</p>
+                    <h1 class="text-4xl fontAlt tracking-wide">Good to see you here!</h1>
+                    <p class="mt-4 text-lg">FreightEase gives shippers the power to book trucks, track shipments, and generate quotes effortlessly. Manage vendors and streamline your shipping process with ease.</p>
                     <Link to='/'>
                         <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore Website Now</button>
                     </Link>
@@ -28,41 +28,33 @@ function ShipperDashboard() {
                 </div>
             </div>
 
-            <div class="px-1 mt-4 my-2">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <section>
+                <div class="grid grid-cols-1 gap-6 pt-6 md:grid-cols-2 lg:grid-cols-3">
 
-                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
-                        <div class="flex items-center justify-start w-16 h-16">
-                            <img src={truckkkk} alt="err" />
-                        </div>
-                        <div class="mt-4">
-                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total SHIPPERS</p>
-                            <p class="text-gray-600 text-lg mt-1">1,129</p>
+                    <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+                        <div class="h-full w-full py-8 bg-white flex flex-col items-center justify-center rounded rounded-m shadow-sm border-1 border-gray-250">
+                            <img src={flatbed} alt="" class='pb-4' />
+                            <h1 class="py-2 text-xl font-semibold tracking-wide text-center text-gray-800 uppercase">FLATBED</h1>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
-                        <div class="flex items-center justify-start w-16 h-16">
-                            <img src={users} alt="err" />
-                        </div>
-                        <div class="mt-4">
-                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total SHIPPERS</p>
-                            <p class="text-gray-600 text-lg mt-1">1,129</p>
+                    <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+                        <div class="h-full w-full py-8 bg-white flex flex-col items-center justify-center rounded rounded-m shadow-sm border-1 border-gray-250">
+                            <img src={truckk} alt="" class='pb-4' />
+                            <h1 class="py-2 text-xl font-semibold tracking-wide text-center text-gray-800 uppercase">Box Container</h1>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-m shadow-sm border-1 border-gray-250 p-6">
-                        <div class="flex items-center justify-start w-16 h-16">
-                            <img src={sales} alt="err" />
-                        </div>
-                        <div class="mt-4">
-                            <p class="text-2xl fontAlt font-semibold text-gray-800">Total REVENUE</p>
-                            <p class="text-gray-600 text-lg mt-1">$ 25000</p>
+                    <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+                        <div class="h-full w-full py-8 bg-white flex flex-col items-center justify-center rounded rounded-m shadow-sm border-1 border-gray-250">
+                            <img src={curtain} alt="" class='pb-4' />
+                            <h1 class="py-2 text-xl font-semibold tracking-wide text-center text-gray-800 uppercase">curtain sided</h1>
                         </div>
                     </div>
+
 
                 </div>
-            </div>
+            </section>
 
             <section class="mx-auto max-w-screen-xl text-gray-700">
                 <div class="mx-auto">
@@ -73,10 +65,9 @@ function ShipperDashboard() {
                                 <center>
                                     <img src={DTruck} alt="" className='' />
                                 </center>
-                                <h3 class="text-4xl mt-4 font-semibold fontAlt">VENDOR CONNECT</h3>
-                                <p class="mt-6 text-base">Click now to explore and access the comprehensive VENDORS details, empowering
-                                    you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore VENDORS Now</button>
+                                <h3 class="text-4xl mt-4 font-semibold fontAlt">Book a Truck</h3>
+                                <p class="mt-6 text-base">Book your truck hassle-free! Click here to schedule your truck and streamline your transportation needs. Simplify your logistics with just a click.</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Book Now</button>
                             </div>
                         </div>
 
@@ -86,33 +77,30 @@ function ShipperDashboard() {
                                     <img src={quote} alt="" className='w-28' />
                                 </center>
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">Quote Generator</h3>
-                                <p class="mt-6 text-base">Click now to explore and access the comprehensive Quote Generator details, empowering
-                                    you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Quote Now</button>
+                                <p class="mt-6 text-base">Get instant quotes for future shipments! Click here to generate quotes and check expected fares for your upcoming shipments. Stay informed and plan ahead with ease.</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Generate a Quote</button>
                             </div>
                         </div>
 
                         <div class="row-span-3 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
-                                    <img src={shipper} alt="" className='w-56' />
+                                    <img src={history} alt="" className='w-56' />
                                 </center>
-                                <h3 class="text-4xl mt-4 font-semibold fontAlt">SHIPPER CONNECT</h3>
-                                <p class="mt-6 text-base">Click now to explore and access the comprehensive SHIPPER details, empowering
-                                    you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore SHIPPERS Now</button>
+                                <h3 class="text-4xl mt-4 font-semibold fontAlt">Previous Booking History</h3>
+                                <p class="mt-6 text-base">Retrieve your previous booking history effortlessly! Click here to explore and access comprehensive details of your past bookings, empowering you to stay informed and in control.</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">See Previous Bookings</button>
                             </div>
                         </div>
 
                         <div class="row-span-2 bg-white md:px-8 flex justify-center items-center rounded-m shadow-sm border-1 border-gray-250">
                             <div class="text-center">
                                 <center>
-                                    <img src={cash} alt="" className='w-48' />
+                                    <img src={tracking} alt="" className='w-48' />
                                 </center>
-                                <h3 class="text-4xl mt-4 font-semibold fontAlt">Revenue Stream</h3>
-                                <p class="mt-6 text-base">Click now to explore and access the comprehensive Revenue Streams details, empowering
-                                    you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Revenue Streams</button>
+                                <h3 class="text-4xl mt-4 font-semibold fontAlt">Track your Shipment</h3>
+                                <p class="mt-6 text-base">Track your shipment now to explore and access comprehensive revenue stream details. Empower yourself to efficiently oversee and control your data. Click here to get started!</p>
+                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Track Shipment</button>
                             </div>
                         </div>
 
@@ -120,7 +108,7 @@ function ShipperDashboard() {
                 </div>
             </section>
 
-            <div class="my-10 mx-auto flex flex-col-reverse max-w-2xl rounded-xl border bg-gray-700 py-10 px-4 text-center sm:px-10 lg:max-w-screen-lg lg:flex-row lg:text-left">
+            <div class="my-10 mx-auto w-full flex flex-col-reverse rounded border bg-gray-700 py-10 px-4 text-center sm:px-10 lg:flex-row lg:text-left">
                 <div class="mx-auto w-[15rem] max-w-full lg:mx-0 lg:w-[40rem]">
                     <img class="h-full w-full object-contain" src={poster} alt="" />
                 </div>
@@ -136,7 +124,6 @@ function ShipperDashboard() {
                     </div>
                 </div>
             </div>
-
         </>
 
 
