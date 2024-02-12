@@ -55,7 +55,7 @@ function HomePage() {
                         <p className="mx-auto mt-2 max-w-4xl text-base leading-7 text-gray-600">FreightEase is the city's leading solution, setting new standards for logistics and transportation excellence.
                             It empowers freight and logistics services to excel.</p>
                         <div class="flex w-full md:justify-start justify-center items-end">
-                            <Link to='/admin'>
+                            <Link to='/quote-generator'>
                                 <button class="mt-6 inline-flex text-white bg-primColor1 border-0 py-2 px-6 hover:bg-indigo-600 rounded text-lg focus:outline-none focus:ring active:bg-indigo-800">Click to Generate Quote</button>
                             </Link>
                         </div>

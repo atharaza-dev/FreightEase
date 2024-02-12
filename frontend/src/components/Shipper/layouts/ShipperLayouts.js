@@ -8,7 +8,7 @@ function ShipperLayouts() {
     return (
         <>
 
-            <section class="min-h-screen">
+            <section class="min-h-screen z-99">
 
                 <aside class="fixed top-0 left-0 fontAlt bg-white z-50 left-0 pb-8 item-center justify-center overflow-x-hidden overflow-y-auto flex flex-col w-64 h-screen px-4 py-4 shadow-sm border-r border-gray-250 ">
 
@@ -22,22 +22,22 @@ function ShipperLayouts() {
                                 <span class="ml-4 font-medium">Dashboard</span>
                             </Link>
 
-                            <Link to='vendors' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='book-truck' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-duotone fa-truck-bolt fa-lg text-primColor1"></i>
                                 <span class="ml-4 font-medium">Book a Truck</span>
                             </Link>
 
-                            <Link to='shippers' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='shipment-track' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-duotone fa-clock-rotate-left fa-lg text-primColor1"></i>
                                 <span class="ml-4 font-medium">Track Shipment</span>
                             </Link>
 
-                            <Link to='shippers' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='booking-history' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-duotone fa-boxes-packing fa-lg text-primColor1"></i>
                                 <span class="ml-4 font-medium">Booking History</span>
                             </Link>
 
-                            <Link to='quote' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='generate-quote' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-duotone fa-quote-left fa-lg text-primColor1"></i>
                                 <span class="ml-4 font-medium">Generate Quote</span>
                             </Link>
@@ -55,7 +55,7 @@ function ShipperLayouts() {
                     </div>
                 </aside>
 
-                <header className="fixed top-2 left-0 ml-6 md:left-64 right-3 mr-6 flex items-center justify-between h-20 bg-white px-4 md:px-8 xl:px-64 rounded shadow-sm border-1 border-gray-250">
+                <header className="fixed top-2 left-0 ml-6 md:left-64 right-3 mr-6 z-50 flex items-center justify-between h-20 bg-white px-4 md:px-8 xl:px-64 rounded shadow-sm border-1 border-gray-250">
                     <h3 className='fontAlt text-2xl font-semibold '>Welcome, Customer 1</h3>
                     <div className="flex items-center gap-x-6">
                         <i class="fa-duotone fa-bell fa-lg text-primColor1"></i>
@@ -76,6 +76,7 @@ function ShipperLayouts() {
                         </div>
                     </div>
                 </header>
+
 
 
                 <div class="px-10 py-6 transition md:ml-60" style={{ backgroundColor: "#F1F5F9" }}>

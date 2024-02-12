@@ -46,7 +46,10 @@ import EditShipper from './pages/Admin/EditShipper';
 // * Importing Shipper Panel Pages
 import ShipperDashboard from './pages/Shipper/ShipperDashboard';
 import ShipperLayouts from './components/Shipper/layouts/ShipperLayouts';
-
+import TruckBooking from './pages/Shipper/TruckBooking';
+import ParcelTracking from './pages/Shipper/ParcelTracking';
+import BookingHistory from './pages/Shipper/BookingHistory';
+import GenQuote from './pages/Shipper/GenQuote';
 
 function App() {
   return (
@@ -92,6 +95,11 @@ function App() {
         {/* Shipper Panel Nested Routes */}
         <Route path='/shipper' element={<ShipperLayouts />}>
           <Route index element={<ShipperDashboard />} />
+          <Route path='book-truck' element={<TruckBooking />} />
+          <Route path='shipment-track' element={<ParcelTracking />} />
+          <Route path='booking-history' element={<BookingHistory />} />
+          <Route path='generate-quote' element={<GenQuote />} />
+          <Route path='help' element={<Help />} />
         </Route>
 
 

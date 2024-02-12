@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './AdminPage.css'
+import './ShipperPage.css'
 import avatar from '../../assets/imgs/box.png'
 import DTruck from '../../assets/imgs/3dtruck.png'
 import history from '../../assets/imgs/history.png'
