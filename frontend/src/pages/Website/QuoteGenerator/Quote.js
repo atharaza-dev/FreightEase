@@ -123,6 +123,9 @@ function Quote() {
         quoteGenerateClick();
     };
 
+    const handleReload = () => {
+        window.location.reload();
+    };
 
     return (
         <>
@@ -271,11 +274,11 @@ function Quote() {
                                                 </table>
                                             </div>
 
-                                            <a href="/quote-generator" class="flex items-center mt-6 text-white bg-indigo-800 border-0 py-3 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">Regenerate Quote Again
+                                            <button onClick={handleReload} class="flex items-center mt-6 text-white bg-indigo-800 border-0 py-3 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">Regenerate Quote Again
                                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                                 </svg>
-                                            </a>
+                                            </button>
 
                                             <p class="text-xs text-gray-500 mt-3">*Note: Cost or Charges may vary due to inflation and changing in the prices of Feul & Taxes!</p>
                                         </div>

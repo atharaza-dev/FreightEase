@@ -4,8 +4,7 @@ import './ShipperPage.css'
 function ParcelTracking() {
   return (
     <>
-
-
+    
       <div class="w-full overflow-x-auto fontAlt bg-white rounded-lg shadow-sm border-1 border-gray-250 mt-2">
 
         <div class=" py-4 md:py-7 px-4 md:px-8 xl:px-10">
