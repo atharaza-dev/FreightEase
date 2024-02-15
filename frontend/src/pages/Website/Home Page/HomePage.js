@@ -624,7 +624,7 @@ function HomePage() {
             {/* ================================================================================================== */}
 
             <div className="fixed-bottom right-100 p-8" style={{ zIndex: "6", left: "initial" }}>
-                <a href="https://wa.me/923358668223?text=Hello! I need some queries" target='_blank' rel='noreferrer' className="whatsapp-icon">
+                <a href="https://wa.me/923040193254?text=Hello! I need some queries" target='_blank' rel='noreferrer' className="whatsapp-icon">
                     <img src={whatsapp} alt="error" />
                 </a>
             </div>
