@@ -1,5 +1,5 @@
 //* import dependencies
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
 //* import App.css file
@@ -54,64 +54,74 @@ import ShipperHelp from './pages/Shipper/ShipperHelp';
 import ShipperDetails from './pages/Shipper/ShipperDetails';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const spinner = document.getElementById('spinner');
+  if (spinner) {
+    setTimeout(() => {
+      spinner.style.display = 'none';
+      setLoading(false);
+    }, 2000);
+  }
   return (
-    <>
-      <NavContainer>
-        <Navbar></Navbar>
-      </NavContainer>
+    !loading && (
+      <>
+        <NavContainer>
+          <Navbar></Navbar>
+        </NavContainer>
 
-      <Routes>
-        {/* Static frontend site */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/quote-generator" element={<Quote />} />
-        <Route exact path='/services' element={<ServicePage />} />
-        <Route exact path='/about-us' element={<AboutPage />} />
-        <Route exact path='/contact-us' element={<ContactPage />} />
-        <Route exact path='/help' element={<HelpPage />} />
-        <Route exact path='/shipper-registration' element={<ShipperRegistration />} />
-        <Route exact path='/vendor-registration' element={<VendorRegistration />} />
-        <Route exact path='/shipper-login' element={<ShipperLogin />} />
-        <Route exact path='/vendor-login' element={<VendorLogin />} />
-        <Route exact path='/tow-service' element={<TowServicePage />} />
-        <Route exact path='/vehicles-list' element={<VehicleListPage />} />
-        <Route exact path='/vehicle-frame' element={<VehicleFramePage />} />
-        <Route exact path='/terms-and-conditions' element={<TCPage />} />
-        <Route path='/logout' element={<Logout />} />
-        <Route exact path='*' element={<ErrorPage />} />
+        <Routes>
+          {/* Static frontend site */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/quote-generator" element={<Quote />} />
+          <Route exact path='/services' element={<ServicePage />} />
+          <Route exact path='/about-us' element={<AboutPage />} />
+          <Route exact path='/contact-us' element={<ContactPage />} />
+          <Route exact path='/help' element={<HelpPage />} />
+          <Route exact path='/shipper-registration' element={<ShipperRegistration />} />
+          <Route exact path='/vendor-registration' element={<VendorRegistration />} />
+          <Route exact path='/shipper-login' element={<ShipperLogin />} />
+          <Route exact path='/vendor-login' element={<VendorLogin />} />
+          <Route exact path='/tow-service' element={<TowServicePage />} />
+          <Route exact path='/vehicles-list' element={<VehicleListPage />} />
+          <Route exact path='/vehicle-frame' element={<VehicleFramePage />} />
+          <Route exact path='/terms-and-conditions' element={<TCPage />} />
+          <Route path='/logout' element={<Logout />} />
+          <Route exact path='*' element={<ErrorPage />} />
 
-        {/* Admin Panel Nested Routes */}
-        <Route exact path='/admin-login' element={<AdminLogin />} />
-        <Route path='/admin' element={<AdminLayouts />}>
-          <Route index element={<Dashboard />} />
-          <Route path='vendors' element={<Vendors />} />
-          <Route path='vendors/:id/' element={<EditVendors />} />
-          <Route path='shippers' element={<Shippers />} />
-          <Route path='shippers/:id/' element={<EditShipper />} />
-          <Route path='quote' element={<RTQ />} />
-          <Route path='revenue' element={<Revenue />} />
-          <Route path='invoice' element={<Invoice />} />
-          <Route path='help' element={<Help />} />
-          <Route path='profile-settings' element={<ProfileSettings />} />
-        </Route>
+          {/* Admin Panel Nested Routes */}
+          <Route exact path='/admin-login' element={<AdminLogin />} />
+          <Route path='/admin' element={<AdminLayouts />}>
+            <Route index element={<Dashboard />} />
+            <Route path='vendors' element={<Vendors />} />
+            <Route path='vendors/:id/' element={<EditVendors />} />
+            <Route path='shippers' element={<Shippers />} />
+            <Route path='shippers/:id/' element={<EditShipper />} />
+            <Route path='quote' element={<RTQ />} />
+            <Route path='revenue' element={<Revenue />} />
+            <Route path='invoice' element={<Invoice />} />
+            <Route path='help' element={<Help />} />
+            <Route path='profile-settings' element={<ProfileSettings />} />
+          </Route>
 
-        {/* Shipper Panel Nested Routes */}
-        <Route path='/shipper' element={<ShipperLayouts />}>
-          <Route index element={<ShipperDashboard />} />
-          <Route path='book-truck' element={<TruckBooking />} />
-          <Route path='shipment-track' element={<ParcelTracking />} />
-          <Route path='booking-history' element={<BookingHistory />} />
-          <Route path='generate-quote' element={<GenQuote />} />
-          <Route path='help-shipper' element={<ShipperHelp />} />
-          <Route path='edit-shipper-info' element={<ShipperDetails />} />
-        </Route>
+          {/* Shipper Panel Nested Routes */}
+          <Route path='/shipper' element={<ShipperLayouts />}>
+            <Route index element={<ShipperDashboard />} />
+            <Route path='book-truck' element={<TruckBooking />} />
+            <Route path='shipment-track' element={<ParcelTracking />} />
+            <Route path='booking-history' element={<BookingHistory />} />
+            <Route path='generate-quote' element={<GenQuote />} />
+            <Route path='help-shipper' element={<ShipperHelp />} />
+            <Route path='edit-shipper-info' element={<ShipperDetails />} />
+          </Route>
 
 
-      </Routes>
+        </Routes>
 
-      <FooterContainer>
-        <Footer></Footer>
-      </FooterContainer>
-    </>
+        <FooterContainer>
+          <Footer></Footer>
+        </FooterContainer>
+      </>
+    )
   );
 }
 
