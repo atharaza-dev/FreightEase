@@ -42,13 +42,13 @@ function ShipperLayouts() {
                                 <span class="ml-4 font-medium">Generate Quote</span>
                             </Link>
 
-                            <Link to='help' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                            <Link to='help-shipper' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                                 <i class="fa-duotone fa-circle-info fa-lg text-primColor1"></i>
                                 <span class="ml-4 font-medium">Help & Support</span>
                             </Link>
 
                         </nav>
-                        <Link to='profile-settings' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+                        <Link to='edit-shipper-info' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                             <i class="fa-duotone fa-gear fa-lg text-primColor1"></i>
                             <span class="ml-4 font-medium">Profile Settings</span>
                         </Link>

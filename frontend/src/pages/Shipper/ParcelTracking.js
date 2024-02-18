@@ -26,13 +26,13 @@ function ParcelTracking() {
 
           <li class="relative mb-6 sm:mb-0 w-full">
             <div class="flex items-center justify-center">
-              <div class="flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+              <div class="flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-primColor1 sm:ring-8  shrink-0">
                 <i class="fa-duotone fa-truck-ramp-box fa-xl text-primColor1"></i>
               </div>
               <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
             </div>
             <div class="mt-3 sm:pe-8 items-center justify-center">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Shipment Shipped</h3>
+              <h3 class="text-lg font-semibold text-gray-900">Shipment Shipped</h3>
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Feb 2, 2024 - 03 00 PM</time>
               {/* <p class="text-base font-normal text-gray-500 dark:text-gray-400">Get started with dozens of web components and interactive elements.</p> */}
             </div>
@@ -40,26 +40,26 @@ function ParcelTracking() {
 
           <li class="relative mb-6 sm:mb-0 w-full">
             <div class="flex items-center">
-              <div class="z-10 flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+              <div class="z-10 flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-primColor1 sm:ring-8 shrink-0">
                 <i class="fa-duotone fa-truck-bolt fa-xl text-primColor1"></i>
               </div>
               <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
             </div>
             <div class="mt-3 sm:pe-8">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Shipment On the Way</h3>
+              <h3 class="text-lg font-semibold text-gray-900">Shipment On the Way</h3>
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Feb 4, 2024 - 03 00 PM</time>
             </div>
           </li>
 
           <li class="relative mb-6 sm:mb-0 w-full">
             <div class="flex items-center">
-              <div class="z-10 flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
+              <div class="z-10 flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-primColor1  sm:ring-8 shrink-0">
                 <i class="fa-duotone fa-person-carry-box fa-xl text-primColor1"></i>
               </div>
-              <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
+              <div class="hidden sm:flex w-full bg-gray-300 h-0.5"></div>
             </div>
             <div class="mt-3 sm:pe-8">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Shipment Delivered</h3>
+              <h3 class="text-lg font-semibold text-gray-900">Shipment Delivered</h3>
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Feb 7, 2024 - 03 00 PM</time>
             </div>
           </li>

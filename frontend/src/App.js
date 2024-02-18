@@ -50,6 +50,8 @@ import TruckBooking from './pages/Shipper/TruckBooking';
 import ParcelTracking from './pages/Shipper/ParcelTracking';
 import BookingHistory from './pages/Shipper/BookingHistory';
 import GenQuote from './pages/Shipper/GenQuote';
+import ShipperHelp from './pages/Shipper/ShipperHelp';
+import ShipperDetails from './pages/Shipper/ShipperDetails';
 
 function App() {
   return (
@@ -99,7 +101,8 @@ function App() {
           <Route path='shipment-track' element={<ParcelTracking />} />
           <Route path='booking-history' element={<BookingHistory />} />
           <Route path='generate-quote' element={<GenQuote />} />
-          <Route path='help' element={<Help />} />
+          <Route path='help-shipper' element={<ShipperHelp />} />
+          <Route path='edit-shipper-info' element={<ShipperDetails />} />
         </Route>
 
 
