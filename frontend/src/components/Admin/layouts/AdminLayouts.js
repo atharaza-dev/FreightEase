@@ -23,30 +23,40 @@ function AdminLayouts() {
                                 <span class="ml-4 font-medium tracking-wide">Dashboard</span>
                             </Link>
 
-                            <Link to='book-truck' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
-                                <i class="fa-duotone fa-layer-group fa-lg"></i>
-                                <span class="ml-4 font-medium tracking-wide">Inbound Orders</span>
+                            <Link to='vendors' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                                <i class="fa-duotone fa-truck-fast fa-lg"></i>
+                                <span class="ml-4 font-medium tracking-wide">Vendor Connect</span>
                             </Link>
 
-                            <Link to='book-truck' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
-                                <i class="fa-duotone fa-layer-group fa-lg"></i>
-                                <span class="ml-4 font-medium tracking-wide">Inbound Orders</span>
+                            <Link to='shippers' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                                <i class="fa-duotone fa-person-carry-box fa-lg"></i>
+                                <span class="ml-4 font-medium tracking-wide">Shipper Connect</span>
                             </Link>
 
-                            <Link to='book-truck' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
-                                <i class="fa-duotone fa-layer-group fa-lg"></i>
-                                <span class="ml-4 font-medium tracking-wide">Inbound Orders</span>
+                            <Link to='quote' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                                <i class="fa-duotone fa-calculator fa-lg"></i>
+                                <span class="ml-4 font-medium tracking-wide">Quote Generator</span>
                             </Link>
 
-                            <Link to='book-truck' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
-                                <i class="fa-duotone fa-layer-group fa-lg"></i>
-                                <span class="ml-4 font-medium tracking-wide">Inbound Orders</span>
+                            <Link to='revenue' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                                <i class="fa-duotone fa-sack-dollar fa-lg"></i>
+                                <span class="ml-4 font-medium tracking-wide">Total Revenue</span>
                             </Link>
-                            
+
+                            <Link to='invoice' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                                <i class="fa-duotone fa-file-invoice fa-lg"></i>
+                                <span class="ml-4 font-medium tracking-wide">Invoice Template</span>
+                            </Link>
+
+                            <Link to='help' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                                <i class="fa-duotone fa-circle-info fa-lg"></i>
+                                <span class="ml-4 font-medium tracking-wide">Help & Support</span>
+                            </Link>
+
                         </nav>
-                        <Link to='profile-settings' class="flex items-center pl-4 py-2 mt-3 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
-                            <i class="fa-duotone fa-gear fa-lg text-primColor1"></i>
-                            <span class="ml-4 font-medium">Profile Settings</span>
+                        <Link to='help' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                            <i class="fa-duotone fa-gear fa-lg"></i>
+                            <span class="ml-4 font-medium tracking-wide">Profile Settings</span>
                         </Link>
                     </div>
                 </aside>

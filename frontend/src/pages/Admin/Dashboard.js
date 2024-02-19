@@ -19,9 +19,9 @@ function Dashboard() {
                 <div class="my-10 lg:my-8 lg:w-1/2">
                     <h1 class="text-4xl fontAlt tracking-wide">Good to see you back!</h1>
                     <p class="mt-4 text-lg">FreightEase empowers administrators with comprehensive vendor and shipper management capabilities, streamlining the quote generation process for shipping goods.</p>
-                    <Link to='/'>
+                    <a href='/'>
                         <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore Website Now</button>
-                    </Link>
+                    </a>
                 </div>
                 <div class="hidden h-60 w-1/2 flex-shrink-0 justify-end lg:flex">
                     <img class="" src={avatar} alt="pic" />
@@ -76,7 +76,9 @@ function Dashboard() {
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">VENDOR CONNECT</h3>
                                 <p class="mt-6 text-base">Click now to explore and access the comprehensive VENDORS details, empowering
                                     you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore VENDORS Now</button>
+                                <Link to='vendors'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore VENDORS Now</button>
+                                </Link>
                             </div>
                         </div>
 
@@ -88,7 +90,9 @@ function Dashboard() {
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">Quote Generator</h3>
                                 <p class="mt-6 text-base">Click now to explore and access the comprehensive Quote Generator details, empowering
                                     you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Quote Now</button>
+                                <Link to='quote'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Quote Now</button>
+                                </Link>
                             </div>
                         </div>
 
@@ -100,7 +104,9 @@ function Dashboard() {
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">SHIPPER CONNECT</h3>
                                 <p class="mt-6 text-base">Click now to explore and access the comprehensive SHIPPER details, empowering
                                     you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore SHIPPERS Now</button>
+                                <Link to='shippers'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore SHIPPERS Now</button>
+                                </Link>
                             </div>
                         </div>
 
@@ -112,7 +118,9 @@ function Dashboard() {
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">Revenue Stream</h3>
                                 <p class="mt-6 text-base">Click now to explore and access the comprehensive Revenue Streams details, empowering
                                     you to efficiently oversee and control their data.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Revenue Streams</button>
+                                <Link to='revenue'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Manage Revenue Streams</button>
+                                </Link>
                             </div>
                         </div>
 

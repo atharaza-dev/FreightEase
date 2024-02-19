@@ -19,9 +19,9 @@ function ShipperDashboard() {
                 <div class="my-10 lg:my-8 lg:w-1/2">
                     <h1 class="text-4xl fontAlt tracking-wide">Good to see you here!</h1>
                     <p class="mt-4 text-lg">FreightEase gives shippers the power to book trucks, track shipments, and generate quotes effortlessly. Manage vendors and streamline your shipping process with ease.</p>
-                    <Link to='/'>
+                    <a href='/'>
                         <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Explore Website Now</button>
-                    </Link>
+                    </a>
                 </div>
                 <div class="hidden h-60 w-1/2 flex-shrink-0 justify-end lg:flex">
                     <img class="" src={avatar} alt="pic" />
@@ -67,7 +67,9 @@ function ShipperDashboard() {
                                 </center>
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">Book a Truck</h3>
                                 <p class="mt-6 text-base">Book your truck hassle-free! Click here to schedule your truck and streamline your transportation needs. Simplify your logistics with just a click.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Book Now</button>
+                                <Link to='book-truck'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Book Now</button>
+                                </Link>
                             </div>
                         </div>
 
@@ -78,7 +80,9 @@ function ShipperDashboard() {
                                 </center>
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">Quote Generator</h3>
                                 <p class="mt-6 text-base">Get instant quotes for future shipments! Click here to generate quotes and check expected fares for your upcoming shipments. Stay informed and plan ahead with ease.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Generate a Quote</button>
+                                <Link to='generate-quote'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Generate a Quote</button>
+                                </Link>
                             </div>
                         </div>
 
@@ -89,7 +93,9 @@ function ShipperDashboard() {
                                 </center>
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">Previous Booking History</h3>
                                 <p class="mt-6 text-base">Retrieve your previous booking history effortlessly! Click here to explore and access comprehensive details of your past bookings, empowering you to stay informed and in control.</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">See Previous Bookings</button>
+                                <Link to='booking-history'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">See Previous Bookings</button>
+                                </Link>
                             </div>
                         </div>
 
@@ -100,7 +106,9 @@ function ShipperDashboard() {
                                 </center>
                                 <h3 class="text-4xl mt-4 font-semibold fontAlt">Track your Shipment</h3>
                                 <p class="mt-6 text-base">Track your shipment now to explore and access comprehensive revenue stream details. Empower yourself to efficiently oversee and control your data. Click here to get started!</p>
-                                <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Track Shipment</button>
+                                <Link to='shipment-track'>
+                                    <button className="text-primColor1 mt-4 bg-gray-100 border-1 border-indigo-600 rounded px-8 py-3 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Track Shipment</button>
+                                </Link>
                             </div>
                         </div>
 
