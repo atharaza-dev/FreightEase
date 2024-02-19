@@ -55,6 +55,10 @@ import ShipperDetails from './pages/Shipper/ShipperDetails';
 
 //*Importing Vendor Panel Pages
 import VendorLayout from './components/Vendor/layouts/VendorLayout';
+import VendorDashboard from './pages/Vendor/VendorDashboard';
+import InboundOrders from './pages/Vendor/InboundOrders';
+import ManageOrders from './pages/Vendor/ManageOrders';
+import QuoteForVendor from './pages/Vendor/QuoteForVendor';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -119,7 +123,10 @@ function App() {
 
           {/* Vendor Panel Nested Routes */}
           <Route path='/vendor' element={<VendorLayout />}>
-            <Route index element={<ShipperDashboard />} />
+            <Route index element={<VendorDashboard />} />
+            <Route path='inbound-orders' element={<InboundOrders />} />
+            <Route path='manage-orders' element={<ManageOrders />} />
+            <Route path='check-quote' element={<QuoteForVendor />} />
           </Route>
 
         </Routes>

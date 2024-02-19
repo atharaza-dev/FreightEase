@@ -24,12 +24,12 @@ function VendorLayout() {
                                 <span class="ml-4 font-medium tracking-wide">Dashboard</span>
                             </Link>
 
-                            <Link to='book-truck' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                            <Link to='inbound-orders' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
                                 <i class="fa-duotone fa-layer-group fa-lg"></i>
                                 <span class="ml-4 font-medium tracking-wide">Inbound Orders</span>
                             </Link>
 
-                            <Link to='book-truck' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                            <Link to='manage-orders' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
                                 <i class="fa-duotone fa-truck-arrow-right fa-lg"></i>
                                 <span class="ml-4 font-medium tracking-wide">Manage Orders</span>
                             </Link>
@@ -39,7 +39,7 @@ function VendorLayout() {
                                 <span class="ml-4 font-medium tracking-wide">Manage Vehicles</span>
                             </Link>
 
-                            <Link to='book-truck' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                            <Link to='check-quote' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
                                 <i class="fa-duotone fa-calculator fa-lg"></i>
                                 <span class="ml-4 font-medium tracking-wide">Quote Generator</span>
                             </Link>
