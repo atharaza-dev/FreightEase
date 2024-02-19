@@ -53,6 +53,9 @@ import GenQuote from './pages/Shipper/GenQuote';
 import ShipperHelp from './pages/Shipper/ShipperHelp';
 import ShipperDetails from './pages/Shipper/ShipperDetails';
 
+//*Importing Vendor Panel Pages
+import VendorLayout from './components/Vendor/layouts/VendorLayout';
+
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById('spinner');
@@ -114,6 +117,10 @@ function App() {
             <Route path='edit-shipper-info' element={<ShipperDetails />} />
           </Route>
 
+          {/* Vendor Panel Nested Routes */}
+          <Route path='/vendor' element={<VendorLayout />}>
+            <Route index element={<ShipperDashboard />} />
+          </Route>
 
         </Routes>
 
