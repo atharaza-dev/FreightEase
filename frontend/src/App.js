@@ -59,6 +59,7 @@ import VendorDashboard from './pages/Vendor/VendorDashboard';
 import InboundOrders from './pages/Vendor/InboundOrders';
 import ManageOrders from './pages/Vendor/ManageOrders';
 import QuoteForVendor from './pages/Vendor/QuoteForVendor';
+import ManageVehicles from './pages/Vendor/ManageVehicles';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -127,6 +128,9 @@ function App() {
             <Route path='inbound-orders' element={<InboundOrders />} />
             <Route path='manage-orders' element={<ManageOrders />} />
             <Route path='check-quote' element={<QuoteForVendor />} />
+            <Route path='check-quote' element={<QuoteForVendor />} />
+            <Route path='manage-vehicles' element={<ManageVehicles />} />
+            <Route path='help' element={<ShipperHelp />} />
           </Route>
 
         </Routes>

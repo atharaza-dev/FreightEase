@@ -55,7 +55,7 @@ function ManageOrders() {
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">FE11942</td>
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Faisalabad</td>
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Multan</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-yellow-600"><span className='bg-yellow-200 py-2 px-3 rounded-full'>Pending</span></td>
+                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-yellow-600"><span className='bg-yellow-200 py-2 text-sm px-3 rounded-full'>Pending</span></td>
                                         <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
                                             <button class='bg-red-500 py-2 px-4 rounded mx-1 hover:bg-red-600' ><i class="fa-duotone fa-trash-can-xmark text-white "></i></button>
                                             <Link className='bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i class="fa-duotone fa-check text-white"></i></Link>
