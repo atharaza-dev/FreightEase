@@ -4,7 +4,7 @@ const router = express.Router();
 const authControllers = require('../controllers/auth-controller')
 var bodyParser = require('body-parser');
 const cors = require('cors');
-const authMiddleware = require('../middleware/authMiddleware');
+const verifyMiddleware = require('../middleware/authMiddleware');
 
 
 //? USING DEPENDENCIES
@@ -48,7 +48,9 @@ router.route('/vendor-login').post(authControllers.vendor_login);
 
 // * ----------------------------------------------------------
 //! USER VERIFICTAION ROUTE
-router.route('/user').get(authMiddleware, authControllers.user);
+router.route('/admin').get(verifyMiddleware.adminAuthMiddleware, authControllers.user);
+router.route('/shipper').get(verifyMiddleware.shipperAuthMiddlware, authControllers.user);
+router.route('/vendor').get(verifyMiddleware.vendorAuthMiddleware, authControllers.user);
 // * ----------------------------------------------------------
 
 // * ----------------------------------------------------------

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link, Outlet } from 'react-router-dom'
 import './Vendor.css'
 import logo from '../../../assets/imgs/vc.png'
@@ -6,6 +6,9 @@ import avatar from '../../../assets/imgs/avatar.png'
 
 function VendorLayout() {
     document.title = "Vendor - FreightEase"
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []); 
     return (
         <>
 

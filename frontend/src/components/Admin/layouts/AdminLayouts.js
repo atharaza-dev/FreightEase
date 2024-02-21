@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Admin.css'
 import { Link, Outlet } from 'react-router-dom'
 import logo from '../../../assets/imgs/ac.png'
@@ -7,6 +7,9 @@ import avatar from '../../../assets/imgs/avatar.png'
 
 function AdminLayouts() {
     document.title = "Admin - FreightEase"
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []); 
     return (
         <>
             <section class="min-h-screen">

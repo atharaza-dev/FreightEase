@@ -207,5 +207,5 @@ module.exports = {
     vendor_registration,
     vendor_login,
     user,
-    admin_login
+    admin_login,
 };
