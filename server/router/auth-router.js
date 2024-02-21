@@ -6,6 +6,7 @@ const cors = require('cors');
 const authControllers = require('../controllers/auth-controller')
 const verifyMiddleware = require('../middleware/authMiddleware');
 const adminVerification = require('../middleware/admin-middleware');
+const adminPanel = require('../controllers/admin-controller');
 
 
 //? USING DEPENDENCIES
@@ -55,8 +56,9 @@ router.route('/vendor').get(verifyMiddleware.vendorAuthMiddleware, authControlle
 // * ----------------------------------------------------------
 
 // * ----------------------------------------------------------
-//! ADMIN LOGIN ROUTE
+//! ADMIN Functionality
 router.route('/admin-login').post(authControllers.admin_login);
+router.route('/admin/shippers').get(adminPanel);
 // * -------------
 
 module.exports = router;

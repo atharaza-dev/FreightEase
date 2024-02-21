@@ -6,6 +6,7 @@ const ShipperAccounts = require('../models/shipper-model')
 const VendorAccounts = require('../models/vendor-model')
 const AdminAccounts = require('../models/admin-model');
 
+//* middlewares
 
 // * ----------------------------------------------------------
 //! SERVER HOMEPAGE CODE LOGIC
@@ -178,17 +179,17 @@ const admin_login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        const checkAdminExits = await AdminAccounts.findOne({ email });
-        if (!checkAdminExits) {
-            return res.status(404).json({ msg: "Admin doesn't exist, Contact to Super Admin!" });
+        const checkAdminExists = await AdminAccounts.findOne({ email, isAdmin: true });
+        if (!checkAdminExists) {
+            return res.status(403).json({ msg: "You are not an ADMIN!" });
         }
-
-        const adminFound = await bcrypt.compare(password, checkAdminExits.password);
+        const adminFound = await bcrypt.compare(password, checkAdminExists.password);
         if (adminFound) {
             res.status(201).json({
                 msg: "ADMIN Logged In Successfully!",
-                token: await checkAdminExits.generateToken(),
-                userId: checkAdminExits._id.toString(),
+                isAdmin: checkAdminExists.isAdmin,
+                token: await checkAdminExists.generateToken(),
+                userId: checkAdminExists._id.toString(),
             });
         } else {
             res.status(401).json({ msg: "Invalid Credentials" });
@@ -198,6 +199,7 @@ const admin_login = async (req, res) => {
         res.status(500).json({ msg: "Internal Server Error" });
     }
 }
+
 // * ----------------------------------------------------------
 
 module.exports = {
@@ -208,4 +210,4 @@ module.exports = {
     vendor_login,
     user,
     admin_login,
-};
+}

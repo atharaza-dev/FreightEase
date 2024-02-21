@@ -10,8 +10,10 @@ import poster from '../../assets/imgs/poster.png'
 import truckkkk from '../../assets/imgs/truckkkk.png'
 import sales from '../../assets/imgs/sales.png'
 import users from '../../assets/imgs/users.png'
-
+import { useAuth } from '../../data/AuthContext';
 function Dashboard() {
+    const { rcvdToken } = useAuth();
+    alert('from dash', rcvdToken);
     return (
         <>
 

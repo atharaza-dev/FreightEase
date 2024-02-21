@@ -15,7 +15,7 @@ function AdminLogin() {
     const passChangeHandler = (e) => {
         setPass(e.target.value);
     }
-    const { storeToken } = useAuth();
+    const { storeToken, verifyAdmin } = useAuth();
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
@@ -45,8 +45,8 @@ function AdminLogin() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(adminAccObj),
             });
-
-            if (response.status === 404) {
+    
+            if (response.status === 403) {
                 toast.error(`Not a ADMIN!`, {
                     position: "top-right",
                     autoClose: 8000,
@@ -70,8 +70,10 @@ function AdminLogin() {
                 });
                 const ress = await response.json();
                 storeToken(ress.token);
+                verifyAdmin(ress.isAdmin);
+                // window.location.href = '/admin';
             } else if (response.status === 401) {
-                toast.error(`Incorrect Password!`, {
+                toast.error(`Incorrect Credentials!`, {
                     position: "top-right",
                     autoClose: 8000,
                     hideProgressBar: false,
