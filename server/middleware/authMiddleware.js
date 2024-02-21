@@ -11,7 +11,7 @@ const adminAuthMiddleware = async (req, res, next) => {
     const token = req.header('Authorization');
 
     if (!token) {
-        return res.status(401).json({ error: "Unauthorized token" });
+        return res.status(401).json({ error: "Token Not Found, Not an ADMIN" });
     }
 
     //* only getting the token not space and secret key
@@ -20,12 +20,12 @@ const adminAuthMiddleware = async (req, res, next) => {
 
     try {
         const isVerified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
-        const adminData = await admin.findOne({ email: isVerified.email }).select({ password: 0, }); //?select is to avoid getting the data
+        const userData = await admin.findOne({ email: isVerified.email }).select({ password: 0, }); //?select is to avoid getting the data
         console.log(userData);
 
-        req.admin = adminData;
+        req.user = userData;
         req.token = token;
-        req.adminId = adminData._id;
+        req.userID = userData._id;
 
         next();
     } catch (error) {

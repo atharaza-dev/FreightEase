@@ -1,10 +1,11 @@
 //? REQUIRING DEPENDENCIES
 const express = require('express');
 const router = express.Router();
-const authControllers = require('../controllers/auth-controller')
 var bodyParser = require('body-parser');
 const cors = require('cors');
+const authControllers = require('../controllers/auth-controller')
 const verifyMiddleware = require('../middleware/authMiddleware');
+const adminVerification = require('../middleware/admin-middleware');
 
 
 //? USING DEPENDENCIES
@@ -48,7 +49,7 @@ router.route('/vendor-login').post(authControllers.vendor_login);
 
 // * ----------------------------------------------------------
 //! USER VERIFICTAION ROUTE
-router.route('/admin').get(verifyMiddleware.adminAuthMiddleware, authControllers.user);
+router.route('/admin').get(verifyMiddleware.adminAuthMiddleware, adminVerification, authControllers.user);
 router.route('/shipper').get(verifyMiddleware.shipperAuthMiddlware, authControllers.user);
 router.route('/vendor').get(verifyMiddleware.vendorAuthMiddleware, authControllers.user);
 // * ----------------------------------------------------------
