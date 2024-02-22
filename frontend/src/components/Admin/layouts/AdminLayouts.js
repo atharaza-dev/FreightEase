@@ -1,15 +1,21 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './Admin.css'
 import { Link, Outlet } from 'react-router-dom'
 import logo from '../../../assets/imgs/ac.png'
 import avatar from '../../../assets/imgs/avatar.png'
+import { useAuth } from '../../../data/AuthContext';
 
 
 function AdminLayouts() {
     document.title = "Admin - FreightEase"
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []); 
+    }, []);
+
+    const logOutUser = () => {
+        window.location.href = '/admin-login'
+        localStorage.removeItem("token");
+    }
     return (
         <>
             <section class="min-h-screen">
@@ -73,7 +79,9 @@ function AdminLayouts() {
                         <Link to='profile-settings' className="flex items-center justify-center text-gray-600">
                             <i class="fa-duotone fa-gear fa-lg text-primColor1"></i>
                         </Link>
-                        <i class="fa-duotone fa-power-off fa-lg text-primColor1"></i>
+                        <button onClick={logOutUser}>
+                            <i class="fa-duotone fa-power-off fa-lg text-primColor1"></i>
+                        </button>
 
                         {/* <div className="border-r border-gray-400 h-8"></div> */}
 

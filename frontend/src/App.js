@@ -60,6 +60,7 @@ import InboundOrders from './pages/Vendor/InboundOrders';
 import ManageOrders from './pages/Vendor/ManageOrders';
 import QuoteForVendor from './pages/Vendor/QuoteForVendor';
 import ManageVehicles from './pages/Vendor/ManageVehicles';
+import AdminProtectedRoute from './pages/Admin/AdminProtectedRoute';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -98,7 +99,7 @@ function App() {
 
           {/* Admin Panel Nested Routes */}
           <Route exact path='/admin-login' element={<AdminLogin />} />
-          <Route path='/admin' element={<AdminLayouts />}>
+          <Route path='/admin' element={<AdminProtectedRoute Component={AdminLayouts} />}>
             <Route index element={<Dashboard />} />
             <Route path='vendors' element={<Vendors />} />
             <Route path='vendors/:id/' element={<EditVendors />} />

@@ -15,7 +15,7 @@ function AdminLogin() {
     const passChangeHandler = (e) => {
         setPass(e.target.value);
     }
-    const { storeToken, verifyAdmin } = useAuth();
+    const { storeToken } = useAuth();
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
@@ -70,8 +70,7 @@ function AdminLogin() {
                 });
                 const ress = await response.json();
                 storeToken(ress.token);
-                verifyAdmin(ress.isAdmin);
-                // window.location.href = '/admin';
+                window.location.href = '/admin';
             } else if (response.status === 401) {
                 toast.error(`Incorrect Credentials!`, {
                     position: "top-right",

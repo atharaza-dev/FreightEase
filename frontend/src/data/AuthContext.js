@@ -5,26 +5,35 @@ export const AuthContext = createContext();
 //! it is like the one who provide
 export const AuthProvider = ({ children }) => {
 
+    //? getting token globally
     const [token, setToken] = useState(localStorage.getItem("token"));
-    const rcvdToken = localStorage.getItem(("token"));
 
     const storeToken = (serverToken) => {
         return localStorage.setItem("token", serverToken);
     }
 
-    const [isAdmin, setIsAdmin] = useState(false);
-    const verifyAdmin = (isAdmin) => {
-        setIsAdmin(isAdmin);
-    }
-    console.log(isAdmin);
-    
-    let isLoggedIn = !!token;
+    // let isLoggedIn = !!token;
+    // const LogoutUser = () => {
+    //     setToken("");
+    //     return localStorage.removeItem("token");
+    // };
+
+    // //? getting isAdmin Value from FORM json
+    // const [isAdmin, setIsAdmin] = useState(false);
+    // const verifyAdmin = (adminStatus) => {
+    //     setIsAdmin(adminStatus);
+    // };
+    // console.log('isAdmin', isAdmin);
+
     const LogoutUser = () => {
         setToken("");
-        return localStorage.removeItem("token");
+        localStorage.removeItem("token");
     };
 
-    return <AuthContext.Provider value={{ storeToken, LogoutUser, isLoggedIn, verifyAdmin }}>
+    const isLoggedIn = token;
+    console.log('isLoggedIn', isLoggedIn);
+
+    return <AuthContext.Provider value={{ storeToken, LogoutUser, isLoggedIn }}>
         {children}
     </AuthContext.Provider>
 }
