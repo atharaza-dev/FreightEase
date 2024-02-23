@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //importing Context API
-import { useAuth } from '../../../../../data/AuthContext';
+import { useAuth } from '../../../../../data/AuthContext'
 
 // importing Assets
 import './CustomerReg.css'
@@ -35,7 +35,7 @@ function ShipperRegistration() {
         setCPass(e.target.value);
     }
 
-    const storeToken = useAuth();
+    const { storeToken } = useAuth();
 
     const registrationHandler = async (e) => {
         e.preventDefault();

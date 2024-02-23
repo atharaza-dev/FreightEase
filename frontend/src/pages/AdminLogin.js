@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../data/AuthContext';
-
+import { useNavigate } from 'react-router-dom';
 
 function AdminLogin() {
 
+    const navigate = useNavigate();
+    
     const [email, setEmail] = useState('');
     const userChangeHandler = (e) => {
         setEmail(e.target.value);
@@ -15,7 +17,7 @@ function AdminLogin() {
     const passChangeHandler = (e) => {
         setPass(e.target.value);
     }
-    const { storeToken } = useAuth();
+    const { storeToken, storeAdminStatus } = useAuth();
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
@@ -45,7 +47,7 @@ function AdminLogin() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(adminAccObj),
             });
-    
+
             if (response.status === 403) {
                 toast.error(`Not a ADMIN!`, {
                     position: "top-right",
@@ -68,9 +70,14 @@ function AdminLogin() {
                     progress: undefined,
                     theme: "colored",
                 });
+
                 const ress = await response.json();
                 storeToken(ress.token);
-                window.location.href = '/admin';
+
+                storeAdminStatus(ress.isAdmin);
+                console.table('from login',ress.isAdmin);
+                navigate('/admin-management-system');
+
             } else if (response.status === 401) {
                 toast.error(`Incorrect Credentials!`, {
                     position: "top-right",
@@ -122,7 +129,7 @@ function AdminLogin() {
                                 </button>
                             </form>
                             <div class="mt-4 text-center">
-                                <p class="text-sm fontAlt text-gray-600">To create another account? <a href="/admin" class="font-bold text-blue-600 no-underline hover:text-blue-400">Contact Super Admin</a></p>
+                                <p class="text-sm fontAlt text-gray-600">To create another account? <a href="/admin-management-system" class="font-bold text-blue-600 no-underline hover:text-blue-400">Contact Super Admin</a></p>
                             </div>
                         </div>
                     </div>

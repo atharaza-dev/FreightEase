@@ -1,44 +1,40 @@
 import { createContext, useContext, useState } from 'react';
-
 export const AuthContext = createContext();
 
-//! it is like the one who provide
+//? it is like the one who provide
 export const AuthProvider = ({ children }) => {
 
-    //? getting token globally
+    //? getting token globally=======================================
     const [token, setToken] = useState(localStorage.getItem("token"));
 
     const storeToken = (serverToken) => {
         return localStorage.setItem("token", serverToken);
     }
 
-    // let isLoggedIn = !!token;
-    // const LogoutUser = () => {
-    //     setToken("");
-    //     return localStorage.removeItem("token");
-    // };
+    // const isLoggedIn = token;
+    console.log(token);
 
-    // //? getting isAdmin Value from FORM json
-    // const [isAdmin, setIsAdmin] = useState(false);
-    // const verifyAdmin = (adminStatus) => {
-    //     setIsAdmin(adminStatus);
-    // };
-    // console.log('isAdmin', isAdmin);
+    //? getting isAdmin Value from FORM json===================================
+    const storeAdminStatus = (adminStatus) => {
+        return localStorage.setItem("isAdmin", adminStatus);
+    }
+    const [admin, setAdmin] = useState(localStorage.getItem("isAdmin"));
+    console.log(admin);
 
+    //? logout funtionality =====================================================
     const LogoutUser = () => {
         setToken("");
+        setAdmin("");
         localStorage.removeItem("token");
+        localStorage.removeItem("isAdmin");
     };
-
-    const isLoggedIn = token;
-    console.log('isLoggedIn', isLoggedIn);
-
-    return <AuthContext.Provider value={{ storeToken, LogoutUser, isLoggedIn }}>
+    //? ==========================================================================================
+    return <AuthContext.Provider value={{ storeToken, LogoutUser, storeAdminStatus }}>
         {children}
     </AuthContext.Provider>
 }
 
-// ! it is  like the one who needs
+// ? it is  like the one who needs
 export const useAuth = () => {
     return useContext(AuthContext);
 }

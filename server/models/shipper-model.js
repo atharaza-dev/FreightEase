@@ -18,7 +18,7 @@ const shipperSchema = new mongoose.Schema({
     },
     isShipper: {
         type: Boolean,
-        default: false,
+        default: true,
     }
 })
 

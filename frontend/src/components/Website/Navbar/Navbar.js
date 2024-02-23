@@ -102,13 +102,13 @@ function Navbar() {
                                 <Link to='/vehicles-list' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Show all Vehicles
                                 </Link>
-                                <Link to='/admin' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
+                                <Link to='/admin-management-system' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Admin
                                 </Link>
-                                <Link to='/shipper' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
+                                <Link to='/shipper-management-system' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Shipper
                                 </Link>
-                                <Link to='/vendor' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
+                                <Link to='/vendor-management-system' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Vendor
                                 </Link>
                             </div>

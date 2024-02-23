@@ -1,13 +1,21 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom'
 import logo from '../../../assets/imgs/sc.png'
 import avatar from '../../../assets/imgs/avatar.png'
+import { useAuth } from '../../../data/AuthContext';
 
 function ShipperLayouts() {
     document.title = "Shipper - FreightEase"
+
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []); 
+    });
+
+    const { LogoutUser } = useAuth();
+
+    const logOutUser = () => {
+        LogoutUser();
+    }
     return (
         <>
 
@@ -69,7 +77,9 @@ function ShipperLayouts() {
                         <Link to='profile-settings' className="flex items-center justify-center text-gray-600">
                             <i class="fa-duotone fa-gear fa-lg text-primColor1"></i>
                         </Link>
-                        <i class="fa-duotone fa-power-off fa-lg text-primColor1"></i>
+                        <button onClick={logOutUser}>
+                            <i class="fa-duotone fa-power-off fa-lg text-primColor1"></i>
+                        </button>
 
                         {/* <div className="border-r border-gray-400 h-8"></div> */}
 
@@ -98,7 +108,6 @@ function ShipperLayouts() {
                 </div>
 
             </section >
-
 
         </>
     )

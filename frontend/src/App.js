@@ -61,6 +61,7 @@ import ManageOrders from './pages/Vendor/ManageOrders';
 import QuoteForVendor from './pages/Vendor/QuoteForVendor';
 import ManageVehicles from './pages/Vendor/ManageVehicles';
 import AdminProtectedRoute from './pages/Admin/AdminProtectedRoute';
+import ShipperProtectedRoute from './pages/Shipper/ShipperProtectedRoute';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -99,7 +100,7 @@ function App() {
 
           {/* Admin Panel Nested Routes */}
           <Route exact path='/admin-login' element={<AdminLogin />} />
-          <Route path='/admin' element={<AdminProtectedRoute Component={AdminLayouts} />}>
+          <Route path='/admin-management-system' element={<AdminProtectedRoute Component={AdminLayouts} />}>
             <Route index element={<Dashboard />} />
             <Route path='vendors' element={<Vendors />} />
             <Route path='vendors/:id/' element={<EditVendors />} />
@@ -113,7 +114,7 @@ function App() {
           </Route>
 
           {/* Shipper Panel Nested Routes */}
-          <Route path='/shipper' element={<ShipperLayouts />}>
+          <Route path='/shipper-management-system' element={<ShipperProtectedRoute Component={ShipperLayouts} />}>
             <Route index element={<ShipperDashboard />} />
             <Route path='book-truck' element={<TruckBooking />} />
             <Route path='shipment-track' element={<ParcelTracking />} />
@@ -131,7 +132,7 @@ function App() {
             <Route path='check-quote' element={<QuoteForVendor />} />
             <Route path='check-quote' element={<QuoteForVendor />} />
             <Route path='manage-vehicles' element={<ManageVehicles />} />
-            <Route path='help' element={<ShipperHelp />} />
+            <Route path='help-vendor' element={<ShipperHelp />} />
           </Route>
 
         </Routes>

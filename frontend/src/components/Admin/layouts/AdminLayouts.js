@@ -4,17 +4,21 @@ import { Link, Outlet } from 'react-router-dom'
 import logo from '../../../assets/imgs/ac.png'
 import avatar from '../../../assets/imgs/avatar.png'
 import { useAuth } from '../../../data/AuthContext';
-
+import { useNavigate } from 'react-router-dom';
 
 function AdminLayouts() {
     document.title = "Admin - FreightEase"
+    const navigate = useNavigate();
+
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    });
+
+    const { LogoutUser } = useAuth();
 
     const logOutUser = () => {
-        window.location.href = '/admin-login'
-        localStorage.removeItem("token");
+        LogoutUser();
+        navigate('/admin-login');
     }
     return (
         <>
@@ -24,7 +28,7 @@ function AdminLayouts() {
 
                     <div class="flex flex-col justify-between flex-1">
                         <nav>
-                            <Link to='/admin' class="flex justify-center">
+                            <Link to='/admin-management-system' class="flex justify-center">
                                 <img src={logo} alt="" className='w-44' />
                             </Link>
                             <Link to='/admin' className='flex items-center pl-4 py-2 mt-4 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>

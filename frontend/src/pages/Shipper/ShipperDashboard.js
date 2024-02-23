@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './ShipperPage.css'
 import avatar from '../../assets/imgs/box.png'

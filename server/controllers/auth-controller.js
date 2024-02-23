@@ -52,7 +52,7 @@ const shipper_login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        const checkShipperExist = await ShipperAccounts.findOne({ email });
+        const checkShipperExist = await ShipperAccounts.findOne({ email, isShipper: true });
         if (!checkShipperExist) {
             return res.status(404).json({ msg: "Shipper doesn't exist, Create One!" });
         }
@@ -60,6 +60,7 @@ const shipper_login = async (req, res) => {
         const shipperFound = await bcrypt.compare(password, checkShipperExist.password);
         if (shipperFound) {
             res.status(201).json({
+                isShipper: checkShipperExist.isShipper,
                 msg: "Shipper Logged In Successfully!",
                 token: await checkShipperExist.generateToken(),
                 userId: checkShipperExist._id.toString(),

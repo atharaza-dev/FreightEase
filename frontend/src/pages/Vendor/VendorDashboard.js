@@ -1,14 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import avatar from '../../assets/imgs/box.png'
 import DTruck from '../../assets/imgs/3dtruck.png'
 import orders from '../../assets/imgs/orders.png'
 import quote from '../../assets/imgs/quote.png'
 import qa from '../../assets/imgs/qa.png'
 import poster from '../../assets/imgs/poster.png'
-import flatbed from '../../assets/imgs/flatbed.png'
-import truckk from '../../assets/imgs/truckk.png'
-import curtain from '../../assets/imgs/curtain.png'
 
 function VendorDashboard() {
     return (
