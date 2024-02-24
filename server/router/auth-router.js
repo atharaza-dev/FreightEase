@@ -7,7 +7,8 @@ const authControllers = require('../controllers/auth-controller')
 const verifyAdminToken = require('../middleware/admin-middleware');
 const verifyShipperToken = require('../middleware/shipper-middlware');
 const verifyVendorToken = require('../middleware/vendor-middelware');
-
+const shipperInfo = require('../controllers/shipper-info-controller');
+const vendorsInfo = require('../controllers/vendors-info-controller');
 
 //? USING DEPENDENCIES
 router.use(bodyParser.json());
@@ -63,6 +64,14 @@ router.post('/shipper-verification', verifyShipperToken, (req, res) => {
 router.post('/vendor-verification', verifyVendorToken, (req, res) => {
     res.json({ message: 'Access granted to protected route.', user: req.user });
 });
+// * ----------------------------------------------------------
+
+//! Getting Managing Shipper Account 
+router.route('/shippers-info').get(shipperInfo.shipperinfo);
+router.route('/del-shippers-info/:id').delete(shipperInfo.deleteShipperInfo);
+
+//! Getting Vendor Account Information
+router.route('/vendors-info').get(vendorsInfo.vendorInfo);
 // * ----------------------------------------------------------
 
 module.exports = router;

@@ -28,7 +28,7 @@ function AdminLayouts() {
 
                     <div class="flex flex-col justify-between flex-1">
                         <nav>
-                            <Link to='/admin-management-system' class="flex justify-center">
+                            <Link to='/ams' class="flex justify-center">
                                 <img src={logo} alt="" className='w-44' />
                             </Link>
                             <Link to='/admin' className='flex items-center pl-4 py-2 mt-4 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>

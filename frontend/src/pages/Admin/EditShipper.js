@@ -1,7 +1,6 @@
 import React from 'react'
 
 function EditShipper() {
-    const name = "athar";
     return (
         <>
             <section className="bg-white shadow-sm rounded-sm border-1 border-gray-250 h-full fontAlt p-10">
@@ -20,7 +19,7 @@ function EditShipper() {
 
                             <div>
                                 <label htmlFor="cnic" className="leading-7 text-sm text-gray-600">Email</label>
-                                <input type="text" className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder={name} />
+                                <input type="text" className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"  />
                             </div>
 
                             <div>

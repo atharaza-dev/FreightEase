@@ -6,7 +6,6 @@ const ShipperAccounts = require('../models/shipper-model')
 const VendorAccounts = require('../models/vendor-model')
 const AdminAccounts = require('../models/admin-model');
 
-//* middlewares
 
 // * ----------------------------------------------------------
 //! SERVER HOMEPAGE CODE LOGIC

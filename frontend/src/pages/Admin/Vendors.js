@@ -1,16 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import './AdminPage.css';
 import DTruck from '../../assets/imgs/3dtruck.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function vendors() {
+function Vendors() {
+    const [vendorData, setVendorData] = useState([]);
+
+    useEffect(() => {
+        const fetchVendorData = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/vendors-info');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setVendorData(data);
+                toast.success('Fetched data from database!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    theme: "light",
+                });
+            } catch (error) {
+                toast.error('Fetched data from database!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    theme: "light",
+                });
+            }
+        }
+        fetchVendorData();
+    }, []);
+
+    // ? Deleting Data
+    const deleteShipperData = async (shipperId) => {
+        try {
+            const response = await fetch(`http://localhost:5000/api/auth/del-vendors-info/${shipperId}`, {
+                method: "DELETE",
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+                alert('roro');
+            }
+            const responseData = await response.json();
+            setShipperData(prevShipper => prevShipper.filter(shipper => shipper._id !== shipperId));
+            toast.success(responseData.msg, {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "light",
+            });
+
+        } catch (error) {
+            console.error('Error deleting contact:', error);
+        }
+    }
+
     return (
         <>
             <section className="overflow-hidden">
                 <h1 class="fontAlt sm:text-6xl mb-4 font-bold text-start text-gray-900"><span className='text-primColor1'>VENDORS</span></h1>
                 <div class="flex items-center justify-between bg-white px-8 text-white shadow-sm rounded-lg border-1">
                     <div class="my-10 lg:my-8 lg:w-1/2">
-                        <h1 class="text-8xl font-bold fontAlt tracking-wide text-primColor1">453</h1>
+                        <h1 class="text-8xl font-bold fontAlt tracking-wide text-primColor1">{vendorData.length}</h1>
                         <p class="mt-2 text-lg text-gray-700">Vendors : Total number of registered vendors as users</p>
                     </div>
                     <div class="hidden h-42 w-1/1 flex-shrink-0 justify-end lg:flex">
@@ -38,43 +90,25 @@ function vendors() {
                                     <tr class='rounded-lg text-sm text-gray-700 uppercase'>
                                         <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Vendor Name</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">CNIC</th>
+                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Phone</th>
+                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Reg</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Email</th>
+                                        {/* <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Email</th> */}
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200"></th>
                                     </tr>
-
-                                    <tr class='rounded-lg'>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
-                                            <center>
-                                                <Link to='1' className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</Link>
-                                            </center>
-                                        </td>
-                                    </tr>
-
-                                    <tr class='rounded-lg'>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
-                                            <center>
-                                                <Link to='2' className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</Link>
-                                            </center>
-                                        </td>
-                                    </tr>
-
-                                    <tr class='rounded-lg'>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">Athar Raza</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">33100-1724572-7</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">atharaza.dev@gmail.com</td>
-                                        <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
-                                            <center>
-                                                <Link to='3' className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded inline-block">Edit Vendor Details</Link>
-                                            </center>
-                                        </td>
-                                    </tr>
-
+                                    {vendorData.map((vendor, index) => (
+                                        <tr key={index} className='rounded-lg'>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{vendor.name}</td>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{vendor.CNIC}</td>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{vendor.Phone}</td>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{vendor.RegNumber}</td>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{vendor.email}</td>
+                                            {/* <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{vendor.password}</td> */}
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                                                <button onClick={() => deleteShipperData(shipper._id)} class='bg-red-500 py-2 px-4 rounded mx-1 hover:bg-red-600' ><i class="fa-duotone fa-trash-can-xmark text-white "></i></button>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
@@ -83,8 +117,9 @@ function vendors() {
                 </div>
 
             </section >
+            <ToastContainer></ToastContainer>
         </>
     );
 }
 
-export default vendors;
+export default Vendors;
