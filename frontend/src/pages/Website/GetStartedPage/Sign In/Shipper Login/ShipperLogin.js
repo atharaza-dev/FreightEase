@@ -23,7 +23,7 @@ function ShipperLogin() {
         setPass(e.target.value);
     }
 
-    const { storeToken } = useAuth();
+    const { storeToken, storeShipperStatus } = useAuth();
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
@@ -78,7 +78,8 @@ function ShipperLogin() {
                 });
                 const ress = await response.json();
                 storeToken(ress.token);
-                window.location.href = '/admin-management-system';
+                storeShipperStatus(ress.isShipper);
+                window.location.href = '/sms';
             } else if (response.status === 401) {
                 toast.error(`Incorrect Password!`, {
                     position: "top-right",

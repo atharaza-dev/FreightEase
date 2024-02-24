@@ -7,7 +7,7 @@ function Logout() {
 
     useEffect(() => {
         LogoutUser();
-    }, [LogoutUser])
+    },)
 
     return <Navigate to='/' />;
 }

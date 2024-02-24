@@ -42,6 +42,7 @@ import ProfileSettings from './pages/Admin/ProfileSettings';
 import AdminLogin from './pages/AdminLogin';
 import EditVendors from './pages/Admin/EditVendors';
 import EditShipper from './pages/Admin/EditShipper';
+import AdminProtectedRoute from './pages/Admin/AdminProtectedRoute';
 
 // * Importing Shipper Panel Pages
 import ShipperDashboard from './pages/Shipper/ShipperDashboard';
@@ -52,6 +53,7 @@ import BookingHistory from './pages/Shipper/BookingHistory';
 import GenQuote from './pages/Shipper/GenQuote';
 import ShipperHelp from './pages/Shipper/ShipperHelp';
 import ShipperDetails from './pages/Shipper/ShipperDetails';
+import ShipperProtectedRoute from './pages/Shipper/ShipperProtectedRoute';
 
 //*Importing Vendor Panel Pages
 import VendorLayout from './components/Vendor/layouts/VendorLayout';
@@ -60,8 +62,7 @@ import InboundOrders from './pages/Vendor/InboundOrders';
 import ManageOrders from './pages/Vendor/ManageOrders';
 import QuoteForVendor from './pages/Vendor/QuoteForVendor';
 import ManageVehicles from './pages/Vendor/ManageVehicles';
-import AdminProtectedRoute from './pages/Admin/AdminProtectedRoute';
-import ShipperProtectedRoute from './pages/Shipper/ShipperProtectedRoute';
+import VendorProtectedRoute from './pages/Vendor/VendorProtectedRoute'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -100,7 +101,7 @@ function App() {
 
           {/* Admin Panel Nested Routes */}
           <Route exact path='/admin-login' element={<AdminLogin />} />
-          <Route path='/admin-management-system' element={<AdminProtectedRoute Component={AdminLayouts} />}>
+          <Route path='/ams' element={<AdminProtectedRoute Component={AdminLayouts} />}>
             <Route index element={<Dashboard />} />
             <Route path='vendors' element={<Vendors />} />
             <Route path='vendors/:id/' element={<EditVendors />} />
@@ -114,7 +115,7 @@ function App() {
           </Route>
 
           {/* Shipper Panel Nested Routes */}
-          <Route path='/shipper-management-system' element={<ShipperProtectedRoute Component={ShipperLayouts} />}>
+          <Route path='/sms' element={<ShipperProtectedRoute Component={ShipperLayouts} />}>
             <Route index element={<ShipperDashboard />} />
             <Route path='book-truck' element={<TruckBooking />} />
             <Route path='shipment-track' element={<ParcelTracking />} />
@@ -125,7 +126,7 @@ function App() {
           </Route>
 
           {/* Vendor Panel Nested Routes */}
-          <Route path='/vendor' element={<VendorLayout />}>
+          <Route path='/vms' element={<VendorProtectedRoute Component={VendorLayout} />}>
             <Route index element={<VendorDashboard />} />
             <Route path='inbound-orders' element={<InboundOrders />} />
             <Route path='manage-orders' element={<ManageOrders />} />

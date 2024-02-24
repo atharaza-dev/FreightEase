@@ -7,14 +7,15 @@ function AdminProtectedRoute(props) {
         const verifyToken = async () => {
             try {
                 let getToken = localStorage.getItem('token');
+                let isAdmin = localStorage.getItem('isAdmin');
 
-                if (!getToken) {
-                    alert('Token not found. Please log in.');
+                if (!getToken && (isAdmin === false || isAdmin === null || isAdmin === undefined)) {
+                    alert('ADMIN privileges not found. Please log in.');
                     window.location.href = '/admin-login';
                     return;
                 }
 
-                const response = await fetch('http://localhost:5000/api/auth/verification', {
+                const response = await fetch('http://localhost:5000/api/auth/admin-verification', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -31,6 +32,7 @@ function AdminProtectedRoute(props) {
 
                 const data = await response.json();
                 console.log('Token verified:', data);
+                
             } catch (error) {
                 console.error('Error while verifying token:', error);
                 alert('An error occurred. Please try again.');
@@ -40,8 +42,6 @@ function AdminProtectedRoute(props) {
 
         verifyToken();
     }, []);
-
-
 
     return (
         <>

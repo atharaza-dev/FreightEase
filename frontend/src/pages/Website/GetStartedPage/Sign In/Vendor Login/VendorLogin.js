@@ -4,15 +4,12 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { useAuth } from '../../../../../data/AuthContext';
 // importing Assets
 import sidePic from '../../../../../assets/imgs/2.png'
 
 function CustomerLogin() {
     document.title = "Sign In";
-
-    // const [isVendor, setRadioValue] = useState(true);
-    // setRadioValue('');
-
     const [email, setEmail] = useState("");
     const emailChangeHandler = (e) => {
         setEmail(e.target.value);
@@ -22,6 +19,8 @@ function CustomerLogin() {
     const passChangeHandler = (e) => {
         setPass(e.target.value);
     }
+
+    const { storeToken, storeVendorStatus } = useAuth();
 
     const loginClickHandler = async (e) => {
         e.preventDefault();
@@ -36,22 +35,24 @@ function CustomerLogin() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
+                transition: "Bounce",
             });
         }
-
-        const vendorAccObj = {
-            // isVendor: isVendor,
-            email,
-            password,
+        const shipperAccObj = {
+            email: email,
+            password: password,
         }
+        console.log(shipperAccObj);
 
-        fetch('http://localhost:5000/api/auth/vendor-login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(vendorAccObj),
-        }).then((repsonse) => {
-            if (repsonse.status === 404) {
-                toast.error(`Vendor doesn't exist in our database!`, {
+        try {
+            const response = await fetch('http://localhost:5000/api/auth/shipper-login', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(shipperAccObj),
+            });
+
+            if (response.status === 404) {
+                toast.error(`Account with these details doesn't exist in our database!`, {
                     position: "top-right",
                     autoClose: 8000,
                     hideProgressBar: false,
@@ -61,8 +62,8 @@ function CustomerLogin() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (repsonse.status === 401) {
-                toast.error('Invalid Credentials, Try Again!', {
+            } else if (response.status === 201) {
+                toast.success('Logged In Successfully!', {
                     position: "top-right",
                     autoClose: 8000,
                     hideProgressBar: false,
@@ -72,8 +73,14 @@ function CustomerLogin() {
                     progress: undefined,
                     theme: "colored",
                 });
-            } else if (repsonse.status === 201) {
-                toast.success('Vendor Successfully Logged In!', {
+
+                const ress = await response.json();
+                storeToken(ress.token);
+                storeVendorStatus(ress.isVendor);
+                window.location.href = '/vms';
+
+            } else if (response.status === 401) {
+                toast.error(`Incorrect Password!`, {
                     position: "top-right",
                     autoClose: 8000,
                     hideProgressBar: false,
@@ -84,7 +91,7 @@ function CustomerLogin() {
                     theme: "colored",
                 });
             } else {
-                toast.error('An error occured, Try Again!', {
+                toast.error('Error Occurred, Try Again!', {
                     position: "top-right",
                     autoClose: 8000,
                     hideProgressBar: false,
@@ -95,9 +102,11 @@ function CustomerLogin() {
                     theme: "colored",
                 });
             }
-        }).catch((error) => { console.log(error) });
-
+        } catch (error) {
+            console.log(error);
+        }
     }
+
 
     return (
         <>
@@ -121,6 +130,7 @@ function CustomerLogin() {
                         className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
                     >
                         <div className="max-w-xl lg:max-w-3xl">
+
                             <Link
                                 className="inline-block rounded-full border border-indigo-600 bg-indigo-600 p-3 focus:outline-none focus:ring active:text-indigo-500"
                                 to="/"
@@ -131,6 +141,7 @@ function CustomerLogin() {
                                     <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
                                 </svg>
                             </Link>
+
 
                             <h1
                                 className="mt-6 text-2xl font-bold font2 text-gray-800 sm:text-3xl md:text-4xl"
@@ -143,7 +154,7 @@ function CustomerLogin() {
                             </p>
 
                             <Link
-                                className="inline-flex items-center gap-2 rounded border border-indigo-600 px-8 py-3 text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
+                                className="inline-flex items-center gap-2 mt-4 mr-4 rounded border border-indigo-600 px-8 py-3 text-indigo-600 hover:bg-indigo-600 hover:text-white"
                                 to="/shipper-login"
                             >
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAADPElEQVR4nOWSa0iTcRjFB33vQ/guoXSsRCMisKCSjDStVMqym6ClTewCUaSZpnNeNpe3XXTaUjQjwtTIDzFvuc05XVPTrCyxzMh5gYpiJt5vJ543rEAE3T72wA/Oe54/57w3Due/Ge05rodBwEj1AianIZybpAtj4upDuXvsDm69um6t+fp6szGSgfECg8ZIBgYBA304A91Z5opd4foIR57pMmM1RPwON178W6ANZVB3kpmqCXRwt7nAGMnojJe4eCd1RlvUBhgEXBjOc9EavRFdKTzUneKiKpB5YXNBQ5jDlKXIBROGXZhq8sS0aT8LafI+KjdDc8RhxuaCxoj1X8Z0OzDVvA8zZl/MtvqxkCZvtH4Hak44frW5oFO4UTfRuAfTz70x1xaAhY5jLKTJo13LNacGm8I/P+FteV/oNDRp9MCM2Qfz7Uew0BnEQpo82vUUOA19KuO7rrqgr3IT93O588CEYTemTV6Ya/PDfHsgC2nyaNdf7myhszY9xUitq2hc747Jpr2Yfn4Asy2HWEiTRzs6w7F1flbz/EefbcW4fif7OujvIUiTR7uRKp4fx56xaviq0botGNNux5jO/Tfa7SDPquEXcOwdPOas+aY/OmLV8PGz2oWF9PeGo1ba2V2QqX7oNvyhur/3kRssFXyW3lI3DPdo+sVKtZvNwRn5DzzT8u6Z0lT30NHVg8kf3bA8C2Eh3f66G6KsOxBm5DfFS1V7VxUuzi2Ok+QUz4uVRUhVFKKk4iloBhMTWWpHe3C16T6CtEoE1StwvF6x4N8s7/V+KdcuEtitLjw/UBazJDxFWRScIi9EsqwASdl3IcpSIzEzH2PjExgWizEskUAwWIaAt/nYaUqFV0c2DnepsMssYa8XoT2dW1Igyla/oUenUGFGHhLSVYi/nYvKai36QkLQFxr6p8CrQ8ZqIrivZGUFCemq2YTbuYiX5uBWmhJxEgVixXLcTJWhWyZnWSygO18sCLOUrqwgLk3RHCuRI1Ysw82UbMQkZ+FGUiaiRRmISkzHdaH0TwG9luCPJWz4wddK+L5SwueVAqd6i5cvWMn8+w2Ww66C0y15854aIbY9urIstD/Tmjf3C8F1r5eu5gMYAAAAAElFTkSuQmCC" alt=""></img>
@@ -151,7 +162,7 @@ function CustomerLogin() {
                             </Link>
 
                             <Link
-                                className="inline-flex items-center gap-2 mt-4 ml-4 rounded border border-indigo-600 bg-indigo-600 px-8 py-3 text-white"
+                                className="inline-flex items-center gap-2 rounded bg-indigo-600 border border-indigo-600 px-8 py-3 text-white hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
                                 to="/vendor-login"
                             >
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAADSklEQVR4nO2UWUwTURSG76OIioiyU5dXA0SMS6JP7hsShLZDgdKiolZighpHo4mjIqJIJaitbLJZKJtIlLhCRhNNjBplLVBrKWUojfBgjMYX/U0HKFNptBofOcnJZJIz3/fPmZshZLo8qcHBT35D9o9HOZudtnI22mLl6CPPi1WLGvbQi+pSaVGNghZVK2iRTk6H6JLo4Iqko6FF4nnE07LZR05wNjus3DAsg0MwD3CQP1GzC2tTIapRQlSdgrAqOUJvJSOkIgnB5TIElSYc91jA2eyMEP6h3wr54xxWpFcgrCoFobpkhFQ6wIkIKpMh8CaFgBIp47HAytkYIfy9eQCJDy6xYbqJ1IkTqRFYQiGgWIIFBWLPBRYrxwjhfaZ+yO5fYN2kRkCRBP4FYiRVrmJHWwmEPdJKvo+0kItTBGYLxwjhPcYPoO5msb+m9i8UI6o0DUu0MiRWrOQF7XqChpyxblITDD8mX20PibeLwGS2MkJ4d58J0qZMNrBYioBC8XjqeKwuV2H48yjkjVmQla3gBW90kwJHd9cTjLYQsYvAaLYwQnhnjxGSO2fZ1HvZeNr/DiIthVVlY/Bjj7TwzdsJqnS5WwFbxK+r1kXQazIzQniHoQ9xDQwboolHc98LvBjo4OG0A34lGnPzokEVR7kVNObygi8uazIYTYwQ3tbVg7i60+x87S4E5seisfsZD597ZQffPrnbIS1axgsGmgleVU52m378owvX1NVrYoTwtx0GxOpPsX7XYjHvagx81dFjYPUOzLm8DbNztkJSGDnlFLl0C5k8xh0GIyOEv2nvQkz1SdY3P4Zfh894ah5+aQtmZW+G5EbE3wh6GSG8sfkR4s5kvF98Ph4+6nFwzlbMurgF3tmbMDNrI8SacKfgpT4Iddcj+atbQVuXgZmAF5RWgVIecHbECakztfeFTZh5fiO8Mtcj7tpSXlB/PcJl/rYmfKrgbXv39tdtnd9evevE7oNHkH74ODQaLQ5m0Ijdm+ZM7ZW5ATPOrceMs+ucgjRVisu8436klXwbbSHb3P42pIoDQ45BxwOqDNqRavB3v5m/nSeUcv8hwSv/kCr2pf/Peb4SlKq1lFKVIUnZt+aPw/8wP11EWD8BaMcTnCyyvYYAAAAASUVORK5CYII=" alt=""></img>
@@ -162,7 +173,7 @@ function CustomerLogin() {
 
                             <form method="POST" className="mt-8 grid grid-cols-6 gap-6">
                                 <div class="flex items-center" style={{ display: 'none' }}>
-                                    {/* <input type="radio" id="radioButton" class="hidden" checked={isVendor} value={isVendor} /> */}
+                                    {/* <input type="radio" id="radioButton" class="hidden" checked={isShipper} value={isShipper} /> */}
                                     <label htmlFor="radioButton" className="cursor-not-allowed select-none">
                                         <div className="bg-blue-500 border-2 border-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
                                             <svg
@@ -181,10 +192,10 @@ function CustomerLogin() {
                                             </svg>
                                         </div>
                                     </label>
-                                    <span class="ml-2 text-gray-700">Vendor</span>
+                                    <span class="ml-2 text-gray-700">Shipper</span>
                                 </div>
                                 <div class="col-span-6">
-                                    <label for="email" class="leading-7 text-sm text-gray-600">NTN Registration</label>
+                                    <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
                                     <input value={email} onChange={emailChangeHandler} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
 
@@ -199,15 +210,15 @@ function CustomerLogin() {
                                     </button>
                                     <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                                         Don't have any account?
-                                        <Link to="/vendor-registration" className="text-indigo-500 underline px-2">Create here!</Link>
+                                        <Link to="/shipper-registration" className="text-indigo-500 underline px-2">Create here!</Link>
                                     </p>
                                 </div>
                             </form>
                         </div>
                     </main>
-                </div>
+                </div >
                 <ToastContainer />
-            </section>
+            </section >
         </>
     )
 }

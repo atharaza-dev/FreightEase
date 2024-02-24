@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react'
 
-function ShipperProtectedRoute(props) {
+function VendorProtectedRoute(props) {
     const { Component } = props;
 
     useEffect(() => {
         const verifyToken = async () => {
             try {
                 let getToken = localStorage.getItem('token');
-                let isShipper = localStorage.getItem('isShipper');
+                let isVendor = localStorage.getItem('isVendor');
 
-                if (!getToken && (isShipper === false || isShipper === null || isShipper === undefined)) {
-                    alert('Shipper privileges not found. Please log in.');
-                    window.location.href = '/shipper-login';
+                if (!getToken && (isVendor === false || isVendor === null || isVendor === undefined)) {
+                    alert('Vendor privileges not found. Please log in.');
+                    window.location.href = '/vendor-login';
                     return;
                 }
 
-                const response = await fetch('http://localhost:5000/api/auth/shipper-verification', {
+                const response = await fetch('http://localhost:5000/api/auth/vendor-verification', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ function ShipperProtectedRoute(props) {
                 if (!response.ok) {
                     const responseData = await response.json();
                     alert(responseData.error || 'Failed to verify token.');
-                    window.location.href = '/shipper-login';
+                    window.location.href = '/vendor-login';
                     return;
                 }
 
@@ -36,7 +36,7 @@ function ShipperProtectedRoute(props) {
             } catch (error) {
                 console.error('Error while verifying token:', error);
                 alert('An error occurred. Please try again.');
-                window.location.href = '/shipper-login';
+                window.location.href = '/vendor-login';
             }
         };
 
@@ -50,4 +50,4 @@ function ShipperProtectedRoute(props) {
     )
 }
 
-export default ShipperProtectedRoute
+export default VendorProtectedRoute

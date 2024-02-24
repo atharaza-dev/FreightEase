@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../data/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 function AdminLogin() {
 
-    const navigate = useNavigate();
-    
     const [email, setEmail] = useState('');
     const userChangeHandler = (e) => {
         setEmail(e.target.value);
@@ -73,10 +71,10 @@ function AdminLogin() {
 
                 const ress = await response.json();
                 storeToken(ress.token);
-
                 storeAdminStatus(ress.isAdmin);
-                console.table('from login',ress.isAdmin);
-                navigate('/admin-management-system');
+
+                console.table('from login', ress.isAdmin);
+                window.location.href = '/ams'
 
             } else if (response.status === 401) {
                 toast.error(`Incorrect Credentials!`, {
@@ -129,7 +127,7 @@ function AdminLogin() {
                                 </button>
                             </form>
                             <div class="mt-4 text-center">
-                                <p class="text-sm fontAlt text-gray-600">To create another account? <a href="/admin-management-system" class="font-bold text-blue-600 no-underline hover:text-blue-400">Contact Super Admin</a></p>
+                                <p class="text-sm fontAlt text-gray-600">Trouble Sign In? <Link to="/contact-us" class="font-bold text-blue-600 no-underline hover:text-blue-400 ml-2">Contact Super Admin</Link></p>
                             </div>
                         </div>
                     </div>

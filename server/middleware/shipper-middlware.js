@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const verifyAdminTokenMiddleware = (req, res, next) => {
+const verifyShipperTokenMiddleware = (req, res, next) => {
     const token = req.header('Authorization');
 
     if (!token) {
@@ -19,4 +19,4 @@ const verifyAdminTokenMiddleware = (req, res, next) => {
     }
 };
 
-module.exports = verifyAdminTokenMiddleware;
+module.exports = verifyShipperTokenMiddleware;
