@@ -58,14 +58,14 @@ function Shippers() {
     return (
         <>
             <section className="overflow-hidden">
-                <h1 class="fontAlt sm:text-6xl mb-4 font-bold text-start text-gray-900"><span className='text-primColor1'>SHIPPERS</span></h1>
+
                 <div class="flex items-center justify-between bg-white px-8 text-white shadow-sm rounded-lg border-1">
                     <div class="my-10 lg:my-8 lg:w-1/2">
-                        <h1 class="text-8xl font-bold fontAlt tracking-wide text-primColor1">{shipperData.length}</h1>
-                        <p class="mt-2 text-lg text-gray-700">Shipper : Total number of registered shipper as users</p>
+                        <h1 class="fontAlt sm:text-6xl mb-4 font-bold text-start text-gray-900"><span className='text-primColor1'>SHIPPERS</span></h1>
+                        <p class="mt-2 text-lg text-gray-700">Shippers : Total number of registered shippers as users</p>
                     </div>
-                    <div class="hidden h-22 w-1/2 flex-shrink-0 justify-end lg:flex">
-                        <img class="w-40" src={shipper} alt="pic" />
+                    <div class="hidden h-42 w-1/1 flex-shrink-0 justify-end lg:flex">
+                        <h1 class="text-8xl font-bold fontAlt tracking-wide text-primColor1">{shipperData.length}</h1>
                     </div>
                 </div>
 

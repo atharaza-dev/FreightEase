@@ -38,17 +38,17 @@ function CustomerLogin() {
                 transition: "Bounce",
             });
         }
-        const shipperAccObj = {
+        const vendorAccObj = {
             email: email,
             password: password,
         }
-        console.log(shipperAccObj);
+        console.log(vendorAccObj);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/shipper-login', {
+            const response = await fetch('http://localhost:5000/api/auth/vendor-login', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(shipperAccObj),
+                body: JSON.stringify(vendorAccObj),
             });
 
             if (response.status === 404) {
@@ -66,11 +66,6 @@ function CustomerLogin() {
                 toast.success('Logged In Successfully!', {
                     position: "top-right",
                     autoClose: 8000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
                     theme: "colored",
                 });
 

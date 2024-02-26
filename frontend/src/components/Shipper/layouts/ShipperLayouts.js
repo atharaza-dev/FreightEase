@@ -25,7 +25,7 @@ function ShipperLayouts() {
 
                     <div class="flex flex-col justify-between flex-1">
                         <nav>
-                            <Link to='/shipper' class="flex justify-center">
+                            <Link to='/sms' class="flex justify-center">
                                 <img src={logo} alt="" className='w-44' />
                             </Link>
 

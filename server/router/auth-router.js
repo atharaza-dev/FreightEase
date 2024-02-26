@@ -69,9 +69,14 @@ router.post('/vendor-verification', verifyVendorToken, (req, res) => {
 //! Getting Managing Shipper Account 
 router.route('/shippers-info').get(shipperInfo.shipperinfo);
 router.route('/del-shippers-info/:id').delete(shipperInfo.deleteShipperInfo);
+router.route('/find-shippers-info/:id').get(shipperInfo.findShipper);
+router.route('/update-shippers-info/:id').put(shipperInfo.updateShipper);
 
 //! Getting Vendor Account Information
 router.route('/vendors-info').get(vendorsInfo.vendorInfo);
+router.route('/del-vendors-info/:id').delete(vendorsInfo.deleteVendorInfo);
+router.route('/find-vendors-info/:id').get(vendorsInfo.findVendor);
+router.route('/update-vendors-info/:id').put(vendorsInfo.updateVendor);
 // * ----------------------------------------------------------
 
 module.exports = router;

@@ -29,9 +29,39 @@ const deleteShipperInfo = async (req, res) => {
     }
 }
 
+//! find shipper by id:
+const findShipper = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const shipperFound = await ShipperAccounts.findById(id);
+        if (!shipperFound) {
+            return res.status(404).json({ msg: "Data not found!" });
+        }
+        res.status(200).json(shipperFound);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+//! updating shipper account information
+const updateShipper = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const shipperFound = await ShipperAccounts.findById(id);
+        if (!shipperFound) {
+            return res.status(404).json({ msg: "Data not found!" });
+        }
+        const updateShipper = await ShipperAccounts.findByIdAndUpdate(id, req.body, { new: true });
+        res.status(200).json({ msg: 'Shipper Successfully Updated!' });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
 
 // * ----------------------------------------------------------
 module.exports = {
     shipperinfo,
-    deleteShipperInfo
+    deleteShipperInfo,
+    updateShipper,
+    findShipper
 }

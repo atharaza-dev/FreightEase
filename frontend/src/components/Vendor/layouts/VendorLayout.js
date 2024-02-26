@@ -3,12 +3,24 @@ import { Link, Outlet } from 'react-router-dom'
 import './Vendor.css'
 import logo from '../../../assets/imgs/vc.png'
 import avatar from '../../../assets/imgs/avatar.png'
+import { useAuth } from '../../../data/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function VendorLayout() {
     document.title = "Vendor - FreightEase"
+    const navigate = useNavigate();
+    
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []); 
+
+    const { LogoutUser } = useAuth();
+
+    const logOutUser = () => {
+        LogoutUser();
+        navigate('/vendor-login');
+    }
+
     return (
         <>
 
@@ -18,7 +30,7 @@ function VendorLayout() {
 
                     <div class="flex flex-col justify-between flex-1">
                         <nav>
-                            <Link to='/shipper' class="flex justify-center">
+                            <Link to='/vms' class="flex justify-center">
                                 <img src={logo} alt="" className='w-44' />
                             </Link>
 
@@ -69,9 +81,9 @@ function VendorLayout() {
                         <Link to='profile-settings' className="flex items-center justify-center text-gray-600">
                             <i class="fa-duotone fa-gear fa-lg text-primColor1"></i>
                         </Link>
-                        <i class="fa-duotone fa-power-off fa-lg text-primColor1"></i>
-
-                        {/* <div className="border-r border-gray-400 h-8"></div> */}
+                        <button onClick={logOutUser}>
+                            <i class="fa-duotone fa-power-off fa-lg text-primColor1"></i>
+                        </button>
 
                         <div className="flex relative items-center border-l border-gray-400 h-8">
                             <div className="justify-end mx-3">
