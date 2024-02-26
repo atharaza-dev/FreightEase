@@ -85,7 +85,7 @@ function ShipperRegistration() {
 
             if (response.status === 409) {
                 toast.error('Email already exists in our database!', {
-                    position: "top-center",
+                    position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
                     closeOnClick: false,
@@ -96,7 +96,7 @@ function ShipperRegistration() {
                 });
             } else if (response.status === 201) {
                 toast.success('Registration Successful!', {
-                    position: "top-center",
+                    position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
                     closeOnClick: false,
@@ -113,7 +113,7 @@ function ShipperRegistration() {
                 setCPass('');
             } else {
                 toast.error('Error Occurred. Please try again!', {
-                    position: "top-center",
+                    position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
                     closeOnClick: false,
