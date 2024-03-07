@@ -29,7 +29,7 @@ function ShipperLayouts() {
                                 <img src={logo} alt="" className='w-44' />
                             </Link>
 
-                            <Link to='/shipper' className='flex items-center pl-4 py-2 mt-8 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                            <Link to='/sms' className='flex items-center pl-4 py-2 mt-8 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
                                 <i class="fa-duotone fa-house fa-lg"></i>
                                 <span class="ml-4 font-medium tracking-wide">Dashboard</span>
                             </Link>
@@ -85,8 +85,8 @@ function ShipperLayouts() {
 
                         <div className="flex relative items-center border-l border-gray-400 h-8">
                             <div className="justify-end mx-3">
-                                <p className="text-sm font-semibold text-end fontAlt">Mushtarka Zimedar Goods</p>
-                                <p className="txtsize text-gray-600 text-end fontAlt">VENDOR</p>
+                                <p className="text-sm font-semibold text-end fontAlt">Ashhad Apparel</p>
+                                <p className="txtsize text-gray-600 text-end fontAlt">Shipper</p>
                             </div>
                             <div className="relative">
                                 <img class="object-cover w-10 h-10 rounded-full ring ring-primColor1" src={avatar} alt="" />

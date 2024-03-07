@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './ServicesPage.css'
 import poster from '../../../assets/imgs/poster.png';
-
+import about from '../../../assets/imgs/about.png'
 
 function ServicePage() {
     document.title = 'Services - FreightEase'
@@ -45,7 +45,7 @@ function ServicePage() {
                 <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col gap-20 items-center">
 
                     <div class="lg:max-w-xl lg:w-full md:w-1/1 w-5/6">
-                        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
+                        <img class="object-cover object-center rounded-full" alt="hero" src={about} />
                     </div>
 
                     <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">

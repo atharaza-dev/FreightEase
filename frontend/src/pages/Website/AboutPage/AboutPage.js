@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import './AboutPage.css'
 import athar from '../../../assets/imgs/athar.jpg'
 import avatar from '../../../assets/imgs/avatar.png'
+import service from '../../../assets/imgs/service.png'
+
 function AboutPage() {
     document.title = 'About Us - FreightEase'
     return (
@@ -86,7 +88,7 @@ function AboutPage() {
                     </div>
 
                     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
+                        <img class="object-cover object-center rounded" alt="hero" src={service} />
                     </div>
                 </div>
             </section>

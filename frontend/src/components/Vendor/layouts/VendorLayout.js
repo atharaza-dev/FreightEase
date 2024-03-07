@@ -34,7 +34,7 @@ function VendorLayout() {
                                 <img src={logo} alt="" className='w-44' />
                             </Link>
 
-                            <Link to='/vendor' className='flex items-center pl-4 py-2 mt-4 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                            <Link to='/vms' className='flex items-center pl-4 py-2 mt-4 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
                                 <i class="fa-duotone fa-house-user fa-lg"></i>
                                 <span class="ml-4 font-medium tracking-wide">Dashboard</span>
                             </Link>

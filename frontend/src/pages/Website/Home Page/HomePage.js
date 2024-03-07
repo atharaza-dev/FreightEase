@@ -9,6 +9,8 @@ import truck1 from '../../../assets/imgs/truck1.jpg'
 import truck2 from '../../../assets/imgs/truck2.jpg'
 import truck3 from '../../../assets/imgs/truck3.jpeg'
 import hero from '../../../assets/imgs/heroo.png';
+import service from '../../../assets/imgs/service.png'
+import about from '../../../assets/imgs/about.png'
 
 function HomePage() {
     document.title = 'Home - FreightEase'
@@ -128,7 +130,7 @@ function HomePage() {
                     </div>
 
                     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
+                        <img class="object-cover object-center rounded" alt="hero" src={service} />
                     </div>
                 </div>
             </section>
@@ -168,7 +170,7 @@ function HomePage() {
                 <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col gap-20 items-center">
 
                     <div class="lg:max-w-xl lg:w-full md:w-1/1 w-5/6">
-                        <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
+                        <img class="object-cover object-center rounded-full" alt="hero" src={about} />
                     </div>
 
                     <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">

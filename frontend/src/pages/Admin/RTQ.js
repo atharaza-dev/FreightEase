@@ -61,7 +61,7 @@ function RTQ() {
                 });
             } else if (response.status === 201) {
                 toast.success('Quote Added Successfully!', {
-                    position: "top-center",
+                    position: "top-right",
                     autoClose: 5000,
                     theme: "colored",
                 });
@@ -70,14 +70,14 @@ function RTQ() {
                 setRate('');
             } else {
                 toast.error('Error Occurred. Please try again!', {
-                    position: "top-center",
+                    position: "top-right",
                     autoClose: 5000,
                     theme: "colored",
                 });
             }
         } catch (error) {
             toast.error('Error Occurred. Please try again!', {
-                position: "top-center",
+                position: "top-right",
                 autoClose: 5000,
                 theme: "colored",
             });
