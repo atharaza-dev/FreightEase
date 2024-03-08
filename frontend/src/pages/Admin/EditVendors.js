@@ -97,10 +97,10 @@ function EditVendors() {
 
                             <div class="flex justify-end mt-8">
                                 <button type="button" onClick={updateVendor} class="w-24 h-10 text-sm font-semibold rounded text-white bg-green-500 hover:bg-green-600 focus:outline-none">
-                                    Save
+                                    <span><i class="fa-solid fa-floppy-disk mr-2"></i></span>Update
                                 </button>
                                 <Link to='/ams/vendors' class="w-24 h-10 text-center ml-4 text-sm font-semibold rounded text-white bg-red-500 hover:bg-red-600 focus:outline-none flex items-center justify-center">
-                                    Cancel
+                                    <span><i class="fa-solid fa-xmark mr-2"></i></span>Cancel
                                 </Link>
                             </div>
                         </div>

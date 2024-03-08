@@ -59,13 +59,13 @@ function VendorLayout() {
                                 <span class="ml-4 font-medium tracking-wide">Quote Generator</span>
                             </Link>
 
-                            <Link to='help' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                            <Link to='help-vendor' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
                                 <i class="fa-duotone fa-circle-info fa-lg"></i>
                                 <span class="ml-4 font-medium tracking-wide">Help & Support</span>
                             </Link>
 
                         </nav>
-                        <Link to='edit-shipper-info' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
+                        <Link to='edit-profile' className='flex items-center pl-4 py-2 mt-3 rounded-md transition-colors duration-300 transform text-gray-800 hover:bg-primColor1 hover:text-white'>
                             <i class="fa-duotone fa-gear fa-lg"></i>
                             <span class="ml-4 font-medium tracking-wide">Profile Settings</span>
                         </Link>

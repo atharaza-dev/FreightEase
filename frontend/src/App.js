@@ -63,6 +63,8 @@ import ManageOrders from './pages/Vendor/ManageOrders';
 import QuoteForVendor from './pages/Vendor/QuoteForVendor';
 import ManageVehicles from './pages/Vendor/ManageVehicles';
 import VendorProtectedRoute from './pages/Vendor/VendorProtectedRoute'
+import VendorHelp from './pages/Vendor/VendorHelp';
+import EditProfile from './pages/Vendor/EditProfile';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -133,7 +135,8 @@ function App() {
             <Route path='check-quote' element={<QuoteForVendor />} />
             <Route path='check-quote' element={<QuoteForVendor />} />
             <Route path='manage-vehicles' element={<ManageVehicles />} />
-            <Route path='help-vendor' element={<ShipperHelp />} />
+            <Route path='help-vendor' element={<VendorHelp />} />
+            <Route path='edit-profile' element={<EditProfile />} />
           </Route>
 
         </Routes>

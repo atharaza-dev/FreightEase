@@ -102,7 +102,7 @@ function Navbar() {
                                 <Link to='/vehicles-list' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Show all Vehicles
                                 </Link>
-                                <Link to='/ams' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
+                                {/* <Link to='/ams' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Admin
                                 </Link>
                                 <Link to='/sms' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
@@ -110,7 +110,7 @@ function Navbar() {
                                 </Link>
                                 <Link to='/vms' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
                                     Vendor
-                                </Link>
+                                </Link> */}
                             </div>
                         )}
                     </div>

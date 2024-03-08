@@ -153,8 +153,8 @@ function RTQ() {
                             </div>
 
                             <div class="relative mb-4">
-                                <button onClick={submitQuote} class="text-white w-full bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-m my-3">ADD / EDIT</button>
-                                <button class="text-white w-full bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-m">DELETE</button>
+                                <button onClick={submitQuote} class="text-white w-full bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-m my-3"><span><i class="fa-solid fa-plus mr-2"></i></span>ADD / EDIT</button>
+                                <button class="text-white w-full bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-m"><span><i class="fa-solid fa-xmark mr-2 "></i></span>DELETE</button>
                             </div>
 
                         </form>

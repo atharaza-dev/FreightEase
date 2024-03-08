@@ -1,9 +1,9 @@
 import React from 'react'
 import profile from '../../assets/imgs/profile.png'
 
-function ShipperDetails() {
+function EditProfile() {
     return (
-        <>
+        <div>
             <section className="overflow-hidden fontAlt">
                 {/* <h1 class="fontAlt sm:text-6xl mb-4 font-bold text-start text-gray-900"><span className='text-primColor1'>REVENUE GENERATED</span></h1> */}
                 <div class="flex items-center justify-between bg-white px-8 text-white shadow-sm rounded-lg border-1">
@@ -20,7 +20,7 @@ function ShipperDetails() {
                     <div class="flex items-center justify-center">
 
                         <div class="mx-auto w-full max-w-[700px] py-12">
-                            <h1 className='text-center font-semibold tracking-wide text-lg pb-12'>PERSONAL SHIPPER INFORMATION</h1>
+                            <h1 className='text-center font-semibold tracking-wide text-lg pb-12'>PERSONAL VENDOR INFORMATION</h1>
                             <form class="py-4 px-9">
                                 <div class="relative mb-4">
                                     <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Full Name</label>
@@ -65,8 +65,8 @@ function ShipperDetails() {
                 </div>
 
             </section >
-        </>
+        </div>
     )
 }
 
-export default ShipperDetails
+export default EditProfile

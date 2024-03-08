@@ -12,7 +12,7 @@ function ManageOrders() {
 
                         <div class="flex flex-col space-y-4 items-end md:justify-between md:space-y-0">
 
-                            <Link to="/vendor/inbound-orders" class="rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-gray-600 shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+                            <Link to="/vms/inbound-orders" class="rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-gray-600 shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                                 <span><i class="fa-duotone fa-arrow-up-right-from-square text-gray-600 mr-2"></i>Check new Orders</span>
                             </Link>
 

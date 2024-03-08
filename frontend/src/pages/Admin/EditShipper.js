@@ -86,10 +86,10 @@ function EditShipper() {
                         </div>
                         <div class="!mt-10 flex justify-end">
                             <button onClick={updateShipper} type="button" on class="min-w-[150px] py-3 px-4 text-sm font-semibold rounded text-white bg-green-500 hover:bg-green-600 focus:outline-none">
-                                Save
+                                <span><i class="fa-solid fa-floppy-disk mr-2"></i></span>Update
                             </button>
                             <Link to='/ams/shippers' class="min-w-[150px] py-3 px-4 ml-4 text-sm font-semibold text-center rounded text-white bg-red-500 hover:bg-red-600 focus:outline-none">
-                                Cancel
+                                <span><i class="fa-solid fa-xmark mr-2"></i></span>Cancel
                             </Link>
                         </div>
                     </form>
