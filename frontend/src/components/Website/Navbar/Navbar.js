@@ -62,130 +62,121 @@ function Navbar() {
     };
 
     return (
-        <div className="container mx-auto">
-            <div className={`navbar  rounded-23 w-full mx-20 mt-3 py-3 md:mx-24 md:max-w-screen-xl px-6 py-2 ${scrolling ? 'scrolled' : ''}`}>
-                <Link to='/' className="logoImg title-font font-medium items-center text-gray-900 md:mb-0">
-                    <img src={logo} alt="" className="nav-img" />
-                </Link>
+        <div className="">
+            <div className={`navbarMain w-full mt-3 md:mx-auto md:max-w-screen`}>
+                <div className={`navContainer flex items-center w-full justify-center gap-5 rounded-23 mx-6 md:mx-18 lg:mx-28 py-3 px-6 py-2  ${scrolling ? 'scrolled' : ''}`}>
+                    <Link to='/' className="logoImg title-font font-medium items-center text-gray-900 md:mb-0">
+                        <img src={logo} alt="" className="nav-img" />
+                    </Link>
 
-                {/* Responsive hamburger menu */}
-                <div className="md:hidden ml-auto">
-                    <button onClick={handleServicesClick} className="text-gray-900 focus:outline-none">
-                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                {/* Links for medium and larger screens */}
-                <div className="navLinks hidden md:flex md:ml-auto md:mr-auto flex-wrap items-center gap-5 justify-center">
-                    <div className="relative group">
-                        <button
-                            onClick={handleServicesClick}
-                            style={{ color: activeLink === 'link1' ? '#2563EB' : '#4A5568' }}
-                            className="mr-3 text-gray-200 focus:outline-none"
-                        >
-                            Services
-                            <span className="caret">&#9662;</span>
+                    {/* Responsive hamburger menu */}
+                    <div className="md:hidden ml-auto">
+                        <button onClick={handleServicesClick} className="text-primColor2 focus:outline-none">
+                            <i class="fa-duotone fa-bars fa-lg"></i>
                         </button>
-                        {menuOpen && (
-                            <div ref={dropdownRef} className="absolute bg-white w-[300px] mt-2 p-2 px-4 rounded-md shadow-md">
-                                <Link to='/services' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
-                                    Services
-                                </Link>
-                                <Link to="/quote-generator" className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
-                                    Quote Generator
-                                </Link>
-                                <Link to='/tow-service' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
-                                    Tow Service
-                                </Link>
-                                <Link to='/vehicles-list' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
-                                    Show all Vehicles
-                                </Link>
-                                {/* <Link to='/ams' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
-                                    Admin
-                                </Link>
-                                <Link to='/sms' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
-                                    Shipper
-                                </Link>
-                                <Link to='/vms' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
-                                    Vendor
-                                </Link> */}
-                            </div>
-                        )}
                     </div>
-                    <Link
-                        to='/about-us'
-                        onClick={() => handleLinkClick('link2')}
-                        style={{ color: activeLink === 'link2' ? '#2563EB' : '#4A5568' }}
-                        className="mr-3"
-                    >
-                        About Us
-                    </Link>
-                    <Link
-                        to='/contact-us'
-                        onClick={() => handleLinkClick('link3')}
-                        style={{ color: activeLink === 'link3' ? '#2563EB' : '#4A5568' }}
-                        className="mr-3"
-                    >
-                        Contact Us
-                    </Link>
-                    <Link
-                        to='/help'
-                        onClick={() => handleLinkClick('link4')}
-                        style={{ color: activeLink === 'link4' ? '#2563EB' : '#4A5568' }}
-                        className="mr-3"
-                    >
-                        Help
-                    </Link>
-                </div>
 
-                {/* toggling the logout and login button */}
-                {isLoggedIn ? (<Link
-                    to='/logout'
-                    className="hidden md:block text-white bg-indigo-600 border-1 border-indigo-600 rounded-full px-4 py-2 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
-                    Log Out
-                </Link>) : (
-                    <Link
-                        to='/shipper-registration'
+                    {/* Links for medium and larger screens */}
+                    <div className="navLinks hidden md:flex md:ml-auto md:mr-auto flex-wrap items-center gap-5 justify-center">
+                        <div className="relative group">
+                            <button
+                                onClick={handleServicesClick}
+                                style={{ color: activeLink === 'link1' ? '#2563EB' : '#4A5568' }}
+                                className="mr-3 text-gray-200 focus:outline-none"
+                            >
+                                Services
+                                <span className="caret">&#9662;</span>
+                            </button>
+                            {menuOpen && (
+                                <div ref={dropdownRef} className="absolute bg-white w-[300px] mt-2 p-2 px-4 rounded-md shadow-md">
+                                    <Link to='/services' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
+                                        Services
+                                    </Link>
+                                    <Link to="/quote-generator" className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
+                                        Quote Generator
+                                    </Link>
+                                    <Link to='/tow-service' className="block text-gray-800 hover:text-blue-500 py-2 px-4 border-b border-gray-300" onClick={() => handleLinkClick('link1')}>
+                                        Tow Service
+                                    </Link>
+                                    <Link to='/vehicles-list' className="block text-gray-800 hover:text-blue-500 py-2 px-4" onClick={() => handleLinkClick('link1')}>
+                                        Show all Vehicles
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+                        <Link
+                            to='/about-us'
+                            onClick={() => handleLinkClick('link2')}
+                            style={{ color: activeLink === 'link2' ? '#2563EB' : '#4A5568' }}
+                            className="mr-3"
+                        >
+                            About Us
+                        </Link>
+                        <Link
+                            to='/contact-us'
+                            onClick={() => handleLinkClick('link3')}
+                            style={{ color: activeLink === 'link3' ? '#2563EB' : '#4A5568' }}
+                            className="mr-3"
+                        >
+                            Contact Us
+                        </Link>
+                        <Link
+                            to='/help'
+                            onClick={() => handleLinkClick('link4')}
+                            style={{ color: activeLink === 'link4' ? '#2563EB' : '#4A5568' }}
+                            className="mr-3"
+                        >
+                            Help
+                        </Link>
+                    </div>
+
+                    {/* toggling the logout and login button */}
+                    {isLoggedIn ? (<Link
+                        to='/logout'
                         className="hidden md:block text-white bg-indigo-600 border-1 border-indigo-600 rounded-full px-4 py-2 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
-                        Get Started Now
-                    </Link>
-                )}
+                        Log Out
+                    </Link>) : (
+                        <Link
+                            to='/shipper-registration'
+                            className="hidden md:block text-white bg-indigo-600 border-1 border-indigo-600 rounded-full px-4 py-2 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
+                            Get Started Now
+                        </Link>
+                    )}
+                </div>
             </div>
 
             {/* Responsive dropdown menu */}
             {menuOpen && (
-                <div className="md:hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+                <div className="md:hidden fixed top-0 left-0 w-full h-full bg-slate-900 bg-opacity-45  flex items-center justify-center z-50">
                     <div className="flex flex-col items-center">
-                        <Link to='/services' onClick={() => handleLinkClick('link1')} className="text-white py-2">
-                            Services
-                        </Link>
                         {activeLink === 'link1' && (
                             <div ref={dropdownRef} className="flex flex-col items-center">
-                                <Link to='/service1' onClick={() => handleLinkClick('link1')} className="text-white py-2">
-                                    Service 1
+                                <Link to='/services' onClick={() => handleLinkClick('link1')} className="text-white py-2">
+                                    Services
                                 </Link>
-                                <Link to='/service2' onClick={() => handleLinkClick('link1')} className="text-white py-2">
-                                    Service 2
+                                <Link to='/about-us' onClick={() => handleLinkClick('link1')} className="text-white py-2">
+                                    About Us
                                 </Link>
-                                <Link to='/service3' onClick={() => handleLinkClick('link1')} className="text-white py-2">
-                                    Service 3
+                                <Link to='/quote-generator' onClick={() => handleLinkClick('link1')} className="text-white py-2">
+                                    Quote Generator
+                                </Link>
+                                <Link to='/tow-service' onClick={() => handleLinkClick('link1')} className="text-white py-2">
+                                    Tow Service
+                                </Link>
+                                <Link to='/vehicles-list' onClick={() => handleLinkClick('link1')} className="text-white py-2">
+                                    Show all available List
+                                </Link>
+                                <Link to='/contact-us' onClick={() => handleLinkClick('link1')} className="text-white py-2">
+                                    Contact Us
+                                </Link>
+                                <Link to='/help' onClick={() => handleLinkClick('link1')} className="text-white py-2">
+                                    Help and Support
+                                </Link>
+                                <Link to='/shipper-registration' onClick={() => handleLinkClick('link1')} className="bg-white py-2 px-2 text-primColor1 rounded-full hover:text-blue-500 py-2 px-4 my-2">
+                                    Get Started
                                 </Link>
                             </div>
                         )}
-                        <Link to='/about' onClick={() => handleLinkClick('link2')} className="text-white py-2">
-                            About Us
-                        </Link>
-                        <Link to='/contact-us' onClick={() => handleLinkClick('link3')} className="text-white py-2">
-                            Contact Us
-                        </Link>
-                        <Link to='/' onClick={() => handleLinkClick('link4')} className="text-white py-2">
-                            Help
-                        </Link>
-                        <Link to='/CustomerReg' onClick={handleServicesClick} className="text-white py-2">
-                            Get Started Now
-                        </Link>
                     </div>
                 </div>
             )}
