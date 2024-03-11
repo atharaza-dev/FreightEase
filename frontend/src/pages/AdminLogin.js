@@ -127,7 +127,7 @@ function AdminLogin() {
                                 </button>
                             </form>
                             <div class="mt-4 text-center">
-                                <p class="text-sm fontAlt text-gray-600">Trouble Sign In? <Link to="/contact-us" class="font-bold text-blue-600 no-underline hover:text-blue-400 ml-2">Contact Super Admin</Link></p>
+                                <p class="text-sm fontAlt text-gray-600"><span className='text-red-500'>Trouble Sign In?</span> : Try Again Later! <Link to="/contact-us" class="font-bold text-blue-600 no-underline hover:text-blue-400 ml-2">Back to Website</Link></p>
                             </div>
                         </div>
                     </div>
