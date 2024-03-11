@@ -48,6 +48,7 @@ function EditShipper() {
             }
 
             const responseData = await response.json();
+            console.log(responseData);
             toast.success('Updated Successfully!', {
                 position: "top-right",
                 theme: "colored",

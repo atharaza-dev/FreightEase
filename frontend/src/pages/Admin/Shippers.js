@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import shipper from '../../assets/imgs/shipper.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -40,7 +39,6 @@ function Shippers() {
             });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
-                alert('roro');
             }
             const responseData = await response.json();
             setShipperData(prevShipper => prevShipper.filter(shipper => shipper._id !== shipperId));
