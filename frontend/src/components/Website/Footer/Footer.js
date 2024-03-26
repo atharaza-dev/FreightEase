@@ -6,7 +6,7 @@ import logo from '../../../assets/imgs/logo.png';
 function Footer() {
     return (
         <>
-            <div class="w-full mt-20 flex items-center justify-center bg-gray-900">
+            <div class="w-full mt-20 flex items-center justify-center bg-gray-900 rounded-t-full">
                 <div class="md:w-2/3 w-full px-4 text-white flex flex-col">
                     <div className='BGblue'>
                         <div aria-hidden="true" class=" inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
