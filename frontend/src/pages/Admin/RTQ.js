@@ -130,7 +130,7 @@ function RTQ() {
 
                         <div class="mx-auto w-full pt-2">
 
-                            <form action="" class="flex mx-auto w-full justify-between space-x-6">
+                            <form action="" class="flex mx-auto w-full justify-between space-x-4">
 
                                 <div class="relative w-full flex flex-col">
                                     <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Origin Location</label>
@@ -162,10 +162,10 @@ function RTQ() {
                             <tbody class='bg-white rounded-lg'>
 
                                 <tr class='rounded-lg text-sm text-gray-700 uppercase'>
-                                    <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Shipper Name</th>
-                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Email</th>
-                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Password</th>
-                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Actions</th>
+                                    <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Departure City</th>
+                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Arrival City</th>
+                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Rate per TON</th>
+                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Action</th>
                                 </tr>
 
                                 {quoteData.map((quote) => (
