@@ -122,67 +122,71 @@ function RTQ() {
                 </div>
             </div>
 
+            <div class="w-full overflow-x-auto fontAlt rounded-lg shadow-sm border-1 mt-4 border-gray-250">
 
+                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
 
-            <div class="h-full grid grid-cols- gap-4 lg:grid-cols-3 lg:gap-8 mt-4 mb-6">
-                <div class="bg-white rounded-md shadow-sm border-1 border-gray-250">
+                    <div class="flex items-center justify-between">
 
-                    <div class="mx-auto max-w-screen-xl px-4 pt-6 sm:px-6 lg:px-8">
-                        <div class="mx-auto max-w-lg text-center">
-                            <h1 class="uppercase font-bold poppins-medium sm:text-m">Quote Managment</h1>
+                        <div class="mx-auto w-full pt-2">
+
+                            <form action="" class="flex mx-auto w-full justify-between space-x-6">
+
+                                <div class="relative w-full flex flex-col">
+                                    <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Origin Location</label>
+                                    <input type="text" value={origin} onChange={originChangeHandler} class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                </div>
+
+                                <div class="relative w-full flex flex-col">
+                                    <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Destination</label>
+                                    <input type="text" value={destination} onChange={destinationChangeHandler} class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                </div>
+
+                                <div class="relative w-full flex flex-col">
+                                    <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Rate per TON</label>
+                                    <input type="number" value={rate} onChange={rateChangeHandler} class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                </div>
+
+                                <div class="relative flex items-end justify-center">
+                                    <button onClick={submitQuote} class="text-white w-full text-sm bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"><span><i class="fa-solid fa-plus"></i></span>ADD</button>
+                                </div>
+
+                            </form>
                         </div>
 
-                        <form action="" class="mx-auto mb-0 mt-8 max-w-md space-y-4">
-
-                            <div class="relative mb-4">
-                                <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Origin Location</label>
-                                <input type="text" value={origin} onChange={originChangeHandler} class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                            </div>
-
-
-
-                            <div class="relative mb-4">
-                                <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Destination</label>
-                                <input type="text" value={destination} onChange={destinationChangeHandler} class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                            </div>
-
-
-                            <div class="relative mb-4">
-                                <label for="email" class="leading-7 text-sm fontAlt text-gray-600">Rate per TON</label>
-                                <input type="number" value={rate} onChange={rateChangeHandler} class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                            </div>
-
-                            <div class="relative mb-4">
-                                <button onClick={submitQuote} class="text-white w-full bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-m my-3"><span><i class="fa-solid fa-plus mr-2"></i></span>ADD / EDIT</button>
-                                <button class="text-white w-full bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-m"><span><i class="fa-solid fa-xmark mr-2 "></i></span>DELETE</button>
-                            </div>
-
-                        </form>
                     </div>
-                </div>
 
-                <div class="bg-white rounded-md shadow-sm border-1 border-gray-250 lg:col-span-2">
-                    <table class="w-full text-left border-1 fontAlt border-gray-300 relative overflow-x-auto rounded-md z-2 sm:rounded-md">
-                        <tbody class='bg-white rounded-lg'>
+                    {/* table */}
+                    <div class="mt-7 overflow-x-auto">
+                        <table class="w-full text-left border-1 border-gray-300 relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <tbody class='bg-white rounded-lg'>
 
-                            <tr class='rounded-lg text-sm text-gray-700 uppercase'>
-                                <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Departure Location</th>
-                                <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Arrival City</th>
-                                <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200 last-cell-width">Rate/ton</th>
-                            </tr>
-
-                            {quoteData.map((quote) => (
-                                <tr class='rounded-lg'>
-                                    <td class="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.origin}</td>
-                                    <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.destination}</td>
-                                    <td class="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.rate}</td>
+                                <tr class='rounded-lg text-sm text-gray-700 uppercase'>
+                                    <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Shipper Name</th>
+                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Email</th>
+                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Password</th>
+                                    <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Actions</th>
                                 </tr>
-                            ))}
 
-                        </tbody>
-                    </table>
+                                {quoteData.map((quote) => (
+                                    <tr className='rounded-lg'>
+                                        <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.origin}</td>
+                                        <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.destination}</td>
+                                        <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.rate}</td>
+                                        <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center new-last-cell-width">
+                                            <button class='bg-red-500 py-2 px-4 rounded mx-1 hover:bg-red-600' ><i class="fa-duotone fa-trash-can-xmark text-white "></i></button>
+                                        </td>
+                                    </tr>
+                                ))}
+
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
+
             </div>
+
             <ToastContainer></ToastContainer>
         </>
     )
