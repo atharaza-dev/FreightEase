@@ -81,7 +81,6 @@ export const AuthProvider = ({ children }) => {
 
     const setAdminData = (data) => {
         setAdminInfo(data);
-        console.log('from auth inner', data);
     };
 
     useEffect(() => {
