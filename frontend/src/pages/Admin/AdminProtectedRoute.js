@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
+import { AuthContext } from '../../data/AuthContext';
 
 function AdminProtectedRoute(props) {
     const { Component } = props;
+    const { setAdminData } = useContext(AuthContext);
 
     useEffect(() => {
         const verifyToken = async () => {
@@ -31,6 +33,7 @@ function AdminProtectedRoute(props) {
                 }
 
                 const data = await response.json();
+                setAdminData(data);
                 console.log('Token verified:', data);
                 
             } catch (error) {

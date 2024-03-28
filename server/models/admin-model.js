@@ -4,6 +4,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const adminSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        require: true
+    },
     email: {
         type: String,
         require: true
@@ -40,10 +44,11 @@ adminSchema.methods.generateToken = async function () { //this generateToken met
     try {
         return jwt.sign({ //the sign is the jwt method
             userId: this._id.toString(), //takes the _id object from MongoDB 
+            name: this.name,
             email: this.email,
             isAdmin: this.isAdmin,
         }, process.env.JWT_SECRET_KEY, { //secretkey of 
-            expiresIn: '30d'
+            expiresIn: '1d'
         });
     } catch (error) {
         console.error(error);

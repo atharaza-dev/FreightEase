@@ -9,12 +9,12 @@ import { useNavigate } from 'react-router-dom';
 function AdminLayouts() {
     document.title = "Admin - FreightEase"
     const navigate = useNavigate();
+    
+    const { LogoutUser, adminInfo } = useAuth();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     });
-
-    const { LogoutUser } = useAuth();
 
     const logOutUser = () => {
         LogoutUser();
@@ -93,7 +93,7 @@ function AdminLayouts() {
 
                         <div className="flex relative items-center border-l border-gray-400 h-8">
                             <div className="justify-end mx-3">
-                                <p className="text-sm font-semibold text-end fontAlt">Athar Raza Saeedi</p>
+                                <p className="text-sm font-semibold text-end fontAlt">{adminInfo.email}</p>
                                 <p className="txtsize text-gray-600 text-end fontAlt">ADMINISTRATOR</p>
                             </div>
                             <div className="relative">

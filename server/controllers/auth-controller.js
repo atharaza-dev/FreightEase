@@ -147,30 +147,31 @@ const user = async (req, res) => {
 // * ----------------------------------------------------------
 //? un comment the register route if you want to create a admin account and add it in modules and create a new route.
 //! ADMIN REGISTRATION CODE LOGIC
-// const adminReg = async (req, res) => {
-//     try {
-//         const { email, password } = req.body;
+const adminReg = async (req, res) => {
+    try {
+        const { name, email, password } = req.body;
 
-//         const AdminAccExists = await AdminAccounts.findOne({ email });
-//         if (AdminAccExists) {
-//             return res.status(400).json({ msg: "ADMIN already exists!" });
-//         } else {
-//             const AdminaccCreated = await AdminAccounts.create({ email, password });
-//             const token = await AdminaccCreated.generateToken(); // Assuming this is an async operation
+        const AdminAccExists = await AdminAccounts.findOne({ email });
+        if (AdminAccExists) {
+            return res.status(400).json({ msg: "ADMIN already exists!" });
+        } else {
+            const AdminaccCreated = await AdminAccounts.create({ name, email, password });
+            const token = await AdminaccCreated.generateToken(); // Assuming this is an async operation
 
-//             // Sending the response after all async operations are completed
-//             res.status(201).json({
-//                 msg: "ADMIN Registration Successful",
-//                 token: token,
-//                 userId: AdminaccCreated._id.toString(),
-//             });
-//             console.log({ ADMIN: AdminaccCreated });
-//         }
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ msg: "Internal Server Error" });
-//     }
-// }
+            // Sending the response after all async operations are completed
+            res.status(201).json({
+                msg: "ADMIN Registration Successful",
+                name: name,
+                token: token,
+                userId: AdminaccCreated._id.toString(),
+            });
+            console.log({ ADMIN: AdminaccCreated });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Internal Server Error" });
+    }
+}
 // * ----------------------------------------------------------
 
 // * ----------------------------------------------------------
@@ -210,4 +211,5 @@ module.exports = {
     vendor_login,
     user,
     admin_login,
+    adminReg
 }

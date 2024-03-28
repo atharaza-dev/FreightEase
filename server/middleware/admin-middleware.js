@@ -12,7 +12,12 @@ const verifyAdminTokenMiddleware = (req, res, next) => {
         const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
 
         req.user = decoded; // Attach user information to the request object
-        next(); // Call the next middleware or route handler
+
+        // Extracting data from the decoded JWT payload
+        const { email } = decoded;
+
+        return res.status(200).json({ email });
+
     } catch (error) {
         console.error('Error verifying token:', error);
         return res.status(401).json({ error: 'Token is invalid.' });
