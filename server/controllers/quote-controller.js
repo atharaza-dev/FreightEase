@@ -31,4 +31,18 @@ const getQuoteData = async (req, res) => {
     }
 }
 
-module.exports = { quoteGenerator, getQuoteData };
+const deleteQuote = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const quoteFound = await QuoteGen.findById(id);
+        if (!quoteFound) {
+            return res.status(404).json({ msg: "Quote Data not found!" });
+        }
+        await QuoteGen.findByIdAndDelete(id);
+        res.status(200).json({ msg: "Quote Data Deleted!" });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+module.exports = { quoteGenerator, getQuoteData, deleteQuote };

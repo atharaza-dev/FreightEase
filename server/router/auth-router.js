@@ -63,6 +63,7 @@ router.route('/update-vendors-info/:id').put(vendorsInfo.updateVendor);
 //! Quote Management
 router.route('/manage-quote').post(quoteManagement.quoteGenerator);
 router.route('/get-quote-details').get(quoteManagement.getQuoteData);
+router.route('/del-quote/:id').delete(quoteManagement.deleteQuote);
 // * ----------------------------------------------------------
 
 module.exports = router;

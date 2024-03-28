@@ -110,6 +110,28 @@ function RTQ() {
         fetchQuoteData();
     }, []);
 
+    //deleting specific quote data
+    const deleteQuoteData = async (quoteID) => {
+        try {
+            const response = await fetch(`http://localhost:5000/api/auth//del-quote/${quoteID}`, {
+                method: "DELETE",
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const responseData = await response.json();
+            setQuoteData(prevQuote => prevQuote.filter(quote => quote._id !== quoteID));
+            toast.success(responseData.msg, {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "light",
+            });
+
+        } catch (error) {
+            console.error('Error deleting contact:', error);
+        }
+    }
+
     return (
         <>
             <div class="flex items-center justify-between bg-white px-8 text-white shadow-sm rounded-lg border-1">
@@ -174,7 +196,7 @@ function RTQ() {
                                         <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.destination}</td>
                                         <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{quote.rate}</td>
                                         <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center new-last-cell-width">
-                                            <button class='bg-red-500 py-2 px-4 rounded mx-1 hover:bg-red-600' ><i class="fa-duotone fa-trash-can-xmark text-white "></i></button>
+                                            <button onClick={() => deleteQuoteData(quote._id)} class='bg-red-500 py-2 px-4 rounded mx-1 hover:bg-red-600' ><i class="fa-duotone fa-trash-can-xmark text-white "></i></button>
                                         </td>
                                     </tr>
                                 ))}
