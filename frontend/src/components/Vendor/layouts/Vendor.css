@@ -1,0 +1,13 @@
+.textColor i{
+    color: blue
+}
+.textColor span {
+    color: black;
+}
+.textColor i:hover{
+    color: white;
+}
+.textColor span:hover {
+    color: white;
+}
+  

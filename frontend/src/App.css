@@ -1,0 +1,243 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Main Fonts */
+.font7 {
+  font-family: "Righteous", sans-serif;
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/ProductSans-Regular.woff');
+}
+
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/Syne[wght].woff');
+}
+@font-face {
+  font-family: 'Pangram';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/Pangram-Light.otf');
+}
+
+@font-face {
+  font-family: 'Syne Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/Syne-Regular.woff');
+}
+
+@font-face {
+  font-family: 'Syne Mono';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/Syne-Mono.woff');
+}
+
+@font-face {
+  font-family: 'Syne Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/Syne-Italic.woff');
+}
+
+@font-face {
+  font-family: 'Syne Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/Syne-Extra.woff');
+}
+
+@font-face {
+  font-family: 'Syne Extra';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/Syne-Extra.woff');
+}
+
+.HeroHeading {
+  font-family: 'Syne Regular';
+  font-size: 5rem;
+  line-height: 6rem;
+}
+
+.fontH1 {
+  font-family: 'Syne Regular';
+}
+
+.font2 {
+  font-family: 'Product Sans';
+}
+
+.font3 {
+  font-family: 'Syne Mono';
+}
+
+.font4 {
+  font-family: 'Syne Italic';
+}
+
+.font5 {
+  font-family: 'Pangram';
+}
+
+.fontAlt {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font6 {
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* ================================================================================= */
+
+/* ========================== Defaults Setting & Reseting ========================== */
+* {
+  margin: 0%;
+  padding: 0%;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Product Sans';
+}
+
+/* ================================================================================= */
+/* Admin side Img */
+.sideImg {
+  background-image: url("./assets/imgs/22.png");
+}
+
+.navLinks {
+  letter-spacing: 20;
+}
+
+/* from shipper layouts */
+.txtsize {
+  font-size: 12px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.activeBtn:active {
+  transform: translateY(1px);
+}

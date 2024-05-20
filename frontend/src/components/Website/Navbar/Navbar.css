@@ -1,0 +1,46 @@
+.navbarMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    position: fixed;
+    z-index: 1000;
+    text-align: center;
+}
+.navContainer{
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.navContainer.scrolled {
+    background: rgba(194, 204, 249, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    /* border: 1px solid #4a90e2; */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.nav-img {
+    /* width: 15rem; */
+    max-width: 200px;
+}
+
+.navLinks a {
+    transition: border-bottom 0.2s ease-in-out;
+    text-align: center;
+}
+
+.navLinks a:hover {
+    transition: border-bottom 0.2s ease-in-out;
+    border-bottom: 3px solid #2563EB;
+}
+
+.navLinks a:active {
+    color: #2563EB;
+    scale: 0.95;
+}
+.navLinks a.clicked {
+    color: #f00; /* Change this to your desired clicked color */
+}
