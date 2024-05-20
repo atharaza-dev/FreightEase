@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
         return localStorage.setItem("token", serverToken);
     }
     // console.log(token);
+    console.log("committed");
 
     //! getting isAdmin Value from FORM json===================================
     const storeAdminStatus = (adminStatus) => {
