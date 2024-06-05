@@ -26,7 +26,7 @@ function InboundOrders() {
                 theme: "light",
             });
         } catch (error) {
-            toast.error('Failed to fetch data from database!', {
+            toast.error('No Inbound orders available!', {
                 position: "top-right",
                 autoClose: 5000,
                 theme: "light",

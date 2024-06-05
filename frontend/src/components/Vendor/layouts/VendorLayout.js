@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Vendor.css'
 import logo from '../../../assets/imgs/vc.png'
 import avatar from '../../../assets/imgs/avatar.png'
@@ -10,11 +12,14 @@ function VendorLayout() {
     document.title = "Vendor - FreightEase"
     const navigate = useNavigate();
 
+    const { backendURL, vendorData } = useAuth();
+    const vendorId = vendorData.userId;
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const { LogoutUser, vendorData } = useAuth();
+    const { LogoutUser } = useAuth();
 
     const logOutUser = () => {
         LogoutUser();
@@ -32,6 +37,24 @@ function VendorLayout() {
     const toggleNotifyDropdown = () => {
         setShowDropdown(!showDropdown);
     };
+
+    //! getting all data from DB
+    const [orders, setOrders] = useState([]);
+    useEffect(() => {
+        const fetchOrderDetails = async () => {
+            try {
+                const response = await fetch(`${backendURL}/api/auth/inbound-orders/${vendorId}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setOrders(data);
+            } catch (error) {
+                console.log("error from vendor dashboard about orders:", error);
+            }
+        };
+        fetchOrderDetails();
+    }, [vendorId]);
 
     return (
         <>
@@ -92,12 +115,27 @@ function VendorLayout() {
                         <div className="relative">
                             <button className="" onClick={toggleNotifyDropdown}>
                                 <i className="fa-duotone fa-bell fa-lg text-primColor1"></i>
+                                {orders.length > 0 && (
+                                    <span className="absolute top-0 right-0 block h-2 w-2 bg-red-600 rounded-full"></span>
+                                )}
                             </button>
                             {/* Dropdown content here */}
                             {showDropdown && (
-                                <div className="absolute max-w-[85rem] mt-2 w-48 bg-white rounded-md shadow-lg">
-                                    <div className="py-1">
-                                        
+                                <div className="absolute w-[20rem] mt-2 w-48 p-2 bg-white rounded-md shadow-lg">
+                                    <div className='space-y-4'>
+                                        <ul>
+                                            {orders.map((order) => (
+                                                <div key={order._id} class="bg-blue-500 text-card-foreground my-1 w-full max-w-sm p-4 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700" data-v0-t="card" >
+                                                    <div class="flex items-center space-x-4">
+                                                        <div class="flex-1 space-y-1">
+                                                            <div class="text-sm font-medium text-white tracking-wide">Order# <span className='text-lg ml-2'>{order.shipmentId}</span></div>
+                                                            <div class="text-sm text-white">Shipment Date:<span className='text-white text-lg ml-2'> {order.shipmentDate}</span></div>
+                                                            <div class="text-sm text-white">{order.originCity} <span className='px-3'><i class="fa-duotone fa-arrow-right fa-md text-white"></i></span> {order.departureCity}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </div>
                             )}
@@ -149,8 +187,7 @@ function VendorLayout() {
                 </div>
 
             </section >
-
-
+            <ToastContainer></ToastContainer>
         </>
     )
 }

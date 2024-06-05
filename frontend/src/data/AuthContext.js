@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        // console.log('Vendor Logged In', vendorData);
+        console.log('Vendor Logged In', vendorData);
     }, [vendorData]);
 
     //!! getting vendor Details =====================================================
