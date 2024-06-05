@@ -121,7 +121,7 @@ function VendorLayout() {
                             </button>
                             {/* Dropdown content here */}
                             {showDropdown && (
-                                <div className="absolute w-[20rem] mt-2 w-48 p-2 bg-white rounded-md shadow-lg">
+                                <div className="absolute w-[20rem] mt-2 p-2 bg-white rounded-md shadow-lg">
                                     <div className='space-y-4'>
                                         <ul>
                                             {orders.map((order) => (
