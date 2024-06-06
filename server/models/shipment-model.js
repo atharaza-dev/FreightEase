@@ -85,5 +85,5 @@ const shipmentInsertionSchema = new mongoose.Schema({
 });
 
 
-const shipmentInsertion = mongoose.model('shipments-by-shippers', shipmentInsertionSchema);
+const shipmentInsertion = mongoose.model('new-shipments', shipmentInsertionSchema);
 module.exports = shipmentInsertion;

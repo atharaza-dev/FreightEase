@@ -116,8 +116,8 @@ function InboundOrders() {
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.goodsType}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.itemWeight} ton(s)</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500  justify-center items-center last-cell-width">
-                                                <button onClick={() => handleStatusCancel(order._id)} className='bg-red-600 py-2 px-4 rounded mx-1 hover:bg-red-800' ><i className="fa-duotone fa-xmark text-white"></i></button>
-                                                <button onClick={() => handleStatusConfirm(order._id)} className='bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-box-circle-check text-white"></i></button>
+                                                <button onClick={() => handleStatusCancel(order._id)} className='activeBtn bg-red-600 py-2 px-4 rounded mx-1 hover:bg-red-800' ><i className="fa-duotone fa-xmark text-white"></i></button>
+                                                <button onClick={() => handleStatusConfirm(order._id)} className='activeBtn bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-box-circle-check text-white"></i></button>
                                             </td>
                                         </tr>
                                     ))}
