@@ -77,6 +77,10 @@ const shipmentInsertionSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    shipmentCharges: {
+        type: Number,
+        required: true
+    },
     status: {
         type: String,
         required: true,

@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../../data/AuthContext';
 
 function ProceedBooking() {
-    
+
     const { id } = useParams();
     const { backendURL, shipperData } = useAuth();
     const userId = shipperData.userId;
@@ -23,7 +23,7 @@ function ProceedBooking() {
         vehicleType: '',
         routeCharges: '',
     });
-
+    console.table(bookingData);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -118,7 +118,7 @@ function ProceedBooking() {
             vendorName: bookingData.vendorName,
             vehicleType: bookingData.vehicleType,
             vehicleName: bookingData.vehicleName,
-            routeFare: bookingData.routeCharges * itemWeight,
+            routeFare: bookingData.routeCharges,
             itemWeight,
         };
 

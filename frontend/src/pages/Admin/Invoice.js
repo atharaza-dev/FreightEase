@@ -4,8 +4,6 @@ import logo from '../../assets/imgs/ogo.png'
 function Invoice() {
     return (
         <>
-
-
             <div class="max-w-[85rem] px-2 sm:px-6 lg:px-8 mx-auto my-4 sm:my-10 fontAlt">
                 <div class="sm:w-11/12 lg:w-3/4 mx-auto">
 

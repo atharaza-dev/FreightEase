@@ -68,6 +68,7 @@ import VendorProtectedRoute from './pages/Vendor/VendorProtectedRoute'
 import VendorHelp from './pages/Vendor/VendorHelp';
 import EditProfile from './pages/Vendor/EditProfile';
 import EditVehicles from './pages/Vendor/EditVehicles';
+import OrderDetails from './pages/Vendor/OrderDetails';
 
 
 function App() {
@@ -138,6 +139,7 @@ function App() {
             <Route index element={<VendorDashboard />} />
             <Route path='inbound-orders' element={<InboundOrders />} />
             <Route path='manage-orders' element={<ManageOrders />} />
+            <Route path='order-details/:id/' element={<OrderDetails />} />
             <Route path='check-quote' element={<QuoteForVendor />} />
             <Route path='check-quote' element={<QuoteForVendor />} />
             <Route path='manage-vehicles' element={<ManageVehicles />} />

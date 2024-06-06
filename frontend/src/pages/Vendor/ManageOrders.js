@@ -42,42 +42,6 @@ function ManageOrders() {
         getOrderData();
     }
 
-    const handleStatusCancel = async (orderId) => {
-        try {
-            const response = await fetch(`${backendURL}/api/auth/update-order/${orderId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ status: 'cancelled' })
-            });
-            if (!response.ok) {
-                throw new Error('Failed to update order status');
-            }
-            refreshOrderList();
-        } catch (error) {
-            console.error('Error updating order status:', error);
-        }
-    };
-
-    const handleStatusConfirm = async (orderId) => {
-        try {
-            const response = await fetch(`${backendURL}/api/auth/update-order/${orderId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ status: 'confirmed' })
-            });
-            if (!response.ok) {
-                throw new Error('Failed to update order status');
-            }
-            refreshOrderList();
-        } catch (error) {
-            console.error('Error updating order status:', error);
-        }
-    };
-
     return (
         <>
             <div class="w-full h-full overflow-x-auto fontAlt bg-white rounded-lg shadow-sm border-1 border-gray-250 mt-2">
@@ -113,6 +77,7 @@ function ManageOrders() {
                                     </tr>
 
                                     {orderData.map((order, index) => (
+                                        order.status !== 'false' &&
                                         <tr key={index} className='rounded-lg'>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.shipmentDate}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.shipmentId}</td>
@@ -121,8 +86,7 @@ function ManageOrders() {
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.itemWeight} ton(s)</td>
                                             <td className={`h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-white capitalize ${order.status === 'cancelled' ? 'bg-red-500' : order.status === 'confirmed' ? 'bg-green-600' : order.status === 'shipped' ? 'bg-yellow-600' : order.status === 'completed' ? 'bg-emerald-500' : ''} tracking-wide`}>{order.status}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500  justify-center items-center last-cell-width">
-                                                <button onClick={() => handleStatusCancel(order._id)} className='activeBtn bg-red-600 py-2 px-4 rounded mx-1 hover:bg-red-800' ><i className="fa-duotone fa-xmark text-white"></i></button>
-                                                <button onClick={() => handleStatusConfirm(order._id)} className='activeBtn bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-box-circle-check text-white"></i></button>
+                                                <Link to={`/vms/order-details/${order._id}`} className='activeBtn bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-pen text-white"></i></Link>
                                             </td>
                                         </tr>
                                     ))}

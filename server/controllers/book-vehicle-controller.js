@@ -55,6 +55,7 @@ const bookVehicle = async (req, res) => {
             vehicleType,
             vehicleName,
             routeFare,
+            shipmentCharges: itemWeight * routeFare,
             status,
         });
         res.status(201).json({ msg: "Vehicle Booked Successfully", });
