@@ -76,7 +76,12 @@ const shipmentInsertionSchema = new mongoose.Schema({
     itemWeight: {
         type: Number,
         required: true
-    }
+    },
+    status: {
+        type: String,
+        required: true,
+        default: false,
+    },
 });
 
 

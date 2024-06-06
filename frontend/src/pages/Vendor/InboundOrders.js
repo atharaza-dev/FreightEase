@@ -35,14 +35,48 @@ function InboundOrders() {
     };
 
     useEffect(() => {
-    
-
         getOrderData();
     }, []);
 
     const refreshOrderList = () => {
         getOrderData();
     }
+
+    const handleStatusCancel = async (orderId) => {
+        try {
+            const response = await fetch(`${backendURL}/api/auth/update-order/${orderId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status: 'cancelled' })
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update order status');
+            }
+            refreshOrderList();
+        } catch (error) {
+            console.error('Error updating order status:', error);
+        }
+    };
+    
+    const handleStatusConfirm = async (orderId) => {
+        try {
+            const response = await fetch(`${backendURL}/api/auth/update-order/${orderId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status: 'confirmed' })
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update order status');
+            }
+            refreshOrderList();
+        } catch (error) {
+            console.error('Error updating order status:', error);
+        }
+    };
 
     return (
         <>
@@ -68,21 +102,22 @@ function InboundOrders() {
                                         <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Date</th>
                                         <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Order ID</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Route</th>
+                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Good Type</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Weight</th>
-                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Status</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Action</th>
                                     </tr>
 
                                     {orderData.map((order, index) => (
+                                        order.status !== 'cancelled' && order.status !== 'confirmed' &&
                                         <tr key={index} className='rounded-lg'>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.shipmentDate}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.shipmentId}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.originCity} <span className='px-3'><i class="fa-duotone fa-arrow-right fa-md text-primColor1"></i></span> {order.departureCity}</td>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.goodsType}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.itemWeight} ton(s)</td>
-                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-green-700"><span className='bg-green-200 py-2 px-3 rounded-full'>New Order</span></td>
-                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
-                                                <button className='bg-red-600 py-2 px-4 rounded mx-1 hover:bg-red-800' ><i className="fa-duotone fa-xmark text-slate-100"></i></button>
-                                                <Link className='bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-check text-white"></i></Link>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500  justify-center items-center last-cell-width">
+                                                <button onClick={() => handleStatusCancel(order._id)} className='bg-red-600 py-2 px-4 rounded mx-1 hover:bg-red-800' ><i className="fa-duotone fa-xmark text-white"></i></button>
+                                                <button onClick={() => handleStatusConfirm(order._id)} className='bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-box-circle-check text-white"></i></button>
                                             </td>
                                         </tr>
                                     ))}

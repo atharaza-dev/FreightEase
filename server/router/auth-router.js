@@ -91,6 +91,7 @@ router.route('/shipment-history/:userId').get(shipmentData.getAllShipments);
 
 //! Managing Vendor Orders Functionalites
 router.route('/inbound-orders/:vendorId').get(orderData.getOrderDetails);
+router.route('/update-order/:id').put(orderData.updateOrder);
 
 // * ----------------------------------------------------------
 

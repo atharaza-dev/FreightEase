@@ -28,6 +28,7 @@ const bookVehicle = async (req, res) => {
             vehicleType,
             vehicleName,
             routeFare,
+            status,
         } = req.body;
 
         if (!vehicleId || !vendorId || !shipmentId || !itemWeight || !userId || !fullName || !phone || !cnic || !originCity || !fullOriginAddress || !departureCity || !fullDepartureAddress || !vehicleName || !vehicleType || !routeFare) {
@@ -54,6 +55,7 @@ const bookVehicle = async (req, res) => {
             vehicleType,
             vehicleName,
             routeFare,
+            status,
         });
         res.status(201).json({ msg: "Vehicle Booked Successfully", });
         console.log({ Shipment: shippmentSuccessfull });
