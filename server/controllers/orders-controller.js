@@ -41,4 +41,17 @@ const getOrdeDataforUpdate = async (req, res) => {
     }
 }
 
-module.exports = { getOrderDetails, updateOrder, getOrdeDataforUpdate };
+const deleteOrder = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const orderFound = await getOrders.findById(id);
+        if (!orderFound) {
+            return res.status(404).json({ msg: "Data not found!" });
+        }
+        await getOrders.findByIdAndDelete(id);
+        res.status(200).json({ msg: "Data Deleted!" });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+module.exports = { getOrderDetails, updateOrder, getOrdeDataforUpdate, deleteOrder };

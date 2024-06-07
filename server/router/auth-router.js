@@ -93,6 +93,7 @@ router.route('/shipment-history/:userId').get(shipmentData.getAllShipments);
 router.route('/inbound-orders/:vendorId').get(orderData.getOrderDetails);
 router.route('/update-order/:id').put(orderData.updateOrder);
 router.route('/order-details/:id').get(orderData.getOrdeDataforUpdate);
+router.route('/del-order/:id').delete(orderData.deleteOrder);
 
 // * ----------------------------------------------------------
 

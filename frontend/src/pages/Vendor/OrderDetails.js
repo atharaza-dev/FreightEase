@@ -37,33 +37,28 @@ function OrderDetails() {
         getOrderData();
     }, []);
 
-    // const updateVehicle = async (e) => {
-    //     e.preventDefault();
 
-    //     const vehicleObj = { registration, vehicleName, originCity, departureCity, routeCharges, vehicleType };
-    //     try {
-    //         const response = await fetch(`${backendURL}/api/auth/update-vehicles-info/${id}`, {
-    //             method: 'PUT',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(vehicleObj)
-    //         });
+        const [status, setStatus] = useState(null);
+        const handleStatusChange = (e) => {
+            setStatus(e.target.value);
+        }
 
-    //         if (!response.ok) {
-    //             throw new Error('Network response was not ok');
-    //         }
-
-    //         const responseData = await response.json();
-    //         console.log(responseData);
-    //         toast.success('Updated Successfully!', {
-    //             position: "top-right",
-    //             theme: "colored",
-    //         });
-    //     } catch (error) {
-    //         console.error('Error updating contact:', error);
-    //     }
-    // }
+        const updateStatus = async (id) => {
+            try {
+                const response = await fetch(`${backendURL}/api/auth/update-order/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status })
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to update order status');
+                }
+            } catch (error) {
+                console.error('Error updating order status:', error);
+            }
+        };
 
     const serviceCharges = orderData.shipmentCharges * 0.02;
 
@@ -85,7 +80,7 @@ function OrderDetails() {
 
                 <div class="mt-12 grid sm:grid-cols-3 gap-3">
 
-                    <div>
+                    <div className='bg-red-200 p-4'>
                         <h3 class="text-lg font-semibold text-gray-800 ">Shipped to:
                             <span className='text-primColor1'> {orderData.originCity}<i class="fa-duotone fa-arrow-right mx-2"></i>{orderData.departureCity}</span>
                         </h3>
@@ -99,23 +94,33 @@ function OrderDetails() {
                         </address>
                     </div>
 
-                    <div>
+                    <div className='bg-blue-200 p-4'>
                         <h3 class="text-lg font-semibold text-gray-800 ">Vendor:</h3>
                         <h3 class="text-lg font-semibold text-blue-800 underline ">{orderData.vendorName}</h3>
                         <p>{orderData.vehicleName}</p>
                         <p>{orderData.vehicleType}</p>
                     </div>
-
-                    <div class="sm:text-end space-y-2">
-
+                    <div class="sm:text-end space-y-2 bg-yellow-200 p-4">
                         <div class="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-2">
                             <dl class="grid sm:grid-cols-5 gap-x-3">
                                 <dt class="col-span-3 font-semibold text-gray-800 ">Invoice date:</dt>
                                 <dd class="col-span-2 text-gray-500">{orderData.shipmentDate}</dd>
                             </dl>
+                            <div class="flex flex-col items-end justify-end">
+                                <h4 class="text-lg font-semibold text-gray-800 ">Set Shipment Status</h4>
+                                <select id="status" value={status} onChange={handleStatusChange} className="w-64 bg-yellow-400 rounded-sm border mt-2 border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-[7px] px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <option>Select Status</option>
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                    <option value="shipped">Shipped</option>
+                                    <option value="delivered">Delivered</option>
+                                </select>
+                                <button onClick={() => updateStatus(id)} className='bg-yellow-400 px-4 py-2 mt-2 rounded-lg'><i class="fa-duotone fa-arrows-rotate text-yellow-900"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="mt-6">
                     <div class="border border-gray-200 p-4 rounded-lg space-y-4 dark:border-gray-700">
                         <div class="hidden sm:grid sm:grid-cols-5">
@@ -172,14 +177,8 @@ function OrderDetails() {
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 sm:mt-12">
-                    <h4 class="text-lg font-semibold text-gray-800 ">Thank you!</h4>
-                    <p class="text-gray-500">If you have any questions concerning this invoice, use the following contact information:</p>
-                    <div class="mt-2">
-                        <p class="block text-sm font-medium text-gray-800 ">freightease.com</p>
-                        <p class="block text-sm font-medium text-gray-800 ">+92 321 7678097</p>
-                    </div>
-                </div>
+
+
 
                 <p class="mt-5 text-sm text-gray-500">© 2024 FreightEase.</p>
             </div>

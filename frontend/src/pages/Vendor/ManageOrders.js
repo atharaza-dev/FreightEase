@@ -26,7 +26,7 @@ function ManageOrders() {
                 theme: "light",
             });
         } catch (error) {
-            toast.error('No Inbound orders available!', {
+            toast.warning('No Inbound orders available!', {
                 position: "top-right",
                 autoClose: 5000,
                 theme: "light",
@@ -41,6 +41,28 @@ function ManageOrders() {
     const refreshOrderList = () => {
         getOrderData();
     }
+
+    const deleteOrder = async (orderId) => {
+        try {
+            const response = await fetch(`${backendURL}/api/auth//del-order/${orderId}`, {
+                method: "DELETE",
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const responseData = await response.json();
+            setOrderData(prevOrder => prevOrder.filter(order => order._id !== orderId));
+            toast.success(responseData.msg, {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "light",
+            });
+
+        } catch (error) {
+            console.error('Error deleting contact:', error);
+        }
+    }
+
 
     return (
         <>
@@ -84,9 +106,10 @@ function ManageOrders() {
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.originCity} <span className='px-3'><i className="fa-duotone fa-arrow-right fa-md text-primColor1"></i></span> {order.departureCity}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.goodsType}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.itemWeight} ton(s)</td>
-                                            <td className={`h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-white capitalize ${order.status === 'cancelled' ? 'bg-red-500' : order.status === 'confirmed' ? 'bg-green-600' : order.status === 'shipped' ? 'bg-yellow-600' : order.status === 'completed' ? 'bg-emerald-500' : ''} tracking-wide`}>{order.status}</td>
+                                            <td className={`h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-white capitalize ${order.status === 'cancelled' ? 'bg-red-500' : order.status === 'confirmed' ? 'bg-green-600' : order.status === 'shipped' ? 'bg-yellow-400' : order.status === 'delivered' ? 'bg-emerald-500' : ''} tracking-wide`}>{order.status}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500  justify-center items-center last-cell-width">
                                                 <Link to={`/vms/order-details/${order._id}`} className='activeBtn bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-pen text-white"></i></Link>
+                                                <button onClick={() => deleteOrder(order._id)} class='activeBtn bg-red-500 py-2 px-4 rounded mx-1 hover:bg-red-600' ><i class="fa-duotone fa-trash-can-xmark text-white "></i></button>
                                             </td>
                                         </tr>
                                     ))}
