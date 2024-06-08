@@ -53,24 +53,26 @@ function BookingHistory() {
                 <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Route</th>
                 <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Goods Type</th>
                 <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Weight</th>
-                <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200"></th>
+                <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Status</th>
+                <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Action</th>
               </tr>
 
               {shipmentData.map((shipment, index) => (
+                shipment.status !== 'false' &&
                 <tr key={index} className='rounded-lg'>
-                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.shipmentDate}</td>
+                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.shipmentDate}</td>
                   <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.shipmentId}</td>
-                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.originCity} <span className='px-3'><i class="fa-duotone fa-arrow-right fa-md text-primColor1"></i></span> {shipment.departureCity}</td>
+                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.originCity} <span className='px-3'><i className="fa-duotone fa-arrow-right fa-md text-primColor1"></i></span> {shipment.departureCity}</td>
                   <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.goodsType}</td>
                   <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.itemWeight} ton(s)</td>
-                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
+                  <td className={`h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-white capitalize ${shipment.status === 'cancelled' ? 'bg-red-500' : shipment.status === 'confirmed' ? 'bg-green-600' : shipment.status === 'shipped' ? 'bg-yellow-400' : shipment.status === 'delivered' ? 'bg-emerald-500' : ''} tracking-wide`}>{shipment.status}</td>
+                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500  justify-center items-center last-cell-width">
                     <center>
                       <Link to={`/${shipment.id}`} className="text-white bg-primColor1 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded inline-block">See full details</Link>
                     </center>
                   </td>
                 </tr>
               ))}
-
 
             </tbody>
           </table>
