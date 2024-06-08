@@ -20,11 +20,6 @@ function InboundOrders() {
             }
             const data = await response.json();
             setOrderData(data);
-            toast.success('Fetched data from database!', {
-                position: "top-right",
-                autoClose: 5000,
-                theme: "light",
-            });
         } catch (error) {
             toast.error('No Inbound orders available!', {
                 position: "top-right",
@@ -108,7 +103,7 @@ function InboundOrders() {
                                     </tr>
 
                                     {orderData.map((order, index) => (
-                                        order.status !== 'cancelled' && order.status !== 'confirmed' &&
+                                        order.status !== 'cancelled' && order.status !== 'confirmed' &&  order.status !== 'shipped' &&  order.status !== 'delivered' &&
                                         <tr key={index} className='rounded-lg'>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.shipmentDate}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{order.shipmentId}</td>

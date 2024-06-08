@@ -19,11 +19,6 @@ function OrderDetails() {
             }
             const data = await response.json();
             setOrderData(data);
-            toast.success('Fetched data from database!', {
-                position: "top-right",
-                autoClose: 5000,
-                theme: "light",
-            });
         } catch (error) {
             toast.error('Error encountered!', {
                 position: "top-right",
@@ -115,7 +110,7 @@ function OrderDetails() {
                                     <option value="shipped">Shipped</option>
                                     <option value="delivered">Delivered</option>
                                 </select>
-                                <button onClick={() => updateStatus(id)} className='bg-yellow-400 px-4 py-2 mt-2 rounded-lg'><i class="fa-duotone fa-arrows-rotate text-yellow-900"></i></button>
+                                <button onClick={() => updateStatus(id)} className='activeBtn bg-yellow-400 px-4 py-2 mt-2 rounded-lg'><i class="fa-duotone fa-arrows-rotate text-yellow-900"></i></button>
                             </div>
                         </div>
                     </div>

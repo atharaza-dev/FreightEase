@@ -125,7 +125,7 @@ function VendorLayout() {
                                     <div className='space-y-4'>
                                         <ul>
                                             {orders.map((order) => (
-                                                order.status !== 'cancelled' && order.status !== 'confirmed' &&
+                                                order.status !== 'cancelled' && order.status !== 'confirmed' && order.status !== 'shipped' &&  order.status !== 'delivered' &&
                                                 <div key={order._id} class="bg-blue-500 text-card-foreground my-1 w-full max-w-sm p-4 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700" data-v0-t="card" >
                                                     <div class="flex items-center space-x-4">
                                                         <div class="flex-1 space-y-1">

@@ -20,11 +20,6 @@ function ManageOrders() {
             }
             const data = await response.json();
             setOrderData(data);
-            toast.success('Fetched data from database!', {
-                position: "top-right",
-                autoClose: 5000,
-                theme: "light",
-            });
         } catch (error) {
             toast.warning('No Inbound orders available!', {
                 position: "top-right",

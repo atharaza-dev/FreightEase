@@ -145,11 +145,6 @@ function ManageVehicles() {
             }
             const data = await response.json();
             setVehicleData(data);
-            toast.success('Fetched data from database!', {
-                position: "top-right",
-                autoClose: 5000,
-                theme: "light",
-            });
         } catch (error) {
             toast.error('Failed to fetch data from database!', {
                 position: "top-right",
