@@ -108,8 +108,6 @@ function ManageOrders() {
                                             </td>
                                         </tr>
                                     ))}
-
-
                                 </tbody>
                             </table>
                         </div>

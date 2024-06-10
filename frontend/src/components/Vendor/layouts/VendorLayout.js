@@ -1,60 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Vendor.css'
+import Header from './Header';
 import logo from '../../../assets/imgs/vc.png'
-import avatar from '../../../assets/imgs/avatar.png'
-import { useAuth } from '../../../data/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 function VendorLayout() {
     document.title = "Vendor - FreightEase"
-    const navigate = useNavigate();
-
-    const { backendURL, vendorData } = useAuth();
-    const vendorId = vendorData.userId;
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    const { LogoutUser } = useAuth();
-
-    const logOutUser = () => {
-        LogoutUser();
-        navigate('/vendor-login');
-    }
-
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const [showDropdown, setShowDropdown] = useState(false);
-
-    const toggleNotifyDropdown = () => {
-        setShowDropdown(!showDropdown);
-    };
-
-    //! getting all data from DB
-    const [orders, setOrders] = useState([]);
-    useEffect(() => {
-        const fetchOrderDetails = async () => {
-            try {
-                const response = await fetch(`${backendURL}/api/auth/inbound-orders/${vendorId}`);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setOrders(data);
-            } catch (error) {
-                console.log("error from vendor dashboard about orders:", error);
-            }
-        };
-        fetchOrderDetails();
-    }, [vendorId]);
 
     return (
         <>
@@ -107,78 +63,9 @@ function VendorLayout() {
                     </div>
                 </aside>
 
-                <header className="fixed top-3 fontAlt left-0 ml-6 md:left-64 right-3 mr-6 z-50 flex items-center justify-between h-20 bg-white px-4 md:px-8 xl:px-64 rounded shadow-sm border-1 border-gray-250">
-                    <h3 className='font6 text-2xl font-bold '>Welcome,<span className='text-primColor1 font6 tracking-wide font-semibold ml-2'>{vendorData.name}</span></h3>
-
-                    <div className="flex items-center gap-x-6">
-
-                        <div className="relative">
-                            <button className="" onClick={toggleNotifyDropdown}>
-                                <i className="fa-duotone fa-bell fa-lg text-primColor1"></i>
-                                {orders.length > 0 &&  (
-                                    <span className="absolute top-0 right-0 block h-2 w-2 bg-red-600 rounded-full"></span>
-                                )}
-                            </button>
-                            {/* Dropdown content here */}
-                            {showDropdown && (
-                                <div className="absolute w-[20rem] mt-2 p-2 bg-white rounded-md shadow-lg">
-                                    <div className='space-y-4'>
-                                        <ul>
-                                            {orders.map((order) => (
-                                                order.status !== 'cancelled' && order.status !== 'confirmed' && order.status !== 'shipped' &&  order.status !== 'delivered' &&
-                                                <div key={order._id} class="bg-blue-500 text-card-foreground my-1 w-full max-w-sm p-4 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700" data-v0-t="card" >
-                                                    <div class="flex items-center space-x-4">
-                                                        <div class="flex-1 space-y-1">
-                                                            <div class="text-sm font-medium text-white tracking-wide">Order# <span className='text-lg ml-2'>{order.shipmentId}</span></div>
-                                                            <div class="text-sm text-white">Shipment Date:<span className='text-white text-lg ml-2'> {order.shipmentDate}</span></div>
-                                                            <div class="text-sm text-white">{order.originCity} <span className='px-3'><i class="fa-duotone fa-arrow-right fa-md text-white"></i></span> {order.departureCity}</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-
-                        <Link to='profile-settings' className="flex items-center justify-center text-gray-600">
-                            <i className="fa-duotone fa-gear fa-lg text-primColor1"></i>
-                        </Link>
-
-                        <div className="flex relative items-center border-l border-gray-400 h-8">
-                            <div className="justify-end mx-3">
-                                <p className="text-sm font-semibold text-end fontAlt tracking-wide">{vendorData.email}</p>
-                                <p className="txtsize text-gray-600 text-end fontAlt">VENDOR</p>
-                            </div>
-                            <div className="relative">
-                                <img className="object-cover w-10 h-10 rounded-full ring ring-primColor1" src={avatar} alt="" />
-                            </div>
-                        </div>
-
-                        {/* Carrot and Dropdown */}
-                        <div className="relative">
-                            <button className="" onClick={toggleDropdown}>
-                                <i className="fa-solid fa-caret-down fa-lg text-primColor1"></i>
-                            </button>
-                            {/* Dropdown content here */}
-                            {isDropdownOpen && (
-                                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
-                                    <div className="py-1">
-                                        <Link to="edit-profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</Link>
-                                        <Link to="edit-profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
-                                        <button onClick={logOutUser} className="block w-full px-4 py-2 text-start text-sm text-gray-700 hover:bg-gray-100">Logout</button>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                        {/* End Carrot and Dropdown */}
-
-                    </div>
-                </header>
-
                 <div class="px-10 py-6 transition md:ml-60" style={{ backgroundColor: "#F1F5F9" }}>
                     <div class="mt-24  rounded h-full">
+                        <Header></Header>
                         <Outlet />
                     </div>
 

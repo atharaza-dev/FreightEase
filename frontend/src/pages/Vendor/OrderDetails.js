@@ -109,7 +109,7 @@ function OrderDetails() {
                                     <option value="cancelled">Cancelled</option>
                                     <option value="shipped">Shipped</option>
                                     <option value="delivered">Delivered</option>
-                                    <option value="false">False</option>
+                                    <option value="false">Pending</option>
                                 </select>
                                 <button onClick={() => updateStatus(id)} className='activeBtn bg-yellow-400 px-4 py-2 mt-2 rounded-lg'><i class="fa-duotone fa-arrows-rotate text-yellow-900"></i></button>
                             </div>
