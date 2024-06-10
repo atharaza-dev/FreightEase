@@ -43,11 +43,6 @@ function Dashboard() {
                 }
                 const getShipperData = await response.json();
                 setShipperData(getShipperData);
-                toast.success('Successfully Connected to Database!', {
-                    position: "top-right",
-                    autoClose: 2000,
-                    theme: "light",
-                });
             } catch (error) {
                 toast.error('Error connecting to database!', {
                     position: "top-right",

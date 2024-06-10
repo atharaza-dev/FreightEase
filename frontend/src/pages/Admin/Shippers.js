@@ -18,11 +18,6 @@ function Shippers() {
                 }
                 const getShipperData = await response.json();
                 setShipperData(getShipperData);
-                toast.success('Fetched data from database!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    theme: "light",
-                });
             } catch (error) {
                 toast.error('Error getting data from database!', {
                     position: "top-right",
