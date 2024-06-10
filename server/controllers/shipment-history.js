@@ -15,8 +15,8 @@ const getAllShipments = async (req, res) => {
 
 const getBookingDetails = async (req, res) => {
     try {
-        const shipmentId = req.params.shipmentId;
-        const getOrdersData = await shipmentData.find({ shipmentId: shipmentId });
+        const id = req.params.id;
+        const getOrdersData = await shipmentData.find({ shipmentId: id });
         if (!getOrdersData || getOrdersData.length === 0) {
             return res.status(404).json({ err: "Data not found from Database!" });
         }
