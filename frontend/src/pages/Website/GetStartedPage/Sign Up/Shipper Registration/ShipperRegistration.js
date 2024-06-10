@@ -25,6 +25,11 @@ function ShipperRegistration() {
         setEmail(e.target.value);
     }
 
+    const [mobile, setMobile] = useState("");
+    const mobileChangeHandler = (e) => {
+        setMobile(e.target.value);
+    }
+
     const [password, setPass] = useState("");
     const passChangeHandler = (e) => {
         setPass(e.target.value);
@@ -95,6 +100,7 @@ function ShipperRegistration() {
         const shipperAccObj = {
             name: name,
             email: email,
+            mobile,
             password: password,
         }
 
@@ -135,6 +141,7 @@ function ShipperRegistration() {
                 setEmail('');
                 setPass('');
                 setCPass('');
+                setMobile('');
             } else {
                 toast.error('Error Occurred. Please try again!', {
                     position: "top-right",
@@ -242,9 +249,14 @@ function ShipperRegistration() {
                                         <input onChange={nameChangeHandler} value={name} type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
 
-                                    <div class="col-span-6">
+                                    <div class="col-span-6 sm:col-span-3">
                                         <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
                                         <input onChange={emailChangeHandler} value={email} type="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-3">
+                                        <label for="phone" class="leading-7 text-sm text-gray-600">Mobile</label>
+                                        <input onChange={mobileChangeHandler} value={mobile} type="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                     </div>
 
                                     <div class="col-span-6 sm:col-span-3">

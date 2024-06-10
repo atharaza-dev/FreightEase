@@ -84,7 +84,7 @@ function Shippers() {
                                     <tr class='rounded-lg text-sm text-gray-700 uppercase'>
                                         <th scope="col" class="h-10 px-4 border-l py-3 font-medium first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Shipper Name</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Email</th>
-                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Password</th>
+                                        <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Mobile Number</th>
                                         <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Actions</th>
                                     </tr>
 
@@ -93,7 +93,7 @@ function Shippers() {
                                         <tr key={shipper._id} className='rounded-lg'>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l py-3 first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipper.name}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipper.email}</td>
-                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipper.password}</td>
+                                            <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipper.mobile}</td>
                                             <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 justify-center items-center last-cell-width">
                                                 <button onClick={() => deleteShipperData(shipper._id)} class='bg-red-500 py-2 px-4 rounded mx-1 hover:bg-red-600' ><i class="fa-duotone fa-trash-can-xmark text-white "></i></button>
                                                 <Link to={`/ams/shippers/${shipper._id}`} className='bg-blue-500 py-2 px-4 rounded mx-1 hover:bg-blue-600'><i className="fa-duotone fa-edit text-white"></i></Link>

@@ -23,12 +23,12 @@ const server_homepage = async (req, res) => {
 //! SHIPPER REGISTRATION CODE LOGIC
 const shipper_registration = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, mobile, password } = req.body;
 
         const shipperExists = await ShipperAccounts.findOne({ email });
 
         if (!shipperExists) {
-            const ShipperAccCreated = await ShipperAccounts.create({ name, email, password });
+            const ShipperAccCreated = await ShipperAccounts.create({ name, email, mobile, password });
             const token = await ShipperAccCreated.generateToken()
             res.status(201).json({
                 msg: "SHIPPER Registration Successfull",
