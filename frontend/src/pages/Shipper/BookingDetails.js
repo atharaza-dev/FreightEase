@@ -132,17 +132,27 @@ function BookingDetails() {
 
                                 <dl class="grid sm:grid-cols-5 gap-x-3">
                                     <dt class="col-span-3 font-semibold text-gray-800 ">Service Charges:</dt>
-                                    <dd class="col-span-2 text-gray-500">Rs/-</dd>
+                                    <dd class="col-span-2 text-gray-500">Rs {booking.shipperCommission}/-</dd>
                                 </dl>
 
                                 <dl class="grid sm:grid-cols-5 gap-x-3">
-                                    <dt class="col-span-3 font-semibold text-gray-800 ">Amount paid:</dt>
-                                    <dd class="col-span-2 text-gray-500">{booking.status}</dd>
+                                    <dt class="col-span-3 font-semibold text-gray-800">Shipment Status:</dt>
+                                    <dd class="col-span-2 text-gray-500 capitalize">{booking.status}</dd>
                                 </dl>
+
+                                <div class="grid sm:grid-cols-5">
+                                    <div className='col-span-3'></div>
+                                    <div className='col-span-2 mt-4'>
+                                        {booking.status === 'delivered' && (
+                                            <button class=" w-64 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                Pay Delivery Charges Now
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                     <p class="mt-5 text-sm text-gray-500">© 2024 FreightEase.</p>
                 </div>
             ))}

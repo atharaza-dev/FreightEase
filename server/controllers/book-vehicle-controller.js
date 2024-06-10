@@ -3,14 +3,14 @@ const getVehicleList = require('../models/vehicle-insertion-model');
 
 const bookVehicle = async (req, res) => {
     try {
-
         const date = new Date();
         const year = date.getFullYear();
         const month = date.toLocaleString('en-us', { month: 'short' });
         const day = date.getDate();
         const shipmentDate = `${month} ${day} ${year}`;
 
-        const { vehicleId,
+        const {
+            vehicleId,
             vendorId,
             shipmentId,
             userId,
@@ -34,6 +34,11 @@ const bookVehicle = async (req, res) => {
         if (!vehicleId || !vendorId || !shipmentId || !itemWeight || !userId || !fullName || !phone || !cnic || !originCity || !fullOriginAddress || !departureCity || !fullDepartureAddress || !vehicleName || !vehicleType || !routeFare) {
             return res.status(422).json({ err: "Enter all details first" });
         }
+
+        const shipmentCharges = itemWeight * routeFare;
+        const shipperCommission = shipmentCharges * 0.01; // 1% of shipment charges
+        const vendorCommission = shipmentCharges * 0.01; // 1% of shipment charges
+
         const shippmentSuccessfull = await shipmentDetails.create({
             vehicleId,
             vendorId,
@@ -55,16 +60,20 @@ const bookVehicle = async (req, res) => {
             vehicleType,
             vehicleName,
             routeFare,
-            shipmentCharges: itemWeight * routeFare,
+            shipmentCharges,
+            shipperCommission,
+            vendorCommission,
             status,
         });
-        res.status(201).json({ msg: "Vehicle Booked Successfully", });
+        
+        res.status(201).json({ msg: "Vehicle Booked Successfully" });
         console.log({ Shipment: shippmentSuccessfull });
     } catch (error) {
         console.log(error);
         res.status(500).send({ msg: "Internal Server Error" });
     }
 }
+
 
 const getAllVehicles = async (req, res) => {
     try {
