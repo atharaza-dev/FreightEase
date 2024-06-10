@@ -16,6 +16,8 @@ const bookVehicle = require('../controllers/book-vehicle-controller');
 const shipmentData = require('../controllers/shipment-history');
 const orderData = require('../controllers/orders-controller');
 
+const aRevenue  = require('../controllers/aRevenue');
+
 //? USING DEPENDENCIES
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -96,6 +98,10 @@ router.route('/update-order/:id').put(orderData.updateOrder);
 router.route('/order-details/:id').get(orderData.getOrdeDataforUpdate);
 router.route('/del-order/:id').delete(orderData.deleteOrder);
 
+
+//! Revenue 
+router.route('/revenue').post(aRevenue.addRevenue);
+router.route('/get-rev').get(aRevenue.getRevenue);
 // * ----------------------------------------------------------
 
 module.exports = router;
