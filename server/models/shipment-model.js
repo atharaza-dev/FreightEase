@@ -94,6 +94,10 @@ const shipmentInsertionSchema = new mongoose.Schema({
         required: true,
         default: false,
     },
+    amount: {
+        type: String,
+        default: "un-paid",
+    },
 });
 
 

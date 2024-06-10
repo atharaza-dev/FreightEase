@@ -140,19 +140,11 @@ function BookingDetails() {
                                     <dd class="col-span-2 text-gray-500 capitalize">{booking.status}</dd>
                                 </dl>
 
-                                <div class="grid sm:grid-cols-5">
-                                    <div className='col-span-3'></div>
-                                    <div className='col-span-2 mt-4'>
-                                        {booking.status === 'delivered' && (
-                                            <>
-                                            <button class=" w-full bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
-                                            <i class="fa-duotone fa-credit-card fa-lg mr-2"></i>Pay Now
-                                            </button>
-                                            <p className='text-red-300 tracking-wide text-sm mt-2'>Note*: Payment is Cash only!</p>
-                                            </>
-                                        )}
-                                    </div>
-                                </div>
+                                <dl class="grid sm:grid-cols-5 gap-x-3">
+                                    <dt class="col-span-3 font-semibold text-gray-800 ">Amount Status:</dt>
+                                    <dd class="col-span-2 text-gray-500 capitalize">{booking.status}</dd>
+                                </dl>
+
                             </div>
                         </div>
                     </div>

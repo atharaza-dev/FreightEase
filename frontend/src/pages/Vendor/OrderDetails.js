@@ -10,6 +10,10 @@ function OrderDetails() {
     const { id } = useParams();
 
     const [orderData, setOrderData] = useState([]);
+    const [date, setDate] = useState('');
+    const [shipment, setShipment] = useState('');
+    const [revenue, setRevenue] = useState('');
+    // const [amount, setAmount] = useState('');
 
     const getOrderData = async () => {
         try {
@@ -19,6 +23,9 @@ function OrderDetails() {
             }
             const data = await response.json();
             setOrderData(data);
+            setDate(data.shipmentDate);
+            setShipment(data.shipmentId);
+            setRevenue(data.shipmentCharges * 0.02);
         } catch (error) {
             toast.error('Error encountered!', {
                 position: "top-right",
@@ -33,29 +40,72 @@ function OrderDetails() {
     }, []);
 
 
-        const [status, setStatus] = useState(null);
-        const handleStatusChange = (e) => {
-            setStatus(e.target.value);
-        }
+    const [status, setStatus] = useState(null);
+    const handleStatusChange = (e) => {
+        setStatus(e.target.value);
+    }
 
-        const updateStatus = async (id) => {
-            try {
-                const response = await fetch(`${backendURL}/api/auth/update-order/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ status })
-                });
-                if (!response.ok) {
-                    throw new Error('Failed to update order status');
-                }
-            } catch (error) {
-                console.error('Error updating order status:', error);
+    const updateStatus = async (id) => {
+        try {
+            const response = await fetch(`${backendURL}/api/auth/update-order/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status })
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update order status');
             }
-        };
+        } catch (error) {
+            console.error('Error updating order status:', error);
+        }
+    };
 
     const serviceCharges = orderData.shipmentCharges * 0.02;
+
+    const handleButtonClick = async () => {
+        try {
+            const response = await fetch(`${backendURL}/api/auth/revenue`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ date, shipment, revenue })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                alert(data.msg); // or do something else with the success message
+            } else {
+                const errorData = await response.json();
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const updateAmount = async (id) => {
+        try {
+            const response = await fetch(`${backendURL}/api/auth/update-order/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount : 'paid' })
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update order status');
+            }
+        } catch (error) {
+            console.error('Error updating order status:', error);
+        }
+    };
+
+    const updateShipment = () => {
+        handleButtonClick();
+        updateAmount();
+    }
 
     return (
         <div className='w-full h-full overflow-x-auto fontAlt bg-white rounded-lg shadow-sm border-1 border-gray-250 mt-2 p-4'>
@@ -167,15 +217,32 @@ function OrderDetails() {
                             </dl>
 
                             <dl class="grid sm:grid-cols-5 gap-x-3">
-                                <dt class="col-span-3 font-semibold text-gray-800 ">Amount paid:</dt>
-                                <dd class="col-span-2 text-gray-500">{orderData.status}</dd>
+                                <dt class="col-span-3 font-semibold text-gray-800 ">Shipment Status:</dt>
+                                <dd class="col-span-2 text-gray-500 capitalize">{orderData.status}</dd>
                             </dl>
+
+                            <dl class="grid sm:grid-cols-5 gap-x-3">
+                                <dt class="col-span-3 font-semibold text-gray-800 ">Amount Status:</dt>
+                                <dd class="col-span-2 text-gray-500 capitalize">{orderData.amount}</dd>
+                            </dl>
+
+                            <div class="grid sm:grid-cols-5">
+                                <div className='col-span-3'></div>
+                                <div className='col-span-2 mt-4'>
+                                    {orderData.amount === 'un-paid' && (
+                                        <>
+                                            <button onClick={updateShipment} class=" w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                                                <i class="fa-duotone fa-credit-card fa-lg mr-2"></i>Pay Now
+                                            </button>
+                                            <p className='text-red-600 tracking-wide text-sm mt-2'>Note*: Payment is Cash only!</p>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-
-
-
                 <p class="mt-5 text-sm text-gray-500">© 2024 FreightEase.</p>
             </div>
             <ToastContainer></ToastContainer>
