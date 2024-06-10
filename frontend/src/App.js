@@ -69,6 +69,7 @@ import VendorHelp from './pages/Vendor/VendorHelp';
 import EditProfile from './pages/Vendor/EditProfile';
 import EditVehicles from './pages/Vendor/EditVehicles';
 import OrderDetails from './pages/Vendor/OrderDetails';
+import BookingDetails from './pages/Shipper/BookingDetails';
 
 
 function App() {
@@ -128,6 +129,7 @@ function App() {
             <Route path='book-truck/:id/' element={<ProceedBooking />} />
             <Route path='shipment-track' element={<ParcelTracking />} />
             <Route path='booking-history' element={<BookingHistory />} />
+            <Route path='booking-details/:id/' element={<BookingDetails />} />
             <Route path='generate-quote' element={<GenQuote />} />
             <Route path='help-shipper' element={<ShipperHelp />} />
             <Route path='shipment-successfull' element={<ShipmentTicket />} />

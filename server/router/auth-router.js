@@ -88,6 +88,7 @@ router.route('/proceed-booking').post(bookVehicle.geVehicleDataForBooking);
 
 //! Managing Shipment History Functionalites
 router.route('/shipment-history/:userId').get(shipmentData.getAllShipments);
+router.route('/booking-details/:shipmentId').get(shipmentData.getBookingDetails);
 
 //! Managing Vendor Orders Functionalites
 router.route('/inbound-orders/:vendorId').get(orderData.getOrderDetails);
