@@ -55,7 +55,7 @@ function BookingDetails() {
 
                     <div class="mt-12 grid sm:grid-cols-3 gap-3">
 
-                        <div className='bg-red-200 p-4'>
+                        <div className='bg-red-200 p-4 rounded-lg'>
                             <h3 class="text-lg font-semibold text-gray-800 ">Shipped to:
                                 <span className='text-primColor1'> {booking.originCity}<i class="fa-duotone fa-arrow-right mx-2"></i>{booking.departureCity}</span>
                             </h3>
@@ -69,13 +69,13 @@ function BookingDetails() {
                             </address>
                         </div>
 
-                        <div className='bg-blue-200 p-4'>
+                        <div className='bg-blue-200 p-4 rounded-lg'>
                             <h3 class="text-lg font-semibold text-gray-800 ">Vendor:</h3>
                             <h3 class="text-lg font-semibold text-blue-800 underline ">{booking.vendorName}</h3>
                             <p>{booking.vehicleName}</p>
                             <p>{booking.vehicleType}</p>
                         </div>
-                        <div class="sm:text-end space-y-2 bg-yellow-200 p-4">
+                        <div class="sm:text-end space-y-2 bg-yellow-200 p-4 rounded-lg">
                             <div class="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-2">
                                 <dl class="grid sm:grid-cols-5 gap-x-3">
                                     <dt class="col-span-3 font-semibold text-gray-800 ">Invoice date:</dt>
@@ -144,9 +144,12 @@ function BookingDetails() {
                                     <div className='col-span-3'></div>
                                     <div className='col-span-2 mt-4'>
                                         {booking.status === 'delivered' && (
-                                            <button class=" w-64 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                Pay Delivery Charges Now
+                                            <>
+                                            <button class=" w-full bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                                            <i class="fa-duotone fa-credit-card fa-lg mr-2"></i>Pay Now
                                             </button>
+                                            <p className='text-red-300 tracking-wide text-sm mt-2'>Note*: Payment is Cash only!</p>
+                                            </>
                                         )}
                                     </div>
                                 </div>
@@ -156,7 +159,6 @@ function BookingDetails() {
                     <p class="mt-5 text-sm text-gray-500">© 2024 FreightEase.</p>
                 </div>
             ))}
-
         </div>
     )
 }
