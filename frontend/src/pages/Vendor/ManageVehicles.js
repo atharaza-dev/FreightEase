@@ -107,6 +107,12 @@ function ManageVehicles() {
                     progress: undefined,
                     theme: "light",
                 });
+                setDepartureCity('');
+                setName('');
+                setOriginCity('');
+                setRegNum('');
+                setRouteCharges('');
+                setSelectedOption('');
                 console.table(vehicleObj);
             } else {
                 return toast.error('Error Inserting a new Vehicle', {
@@ -186,7 +192,14 @@ function ManageVehicles() {
         }
     };
 
-
+    const resetForms = () => {
+        setDepartureCity("");
+        setName('');
+        setOriginCity('');
+        setRegNum('');
+        setRouteCharges('');
+        setSelectedOption('');
+    }
     return (
         <>
             <div class="flex items-center justify-between bg-white px-8 my-4 text-white shadow-sm rounded-lg border-1">
@@ -205,31 +218,31 @@ function ManageVehicles() {
                     <h1 className='p-3 bg-slate-200 text-slate-700 border-b border-slate-600 tracking-wide'>Vehicle Insertion Form</h1>
 
                     <div className='items-center justify-center px-4 py-8'>
-                        <div class="relative mb-4">
+                        <div class="relative mb-4"> 
                             <label class="leading-7 text-sm text-gray-600">Vehicle Registration</label>
-                            <input onChange={regChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <input value={registration} onChange={regChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                         </div>
                         <div class="relative mb-4">
                             <label class="leading-7 text-sm text-gray-600">Vehicle Name</label>
-                            <input onChange={nameChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <input value={vehicleName} onChange={nameChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                         </div>
                         <div class="relative mb-4">
                             <label class="leading-7 text-sm text-gray-600">Origin City</label>
-                            <input onChange={originChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <input value={originCity} onChange={originChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                         </div>
                         <div class="relative mb-4">
                             <label class="leading-7 text-sm text-gray-600">Departure City</label>
-                            <input onChange={departureChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <input value={departureCity} onChange={departureChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                         </div>
                         <div class="relative mb-2">
                             <label class="leading-7 text-sm text-gray-600">Route Fare</label>
-                            <input onChange={routeChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <input value={routeCharges} onChange={routeChangeHandler} type="text" class="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                         </div>
                         <div class="relative mb-4">
                             <button onClick={submitHandler} class=" activeBtn text-white w-full tracking-wide bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-sm my-3">
                                 <span><i class="fa-solid fa-plus mr-2"></i>ADD Vehicles</span>
                             </button>
-                            <button class=" activeBtn text-white w-full tracking-wide bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-sm">
+                            <button onClick={resetForms} class=" activeBtn text-white w-full tracking-wide bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-sm">
                                 <span><i class="fa-solid fa-xmark mr-2"></i>Cancel Vehicle Insertion</span>
                             </button>
                         </div>

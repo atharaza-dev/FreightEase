@@ -75,9 +75,8 @@ function Header() {
                                                 <div key={order._id} className="bg-blue-500 text-card-foreground my-1 w-full max-w-sm p-4 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700" data-v0-t="card" >
                                                     <div className="flex items-center space-x-4">
                                                         <div className="flex-1 space-y-1">
-                                                            <div className="text-sm font-medium text-white tracking-wide">Order# <span className='text-lg ml-2'>{order.shipmentId}</span></div>
-                                                            <div className="text-sm text-white">Shipment Date:<span className='text-white text-lg ml-2'> {order.shipmentDate}</span></div>
-                                                            <div className="text-sm text-white">{order.status} <span className='px-3'><i className="fa-duotone fa-arrow-right fa-md text-white"></i></span> {order.departureCity}</div>
+                                                            <div className="text-sm font-medium text-white tracking-wide">Order# <span className='text-lg ml-2 underline'>{order.shipmentId}</span></div>
+                                                            <div className="text-sm font-medium text-white tracking-wide capitalize">Order Status: <span className='text-lg ml-2 underline'>{order.status}</span></div>
                                                         </div>
                                                     </div>
                                                 </div>
