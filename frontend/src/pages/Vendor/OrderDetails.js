@@ -8,12 +8,10 @@ import logo from '../../assets/imgs/ogo.png'
 function OrderDetails() {
     const { backendURL, vendorData } = useAuth();
     const { id } = useParams();
-
     const [orderData, setOrderData] = useState([]);
     const [date, setDate] = useState('');
     const [shipment, setShipment] = useState('');
     const [revenue, setRevenue] = useState('');
-    // const [amount, setAmount] = useState('');
 
     const getOrderData = async () => {
         try {
@@ -76,7 +74,6 @@ function OrderDetails() {
 
             if (response.ok) {
                 const data = await response.json();
-                alert(data.msg); // or do something else with the success message
             } else {
                 const errorData = await response.json();
             }
@@ -84,7 +81,7 @@ function OrderDetails() {
             console.error('Error:', error);
         }
     };
-
+    const amountStatus = 'paid';
     const updateAmount = async (id) => {
         try {
             const response = await fetch(`${backendURL}/api/auth/update-order/${id}`, {
@@ -92,19 +89,21 @@ function OrderDetails() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ amount : 'paid' })
+                body: JSON.stringify({ amount: amountStatus })
             });
             if (!response.ok) {
                 throw new Error('Failed to update order status');
             }
+            alert('Payment Successfull!');
+            window.location.reload();
         } catch (error) {
             console.error('Error updating order status:', error);
         }
     };
 
-    const updateShipment = () => {
+    const updateShipment = (id) => {
         handleButtonClick();
-        updateAmount();
+        updateAmount(id);
     }
 
     return (
@@ -229,9 +228,9 @@ function OrderDetails() {
                             <div class="grid sm:grid-cols-5">
                                 <div className='col-span-3'></div>
                                 <div className='col-span-2 mt-4'>
-                                    {orderData.amount === 'un-paid' && (
+                                    {orderData.amount !== 'paid' && (
                                         <>
-                                            <button onClick={updateShipment} class=" w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                                            <button onClick={() => updateShipment(orderData._id)} class="activeBtn w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
                                                 <i class="fa-duotone fa-credit-card fa-lg mr-2"></i>Pay Now
                                             </button>
                                             <p className='text-red-600 tracking-wide text-sm mt-2'>Note*: Payment is Cash only!</p>
