@@ -36,8 +36,9 @@ const bookVehicle = async (req, res) => {
         }
 
         const shipmentCharges = itemWeight * routeFare;
-        const shipperCommission = shipmentCharges * 0.01; // 1% of shipment charges
-        const vendorCommission = shipmentCharges * 0.01; // 1% of shipment charges
+        const shipperCommission = shipmentCharges * 0.01;
+        const twoPer = shipmentCharges * 0.02;
+        const vendorCommission = shipmentCharges - twoPer;
 
         const shippmentSuccessfull = await shipmentDetails.create({
             vehicleId,
@@ -65,7 +66,7 @@ const bookVehicle = async (req, res) => {
             vendorCommission,
             status,
         });
-        
+
         res.status(201).json({ msg: "Vehicle Booked Successfully" });
         console.log({ Shipment: shippmentSuccessfull });
     } catch (error) {

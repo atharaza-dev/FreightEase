@@ -70,6 +70,7 @@ import EditProfile from './pages/Vendor/EditProfile';
 import EditVehicles from './pages/Vendor/EditVehicles';
 import OrderDetails from './pages/Vendor/OrderDetails';
 import BookingDetails from './pages/Shipper/BookingDetails';
+import RevenueGenerated from './pages/Vendor/RevenueGenerated';
 
 
 function App() {
@@ -146,6 +147,7 @@ function App() {
             <Route path='check-quote' element={<QuoteForVendor />} />
             <Route path='manage-vehicles' element={<ManageVehicles />} />
             <Route path='manage-vehicles/:id/' element={<EditVehicles />} />
+            <Route path='revenue-generated' element={<RevenueGenerated />} />
             <Route path='help-vendor' element={<VendorHelp />} />
             <Route path='edit-profile' element={<EditProfile />} />
           </Route>

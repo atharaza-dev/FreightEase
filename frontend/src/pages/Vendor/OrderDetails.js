@@ -12,6 +12,7 @@ function OrderDetails() {
     const [date, setDate] = useState('');
     const [shipment, setShipment] = useState('');
     const [revenue, setRevenue] = useState('');
+    const [vrevenue, setvRevenue] = useState('');
 
     const getOrderData = async () => {
         try {
@@ -23,7 +24,8 @@ function OrderDetails() {
             setOrderData(data);
             setDate(data.shipmentDate);
             setShipment(data.shipmentId);
-            setRevenue(data.shipmentCharges * 0.02);
+            setvRevenue(data.vendorCommission);
+
         } catch (error) {
             toast.error('Error encountered!', {
                 position: "top-right",
@@ -101,9 +103,30 @@ function OrderDetails() {
         }
     };
 
+    const handleVrev = async () => {
+        try {
+            const response = await fetch(`${backendURL}/api/auth/vrevenue`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ date, shipment, revenue: vrevenue })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+            } else {
+                const errorData = await response.json();
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     const updateShipment = (id) => {
         handleButtonClick();
         updateAmount(id);
+        handleVrev();
     }
 
     return (
