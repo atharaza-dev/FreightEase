@@ -1,10 +1,47 @@
-import React from 'react'
 import './ShipperPage.css'
+import React, { useState, useEffect } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
+import { useAuth } from '../../data/AuthContext';
 
 function ParcelTracking() {
+  const { backendURL } = useAuth();
+
+  const [shipmentId, setshipmentId] = useState([]);
+  const changeHandler = (e) => {
+    setshipmentId(e.target.value);
+  }
+  const [shipmentData, setshipmentData] = useState([]);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${backendURL}/api/auth/booking-details/` + shipmentId);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setshipmentData(data);
+      console.log('data', data);
+    } catch (error) {
+      toast.error('Failed to fetch data from database!', {
+        position: "top-right",
+        autoClose: 5000,
+        theme: "light",
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const trackParcel = () => {
+    fetchData();
+  }
+
   return (
     <>
-    
+
       <div class="w-full overflow-x-auto fontAlt bg-white rounded-lg shadow-sm border-1 border-gray-250 mt-2">
 
         <div class=" py-4 md:py-7 px-4 md:px-8 xl:px-10">
@@ -13,59 +50,68 @@ function ParcelTracking() {
           <div className="sm:flex items-end justify-center gap-4">
             <div className="relative w-full">
               <label htmlFor="id" className="leading-7 text-sm text-gray-600">Tracking ID / Shipment ID</label>
-              <input type="text" className="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='FES1234' />
+              <input value={shipmentId} onChange={changeHandler} type="text" className="w-full bg-white rounded-sm border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='FE-FYP-****' />
             </div>
-            <button className="focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 sm:mt-0 inline-flex items-center justify-center px-8 py-2 bg-emerald-500 text-white hover:bg-emerald-600 focus:outline-none rounded">
+            <button onClick={trackParcel} className="focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 sm:mt-0 inline-flex items-center justify-center px-8 py-2 bg-emerald-500 text-white hover:bg-emerald-600 focus:outline-none rounded">
               Track
             </button>
           </div>
 
         </div>
 
+        <div className='mx-8 mb-4'>
+          <h3 className='text-lg font-semibold'>Shipment Status</h3>
+        </div>
+        {/* Statuses */}
         <ol class="items-center justify-center sm:flex px-8 pt-4 pb-8 ">
 
-          <li class="relative mb-6 sm:mb-0 w-full">
-            <div class="flex items-center justify-center">
-              <div class="flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-primColor1 sm:ring-8  shrink-0">
-                <i class="fa-duotone fa-truck-ramp-box fa-xl text-primColor1"></i>
+          {shipmentData.map((shipment, index) => (
+            <li key={index} className='relative mb-6 sm:mb-0 w-full '>
+              <div className="flex items-center justify-center">
+                <div className={`flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full  shrink-0 ${shipment.status === 'false' ? 'pendingstatus' : shipment.status ? 'bg-gray-200' : ''}`}>
+                  <i className="fa-duotone fa-truck-ramp-box fa-xl text-primColor1"></i>
+                </div>
+                <div className="hidden sm:flex w-full bg-blue-200 h-0.5"></div>
               </div>
-              <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-            </div>
-            <div class="mt-3 sm:pe-8 items-center justify-center">
-              <h3 class="text-lg font-semibold text-gray-900">Shipment Shipped</h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Feb 2, 2024 - 03 00 PM</time>
-              {/* <p class="text-base font-normal text-gray-500 dark:text-gray-400">Get started with dozens of web components and interactive elements.</p> */}
-            </div>
-          </li>
+              <div className="mt-3 sm:pe-8">
+                <h3 className={`text-lg font-semibold text-gray-900 capitalize tracking-wide ${shipment.status === 'false' ? '' : 'line-through text-gray-300'}`}>Shipment Pending</h3>
+                <time className={`block mb-2 text-sm font-normal leading-none over text-gray-600 ${shipment.status === 'false' ? '' : 'line-through text-gray-300'}`}>{shipment.shipmentDate}</time>
+              </div>
+            </li>
+          ))}
 
-          <li class="relative mb-6 sm:mb-0 w-full">
-            <div class="flex items-center">
-              <div class="z-10 flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-primColor1 sm:ring-8 shrink-0">
-                <i class="fa-duotone fa-truck-bolt fa-xl text-primColor1"></i>
+          {shipmentData.map((shipment, index) => (
+            <li key={index} className='relative mb-6 sm:mb-0 w-full '>
+              <div className="flex items-center justify-center">
+                <div className={`flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full  shrink-0 ${shipment.status === 'shipped' ? 'pendingstatus' : shipment.status ? 'bg-gray-200' : ''}`}>
+                  <i className="fa-duotone fa-truck-bolt fa-xl text-primColor1"></i>
+                </div>
+                <div className="hidden sm:flex w-full bg-blue-200 h-0.5"></div>
               </div>
-              <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-            </div>
-            <div class="mt-3 sm:pe-8">
-              <h3 class="text-lg font-semibold text-gray-900">Shipment On the Way</h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Feb 4, 2024 - 03 00 PM</time>
-            </div>
-          </li>
+              <div className="mt-3 sm:pe-8">
+                <h3 className={`text-lg font-semibold text-gray-900 capitalize tracking-wide ${shipment.status === 'shipped' ? '' : 'line-through text-gray-300'}`}>Shipment On the way</h3>
+                <time className={`block mb-2 text-sm font-normal leading-none over text-gray-600 ${shipment.status === 'shipped' ? '' : 'line-through text-gray-300'}`}>{shipment.shipmentDate}</time>
+              </div>
+            </li>
+          ))}
 
-          <li class="relative mb-6 sm:mb-0 w-full">
-            <div class="flex items-center">
-              <div class="z-10 flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full ring-0 ring-primColor1  sm:ring-8 shrink-0">
-                <i class="fa-duotone fa-person-carry-box fa-xl text-primColor1"></i>
+          {shipmentData.map((shipment, index) => (
+            <li key={index} className='relative mb-6 sm:mb-0 w-full '>
+              <div className="flex items-center justify-center">
+                <div className={`flex items-center justify-center w-16 h-16 bg-blue-200 p-4 rounded-full  shrink-0 ${shipment.status === 'delivered' ? 'pendingstatus' : shipment.status ? 'bg-gray-200' : ''}`}>
+                  <i class="fa-duotone fa-person-carry-box fa-xl text-primColor1"></i>
+                </div>
+                <div className="hidden sm:flex w-full bg-blue-200 h-0.5"></div>
               </div>
-              <div class="hidden sm:flex w-full bg-gray-300 h-0.5"></div>
-            </div>
-            <div class="mt-3 sm:pe-8">
-              <h3 class="text-lg font-semibold text-gray-900">Shipment Delivered</h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Feb 7, 2024 - 03 00 PM</time>
-            </div>
-          </li>
+              <div className="mt-3 sm:pe-8">
+                <h3 className={`text-lg font-semibold text-gray-900 capitalize tracking-wide ${shipment.status === 'delivered' ? '' : 'line-through text-gray-300'}`}>Shipment Delivered</h3>
+                <time className={`block mb-2 text-sm font-normal leading-none over text-gray-600 ${shipment.status === 'delivered' ? '' : 'line-through text-gray-300'}`}>{shipment.shipmentDate}</time>
+              </div>
+            </li>
+          ))}
 
         </ol>
-
+        {/* Statuses */}
 
         <div class="border-4 border-blue-200 rounded-lg my-4 mx-8">
           <iframe class="w-full h-96"
