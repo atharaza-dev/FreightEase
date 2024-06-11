@@ -58,6 +58,11 @@ function OrderDetails() {
             if (!response.ok) {
                 throw new Error('Failed to update order status');
             }
+            toast.success('Shipment Status Updated!', {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "light",
+            });
         } catch (error) {
             console.error('Error updating order status:', error);
         }
