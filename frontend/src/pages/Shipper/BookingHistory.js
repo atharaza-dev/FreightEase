@@ -54,6 +54,7 @@ function BookingHistory() {
                 <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Goods Type</th>
                 <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Weight</th>
                 <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Status</th>
+                <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Payment</th>
                 <th scope="col" class="h-10 px-4 text-m font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-200">Action</th>
               </tr>
 
@@ -66,9 +67,12 @@ function BookingHistory() {
                   <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.goodsType}</td>
                   <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500">{shipment.itemWeight} ton(s)</td>
                   <td className={`h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-white capitalize ${shipment.status === 'cancelled' ? 'bg-red-500' : shipment.status === 'confirmed' ? 'bg-green-600' : shipment.status === 'shipped' ? 'bg-yellow-400' : shipment.status === 'delivered' ? 'bg-emerald-500' : ''} tracking-wide`}>{shipment.status}</td>
-                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500  justify-center items-center last-cell-width">
+                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 capitalize">{shipment.amount}</td>
+                  <td className="h-10 px-4 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500  justify-center items-center lastCelWidth">
                     <center>
-                      <Link to={`/sms/booking-details/${shipment.shipmentId}`} className="text-white bg-primColor1 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded inline-block">See full details</Link>
+                      <Link to={`/sms/booking-details/${shipment.shipmentId}`} className="text-white bg-primColor1 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded inline-block">
+                      <i className="fa-duotone fa-eye"></i>
+                      </Link>
                     </center>
                   </td>
                 </tr>

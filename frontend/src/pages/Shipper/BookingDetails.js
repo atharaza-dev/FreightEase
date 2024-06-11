@@ -142,7 +142,7 @@ function BookingDetails() {
 
                                 <dl class="grid sm:grid-cols-5 gap-x-3">
                                     <dt class="col-span-3 font-semibold text-gray-800 ">Amount Status:</dt>
-                                    <dd class="col-span-2 text-gray-500 capitalize">{booking.status}</dd>
+                                    <dd class="col-span-2 text-gray-500 capitalize">{booking.amount}</dd>
                                 </dl>
 
                             </div>

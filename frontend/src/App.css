@@ -241,3 +241,7 @@ body {
 .activeBtn:active {
   transform: translateY(1px);
 }
+
+.lastCelWidth{
+  width: 10%;
+}
