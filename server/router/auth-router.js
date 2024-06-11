@@ -11,12 +11,13 @@ const shipperInfo = require('../controllers/shipper-info-controller');
 const vendorsInfo = require('../controllers/vendors-info-controller');
 const quoteManagement = require('../controllers/quote-controller');
 const adminInfo = require('../controllers/admin-controller');
-const vendorPanelController = require('../controllers/vehicles-insertion-controller') 
+const vendorPanelController = require('../controllers/vehicles-insertion-controller')
 const bookVehicle = require('../controllers/book-vehicle-controller');
 const shipmentData = require('../controllers/shipment-history');
 const orderData = require('../controllers/orders-controller');
 
-const aRevenue  = require('../controllers/aRevenue');
+const aRevenue = require('../controllers/aRevenue');
+const vRevenue = require('../controllers/vRevenue');
 
 //? USING DEPENDENCIES
 router.use(bodyParser.json());
@@ -102,6 +103,9 @@ router.route('/del-order/:id').delete(orderData.deleteOrder);
 //! Revenue 
 router.route('/revenue').post(aRevenue.addRevenue);
 router.route('/get-rev').get(aRevenue.getRevenue);
+
+router.route('/vrevenue').post(vRevenue.addRevenue);
+router.route('/get-vrev').get(vRevenue.getRevenue);
 // * ----------------------------------------------------------
 
 module.exports = router;
