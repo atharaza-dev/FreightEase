@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
     }, [shipperData]);
 console.log('from auth',shipperData);
     //!! Sharing Backend URL Details =====================================================
-    const backendURL = `http://localhost:5000`;
+    const backendURL = `https://server-jvls.onrender.com`;
 
     //? ==========================================================================================
     return <AuthContext.Provider value={{
