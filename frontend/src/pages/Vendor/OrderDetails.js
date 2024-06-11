@@ -24,6 +24,7 @@ function OrderDetails() {
             setOrderData(data);
             setDate(data.shipmentDate);
             setShipment(data.shipmentId);
+            setRevenue(data.adminCommission);
             setvRevenue(data.vendorCommission);
 
         } catch (error) {

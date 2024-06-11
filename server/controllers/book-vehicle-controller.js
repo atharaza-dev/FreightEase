@@ -36,8 +36,8 @@ const bookVehicle = async (req, res) => {
         }
 
         const shipmentCharges = itemWeight * routeFare;
-        const shipperCommission = shipmentCharges * 0.01;
         const twoPer = shipmentCharges * 0.02;
+        const adminCommission = twoPer;
         const vendorCommission = shipmentCharges - twoPer;
 
         const shippmentSuccessfull = await shipmentDetails.create({
@@ -62,7 +62,7 @@ const bookVehicle = async (req, res) => {
             vehicleName,
             routeFare,
             shipmentCharges,
-            shipperCommission,
+            adminCommission,
             vendorCommission,
             status,
         });

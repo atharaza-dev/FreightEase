@@ -155,6 +155,7 @@ function ProceedBooking() {
                         theme: "light",
                     });
                     setIsLoading(false);
+                    window.location.href = '/sms/book-truck'
                 }, 3000);
             } else {
                 return toast.error('An error occured!', {

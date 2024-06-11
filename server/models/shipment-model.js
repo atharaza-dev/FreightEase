@@ -81,7 +81,7 @@ const shipmentInsertionSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    shipperCommission: {
+    adminCommission: {
         type: Number,
         default: 0,
     },
