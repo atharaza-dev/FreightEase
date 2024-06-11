@@ -72,6 +72,29 @@ function Dashboard() {
         fetchVendorData();
     }, []);
 
+    //get revenue data
+    const [revenueData, setRevenueData] = useState(null);
+    const [totalRevenue, setTotalRevenue] = useState(0);
+    useEffect(() => {
+        const fetchRevenueData = async () => {
+            try {
+                const response = await fetch(`${backendURL}/api/auth/get-rev`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch revenue data');
+                }
+                const data = await response.json();
+                setRevenueData(data);
+                // Calculate total revenue
+                const sum = data.reduce((total, item) => total + item.revenue, 0);
+                setTotalRevenue(sum);
+            } catch (error) {
+                console.error('Error fetching revenue data:', error);
+            }
+        };
+
+        fetchRevenueData();
+    }, []);
+
     return (
         !loading && (
             <>
@@ -116,7 +139,7 @@ function Dashboard() {
                                 <img src={sales} alt="err" />
                             </div>
                             <div class="">
-                                <p class="text-[49px] font5 font-semibold text-primColor1">$25250</p>
+                                <p class="text-[49px] font5 font-semibold text-primColor1">Rs {totalRevenue}/-</p>
                                 <p class="text-gray-600 text-md">Revenue Generated Counter</p>
                             </div>
                         </div>

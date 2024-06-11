@@ -61,7 +61,7 @@ function Shippers() {
                         <p class="mt-2 text-lg text-gray-700">Shippers : Total number of registered shippers as users</p>
                     </div>
                     <div class="hidden h-42 w-1/1 flex-shrink-0 justify-end lg:flex">
-                        <h1 class="text-8xl font-bold fontAlt tracking-wide text-primColor1">{shipperData.length}</h1>
+                        <h1 class="text-8xl font-bold font5 tracking-wide text-primColor1">{shipperData.length}</h1>
                     </div>
                 </div>
 
