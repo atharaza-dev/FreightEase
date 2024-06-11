@@ -29,7 +29,7 @@ function AdminLayouts() {
         <>
             <section class="min-h-screen">
 
-                <aside class="fixed top-0 left-0 fontAlt bg-white z-50 left-0 pb-8 item-center justify-center overflow-x-hidden overflow-y-auto flex flex-col w-64 h-screen px-4 py-4 shadow-sm border-r border-gray-250 ">
+                <aside class="fixed top-0 left-0 fontAlt bg-white z-50 pb-8 item-center justify-center overflow-x-hidden overflow-y-auto flex flex-col w-64 h-screen px-4 py-4 shadow-sm border-r border-gray-250 ">
 
                     <div class="flex flex-col justify-between flex-1">
                         <nav>
